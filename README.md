@@ -28,9 +28,9 @@ The following table contains all the objects supported by this profile.
 | 10 | THREE.Matrix3                   | 47 | THREE.PointLight          |
 | 11 | THREE.Matrix4                   | 48 | THREE.SpotLight           |
 | 12 | THREE.BufferAttribute           | 49 | THREE.Scene               |
-| 13 | Reserved                        | 50 | THREE.Object3D            |
-| 14 | Reserved                        | 51 | THREE.Fog                 |
-| 15 | Reserved                        | 52 | THREE.FogExp2             |
+| 13 | _Reserved_                      | 50 | THREE.Object3D            |
+| 14 | _Reserved_                      | 51 | THREE.Fog                 |
+| 15 | _Reserved_                      | 52 | THREE.FogExp2             |
 | 16 | THREE.AnimationClip             | 53 | THREE.MeshBasicMaterial   |
 | 17 | THREE.VectorKeyframeTrack       | 54 | THREE.MeshPhongMaterial   |
 | 18 | THREE.QuaternionKeyframeTrack   | 55 | THREE.MeshLambertMaterial |
