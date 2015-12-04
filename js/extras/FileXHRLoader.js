@@ -22,8 +22,6 @@ var THREE = require("three"),
     fs = require("fs"),
     colors = require("colors");
 
-console.info("Replacing THREE.XHRLoader with local-file loader");
-
 THREE.XHRLoader = function ( manager ) {
 
     this.manager = ( manager !== undefined ) ? manager : THREE.DefaultLoadingManager;
