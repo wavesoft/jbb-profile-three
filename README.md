@@ -13,8 +13,9 @@ Version ID    : 0x0004 (4)
 
 The following table contains all the objects supported by this profile.
 
-| 0  | THREE.Vector2                   | 37 | THREE.TetrahedronGeometry |
+| ID | Object Class                    | ID | Object Class              |
 |----|---------------------------------|----|---------------------------|
+| 0  | THREE.Vector2                   | 37 | THREE.TetrahedronGeometry |
 | 1  | THREE.Vector3                   | 38 | THREE.TorusGeometry       |
 | 2  | THREE.Vector4                   | 39 | THREE.TorusKnotGeometry   |
 | 3  | THREE.Face3                     | 40 | THREE.TubeGeometry        |
