@@ -20,10 +20,10 @@ The following table contains all the objects supported by this profile.
 | 2  | THREE.Vector4                   | 39 | THREE.TorusKnotGeometry   |
 | 3  | THREE.Face3                     | 40 | THREE.TubeGeometry        |
 | 4  | THREE.Color                     | 41 | THREE.BufferGeometry      |
-| 5  | THREE.QuaternionFACTORY.Default | 42 | THREE.Geometry            |
-| 6  | THREE.EulerFACTORY.Default      | 43 | THREE.Mesh                |
-| 7  | THREE.Box2FACTORY.Default       | 44 | THREE.AmbientLight        |
-| 8  | THREE.Box3FACTORY.Default       | 45 | THREE.DirectionalLight    |
+| 5  | THREE.Quaternion                | 42 | THREE.Geometry            |
+| 6  | THREE.Euler                     | 43 | THREE.Mesh                |
+| 7  | THREE.Box2                      | 44 | THREE.AmbientLight        |
+| 8  | THREE.Box3                      | 45 | THREE.DirectionalLight    |
 | 9  | THREE.Sphere                    | 46 | THREE.HemisphereLight     |
 | 10 | THREE.Matrix3                   | 47 | THREE.PointLight          |
 | 11 | THREE.Matrix4                   | 48 | THREE.SpotLight           |
