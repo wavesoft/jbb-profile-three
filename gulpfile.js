@@ -6,7 +6,7 @@ var gulp 		= require('gulp'),
 //
 // Concatenate all source files
 //
-gulp.task('dist', function() {
+gulp.task('runtime', function() {
 
 	return gulp
 		.src([
@@ -21,4 +21,4 @@ gulp.task('dist', function() {
 });
 
 // Run tasks 
-gulp.task('default', ['dist']);
+gulp.task('default', ['runtime']);

@@ -22,16 +22,16 @@ var THREE = require("three"),
     fs = require("fs"),
     colors = require("colors");
 
-THREE.XHRLoader = function ( manager ) {
+var XHRLoader = function ( manager ) {
 
     this.manager = ( manager !== undefined ) ? manager : THREE.DefaultLoadingManager;
     this.responseType == "default";
 
 };
 
-THREE.XHRLoader.prototype = {
+XHRLoader.prototype = {
 
-    constructor: THREE.XHRLoader,
+    constructor: XHRLoader,
 
     load: function ( url, onLoad, onProgress, onError ) {
 
@@ -79,3 +79,7 @@ THREE.XHRLoader.prototype = {
     }
 
 };
+
+// Export XHR Loader
+module.exports = XHRLoader;
+

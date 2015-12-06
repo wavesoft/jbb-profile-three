@@ -20,6 +20,10 @@
  * @author Ioannis Charalampidis / https://github.com/wavesoft
  */
 
+var THREE = require('three'),
+	path = require('path'),
+	XHRLoader = require('./extras/FileXHRLoader');
+
 /**
  * Export compiler specifications
  */
@@ -32,11 +36,54 @@ module.exports = {
 
 		// Expose 'THREE' for non-compatible scripts
 		console.info("Exposing THREE on the global scope");
-		global.THREE = require('three');
+		global.THREE = THREE;
 
 		// Override XHR Loader
 		console.info("Replacing THREE.XHRLoader with local-file loader");
-		require('./extras/FileXHRLoader');
+		global.THREE.XHRLoader = XHRLoader;
+
+	},
+
+	/**
+	 * Additional options for the command-line arguments of the compiler
+	 */
+	'getopt': function() {
+
+		// Return additional entries for the node-getopt constructor
+		return [
+		];
+
+	},
+
+	/**
+	 * Load object(s) from user's arguments and
+	 */
+	'load': function( opt, cb_ready, cb_error ) {
+
+		// Make sure we have enough arguments
+		if (opt.argv.length < 1) {
+			cb_error( "Please specify at least one file to compile!" )
+			return;
+		}
+		var filename = opt.argv[0];
+
+		// Get name of the file
+		var nameparts = path.basename(filename).split("."); nameparts.pop();
+		var name = nameparts.join(".");
+
+		// As an example use JSON loader
+		var loader = new THREE.JSONLoader();
+		loader.load( filename, function ( geometry, materials ) {
+
+			// Prepare objects array
+			var objects = {};
+			objects[name] = geometry;
+			objects[name+':extra'] = materials;
+
+			// Compile objects
+			cb_ready(objects);
+
+		});
 
 	}
 
