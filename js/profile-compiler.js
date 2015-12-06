@@ -35,11 +35,9 @@ module.exports = {
 	'initialize': function() {
 
 		// Expose 'THREE' for non-compatible scripts
-		console.info("Exposing THREE on the global scope");
 		global.THREE = THREE;
 
 		// Override XHR Loader
-		console.info("Replacing THREE.XHRLoader with local-file loader");
 		global.THREE.XHRLoader = XHRLoader;
 
 	},
