@@ -399,7 +399,7 @@ var ENTITIES = [
 
 	// Special types
 
-	[THREE.MD2Character, 							FACTORY.Default, 				INIT.Default ],
+	// [THREE.MD2Character, 							FACTORY.Default, 				INIT.Default ],
 
 ];
 
