@@ -22,7 +22,6 @@
 
 var THREE 		= require('three'),
 	path 		= require('path'),
-	XHRLoader 	= require('./lib/FileXHRLoader'),
 	BundleLoaderClass = require('./lib/BundleLoader');
 
 /**
@@ -31,19 +30,22 @@ var THREE 		= require('three'),
 var BundleLoader = new BundleLoaderClass();
 
 /**
- * Export compiler specifications
+ * Export loader specifications
  */
 module.exports = {
 
 	/**
-	 * Initialize compiler profile
+	 * Initialize profile loader
 	 */
 	'initialize': function( cb ) {
 
 		// If we are running in node.js replace the THREE.js XHRLoader
 		// with an offline version.
-		var isBrowser=new Function("try {return this===window;}catch(e){ return false;}");
+		var isBrowser=new Function("try {return this===window;}catch(e){ return false;}"); // browser exclude
 		if (!isBrowser()) {
+
+			// Replace default XHR Loader with node.js - specific
+			var XHRLoader = require('./lib/FileXHRLoader');
 
 			// Expose 'THREE' for non-compatible scripts
 			global.THREE = THREE;
@@ -54,7 +56,7 @@ module.exports = {
 		}
 
 		// Trigger callback
-		cb();
+		if (cb) cb();
 
 	},
 
