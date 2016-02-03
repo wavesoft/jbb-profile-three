@@ -20,8 +20,11 @@
     "url": "https://github.com/wavesoft/jbb-profile-three/issues"
   },
   "homepage": "https://github.com/wavesoft/jbb-profile-three#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "imports-loader": "^0.6.5"
+  },
   "dependencies": {
+    "colors": "^1.1.2",
     "three": "^0.73.0"
   }
 }

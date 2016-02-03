@@ -59,7 +59,7 @@ module.exports = {
 	/**
 	 * Load object(s) from the specified filename and put them in the database record under the given name
 	 */
-	'load': function( filename, name, database, callback ) {
+	'load': function( filename, name, callback ) {
 
 		// As an example use JSON loader
 		var loader = new THREE.JSONLoader();
@@ -67,11 +67,11 @@ module.exports = {
 
 			// Prepare objects array
 			var objects = {};
-			database[name] = geometry;
-			database[name+':extra'] = materials;
+			objects[name] = geometry;
+			objects[name+':extra'] = materials;
 
 			// Notify that we are compiled
-			callback( );
+			callback( null, objects );
 
 		});
 

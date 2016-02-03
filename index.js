@@ -21,6 +21,7 @@
  */
 
 var THREE = require("three");
+require("./lib/helpers/MD2Character");
 
 /**
  * Prefix and revision of the objects table
@@ -399,7 +400,7 @@ var ENTITIES = [
 
 	// Special types
 
-	// [THREE.MD2Character, 							FACTORY.Default, 				INIT.Default ],
+	[THREE.MD2Character, 							FACTORY.Default, 				INIT.Default ],
 
 ];
 
