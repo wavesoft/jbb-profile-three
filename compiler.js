@@ -25,6 +25,12 @@ var THREE 		= require('three'),
 	XHRLoader 	= require('./lib/FileXHRLoader');
 
 /**
+ * Create a bundle loader singleton
+ */
+var BundleLoaderClass = require('./lib/BundleLoader');
+var BundleLoader = new BundleLoaderClass();
+
+/**
  * Export compiler specifications
  */
 module.exports = {
@@ -59,21 +65,45 @@ module.exports = {
 	/**
 	 * Load object(s) from the specified filename and put them in the database record under the given name
 	 */
-	'load': function( filename, name, callback ) {
+	'load': function( loader, filename, name, callback ) {
 
-		// As an example use JSON loader
-		var loader = new THREE.JSONLoader();
-		loader.load( filename, function ( geometry, materials ) {
+		// Split loader from filename
+		var parts = filename.split("!");
 
-			// Prepare objects array
-			var objects = {};
-			objects[name] = geometry;
-			objects[name+':extra'] = materials;
+		// If we haven't specified a loader
+		if (!loader) {
 
-			// Notify that we are compiled
-			callback( null, objects );
+			// Use default Three.js loader
+			var loader = new THREE.ObjectLoader();
+			loader.load( filename, function(data, extra) {
 
-		});
+				// Prepare response array
+				var objects = {};
+				objects[name] = data;
+				if (extra) objects[name+':extra'] = extra;
+
+				// Notify that we are compiled
+				callback( null, objects );
+
+			});
+
+		} else {
+
+			// Trigger bundle loader
+			BundleLoader.load( loader, filename, function( data, extra ) {
+
+				// Prepare response array
+				var objects = {};
+				objects[name] = data;
+				if (extra) objects[name+':extra'] = extra;
+
+				// Notify that we are compiled
+				callback( null, objects );
+
+			});
+
+		}
+
 
 	}
 
