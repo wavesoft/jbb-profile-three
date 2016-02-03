@@ -22,12 +22,12 @@
 
 var THREE 		= require('three'),
 	path 		= require('path'),
-	XHRLoader 	= require('./lib/FileXHRLoader');
+	XHRLoader 	= require('./lib/FileXHRLoader'),
+	BundleLoaderClass = require('./lib/BundleLoader');
 
 /**
  * Create a bundle loader singleton
  */
-var BundleLoaderClass = require('./lib/BundleLoader');
 var BundleLoader = new BundleLoaderClass();
 
 /**
@@ -40,11 +40,18 @@ module.exports = {
 	 */
 	'initialize': function( cb ) {
 
-		// Expose 'THREE' for non-compatible scripts
-		global.THREE = THREE;
+		// If we are running in node.js replace the THREE.js XHRLoader
+		// with an offline version.
+		var isBrowser=new Function("try {return this===window;}catch(e){ return false;}");
+		if (!isBrowser()) {
 
-		// Override XHR Loader
-		global.THREE.XHRLoader = XHRLoader;
+			// Expose 'THREE' for non-compatible scripts
+			global.THREE = THREE;
+
+			// Override XHR Loader
+			global.THREE.XHRLoader = XHRLoader;
+
+		}
 
 		// Trigger callback
 		cb();
@@ -52,30 +59,16 @@ module.exports = {
 	},
 
 	/**
-	 * Additional options for the command-line arguments of the compiler
-	 */
-	'getopt': function() {
-
-		// Return additional entries for the node-getopt constructor
-		return [
-		];
-
-	},
-
-	/**
 	 * Load object(s) from the specified filename and put them in the database record under the given name
 	 */
-	'load': function( loader, filename, name, callback ) {
-
-		// Split loader from filename
-		var parts = filename.split("!");
+	'load': function( filename, name, loadClass, callback ) {
 
 		// If we haven't specified a loader
-		if (!loader) {
+		if (!loadClass) {
 
 			// Use default Three.js loader
-			var loader = new THREE.ObjectLoader();
-			loader.load( filename, function(data, extra) {
+			var loadClass = new THREE.ObjectLoader();
+			loadClass.load( filename, function(data, extra) {
 
 				// Prepare response array
 				var objects = {};
@@ -90,7 +83,7 @@ module.exports = {
 		} else {
 
 			// Trigger bundle loader
-			BundleLoader.load( loader, filename, function( data, extra ) {
+			BundleLoader.load( loadClass, filename, function( data, extra ) {
 
 				// Prepare response array
 				var objects = {};

@@ -21,7 +21,7 @@
  */
 
 var THREE = require("three");
-require("./lib/helpers/MD2Character");
+var MD2Character = require("./lib/helpers/MD2Character");
 
 /**
  * Prefix and revision of the objects table
