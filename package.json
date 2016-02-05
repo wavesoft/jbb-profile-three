@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/wavesoft/jbb-profile-three#readme",
   "devDependencies": {
-    "imports-loader": "^0.6.5"
+    "gulp": "^3.9.0",
+    "imports-loader": "^0.6.5",
+    "webpack-stream": "^3.1.0"
   },
   "dependencies": {
     "colors": "^1.1.2",
