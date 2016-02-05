@@ -38,7 +38,7 @@ gulp.task('dist/jbb-profile-three', function() {
 		    ]
 		}))
 		.pipe(header("/* THREE.js profile for JBB - https://github.com/wavesoft/jbb-profile-three */\n"))
-		.pipe(gulp.dest('dist/jbb-profile-three'));
+		.pipe(gulp.dest('dist'));
 });
 
 //
@@ -76,7 +76,7 @@ gulp.task('dist/jbb-profile-three-loader', function() {
 		    ]
 		}))
 		.pipe(header("/* THREE.js profile loader for JBB - https://github.com/wavesoft/jbb-profile-three */\n"))
-		.pipe(gulp.dest('dist/jbb-profile-three'));
+		.pipe(gulp.dest('dist'));
 });
 
 // The files to pack on dist release
