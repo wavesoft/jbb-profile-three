@@ -125,25 +125,25 @@ var INIT = {
 	'WidthHeightDepth': function( instance, properties, values ) {
 		INIT.Default(instance, properties, values);
 		instance.constructor.call(
-				instance, instance.properties.width,
-						  instance.properties.height,
-						  instance.properties.depth,
-						  instance.properties.widthSegments,
-						  instance.properties.heightSegments,
-						  instance.properties.depthSegments
+				instance, instance.parameters.width,
+						  instance.parameters.height,
+						  instance.parameters.depth,
+						  instance.parameters.widthSegments,
+						  instance.parameters.heightSegments,
+						  instance.parameters.depthSegments
 			);
 	},
 
 	/**
 	 * Constructor with width/height
 	 */
-	'WidthHeightDepth': function( instance, properties, values ) {
+	'WidthHeight': function( instance, properties, values ) {
 		INIT.Default(instance, properties, values);
 		instance.constructor.call(
-				instance, instance.properties.width,
-						  instance.properties.height,
-						  instance.properties.widthSegments,
-						  instance.properties.heightSegments
+				instance, instance.parameters.width,
+						  instance.parameters.height,
+						  instance.parameters.widthSegments,
+						  instance.parameters.heightSegments
 			);
 	},
 
@@ -153,10 +153,10 @@ var INIT = {
 	'RadiusSegmentsTheta': function( instance, properties, values ) {
 		INIT.Default(instance, properties, values);
 		instance.constructor.call(
-				instance, instance.properties.radius,
-						  instance.properties.segments,
-						  instance.properties.thetaStart,
-						  instance.properties.thetaLength
+				instance, instance.parameters.radius,
+						  instance.parameters.segments,
+						  instance.parameters.thetaStart,
+						  instance.parameters.thetaLength
 			);
 	},
 
