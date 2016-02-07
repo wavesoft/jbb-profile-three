@@ -75,9 +75,24 @@ var INIT = {
 	 * Update 'parent' property of each Object3D
 	 */
 	'Object3D': function( instance, properties, values ) {
-		INIT.Default(instance, properties, values);
-		for (var i=0; i<instance.children.length; i++)
+		for (var i=0; i<properties.length; i++) {
+			var n = properties[i];
+			switch (n) {
+				case 'position':
+				case 'rotation':
+				case 'quaternion':
+				case 'scale':
+					instance[n].copy( values[i] );
+					break;
+
+				default: 
+					instance[n] = values[i];
+					break;
+			}
+		}
+		for (var i=0; i<instance.children.length; i++) {
 			instance.children[i].parent = instance;
+		}
 	},
 
 	/**
@@ -93,7 +108,11 @@ var INIT = {
 	 */
 	'Texture': function(instance, properties, values ) {
 		INIT.Default(instance, properties, values);
-		instance.needsUpdate = true;
+		if (instance.image) {
+			instance.image.onload = function() {
+				instance.needsUpdate = true;
+			}
+		}
 	},
 
 	/**
@@ -310,6 +329,14 @@ var INIT = {
 			);
 	},
 
+	/**
+	 * MD2Character requires initialization of the mixer
+	 */
+	'MD2Character': function( instance, properties, values ) {
+		INIT.Default( instance, properties, values );
+		instance.mixer = new THREE.AnimationMixer( instance.mesh );
+	}
+
 };
 
 /**
@@ -400,7 +427,7 @@ var ENTITIES = [
 
 	// Special types
 
-	[THREE.MD2Character, 							FACTORY.Default, 				INIT.Default ],
+	[THREE.MD2Character, 							FACTORY.Default, 				INIT.MD2Character ],
 
 ];
 
@@ -415,19 +442,21 @@ var PROPERTYSET = {
 
 	// Object3D is a superclass of Mesh
 	Object3D	: [
-		'name', 'children', 'up', 'matrix', 'matrixWorld', 'visible', 'castShadow', 
-		'receiveShadow', 'frustumCulled', 'renderOrder'
+		'name', 'up', 'position', 'quaternion', 'scale', 'rotationAutoUpdate',
+		'matrix', 'matrixWorld', 'matrixAutoUpdate', 'matrixWorldNeedsUpdate',
+		'visible', 'castShadow', 'receiveShadow', 'frustumCulled', 'renderOrder',
+		'userData', 'children'
 	],
 
 	// Key frame track
 	KeyframeTrack: [
-		'name', 'keys', 'lastIndex', 'result', 'result'
+		'name', 'keys', 'lastIndex', 'result'
 	],
 
 	// Material is superclass of many materials
 	Material : [
 		'side', 'opacity', 'blending', 'blendSrc', 'blendDst', 'blendEquation', 'depthFunc',
-		'polygonOffsetFactor', 'polygonOffsetUnits', 'alphaTest', 'overdraw',
+		'polygonOffsetFactor', 'polygonOffsetUnits', 'alphaTest', 'overdraw', 'name',
 		'transparent', 'depthTest', 'depthWrite', 'colorWrite', 'polygonOffset', 'visible'
 	],
 
@@ -539,7 +568,7 @@ var PROPERTIES = [
 
 	// THREE.Mesh
 	PROPERTYSET.Object3D.concat([
-		'geometry', 'material'
+		'geometry', 'material', 'materialTexture', 'materialWireframe'
 	]),
 	// THREE.AmbientLight
 	PROPERTYSET.Object3D.concat([
@@ -654,7 +683,8 @@ var PROPERTIES = [
 
 	// THREE.MD2Character
 	[
-		'scale', 'animationFPS', 'root', 'meshBody', 'meshWeapon', 'weapons', 'activeAnimation'
+		'scale', 'animationFPS', 'root', 'meshBody', 'skinsBody', 'meshWeapon', 'skinsWeapon', 'weapons', 
+		'activeAnimation'
 	]
 
 ];

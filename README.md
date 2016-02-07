@@ -1,7 +1,7 @@
-# jbb-profile-three
+# jbb-profile-three (r73)
 
 Javascript Binary Bundle profile for THREE.js objects. This profile provides 
-the binary object table for encoding most of commonly used THREE.js objects.
+the binary object table for encoding most of commonly used THREE.js r73 objects.
 
 ```
 Major Version : 0x0001 (1)

@@ -123,9 +123,24 @@ var JBBProfileThree =
 		 * Update 'parent' property of each Object3D
 		 */
 		'Object3D': function( instance, properties, values ) {
-			INIT.Default(instance, properties, values);
-			for (var i=0; i<instance.children.length; i++)
+			for (var i=0; i<properties.length; i++) {
+				var n = properties[i];
+				switch (n) {
+					case 'position':
+					case 'rotation':
+					case 'quaternion':
+					case 'scale':
+						instance[n].copy( values[i] );
+						break;
+
+					default: 
+						instance[n] = values[i];
+						break;
+				}
+			}
+			for (var i=0; i<instance.children.length; i++) {
 				instance.children[i].parent = instance;
+			}
 		},
 
 		/**
@@ -141,7 +156,11 @@ var JBBProfileThree =
 		 */
 		'Texture': function(instance, properties, values ) {
 			INIT.Default(instance, properties, values);
-			instance.needsUpdate = true;
+			if (instance.image) {
+				instance.image.onload = function() {
+					instance.needsUpdate = true;
+				}
+			}
 		},
 
 		/**
@@ -358,6 +377,14 @@ var JBBProfileThree =
 				);
 		},
 
+		/**
+		 * MD2Character requires initialization of the mixer
+		 */
+		'MD2Character': function( instance, properties, values ) {
+			INIT.Default( instance, properties, values );
+			instance.mixer = new THREE.AnimationMixer( instance.mesh );
+		}
+
 	};
 
 	/**
@@ -448,7 +475,7 @@ var JBBProfileThree =
 
 		// Special types
 
-		[THREE.MD2Character, 							FACTORY.Default, 				INIT.Default ],
+		[THREE.MD2Character, 							FACTORY.Default, 				INIT.MD2Character ],
 
 	];
 
@@ -463,19 +490,21 @@ var JBBProfileThree =
 
 		// Object3D is a superclass of Mesh
 		Object3D	: [
-			'name', 'children', 'up', 'matrix', 'matrixWorld', 'visible', 'castShadow', 
-			'receiveShadow', 'frustumCulled', 'renderOrder'
+			'name', 'up', 'position', 'quaternion', 'scale', 'rotationAutoUpdate',
+			'matrix', 'matrixWorld', 'matrixAutoUpdate', 'matrixWorldNeedsUpdate',
+			'visible', 'castShadow', 'receiveShadow', 'frustumCulled', 'renderOrder',
+			'userData', 'children'
 		],
 
 		// Key frame track
 		KeyframeTrack: [
-			'name', 'keys', 'lastIndex', 'result', 'result'
+			'name', 'keys', 'lastIndex', 'result'
 		],
 
 		// Material is superclass of many materials
 		Material : [
 			'side', 'opacity', 'blending', 'blendSrc', 'blendDst', 'blendEquation', 'depthFunc',
-			'polygonOffsetFactor', 'polygonOffsetUnits', 'alphaTest', 'overdraw',
+			'polygonOffsetFactor', 'polygonOffsetUnits', 'alphaTest', 'overdraw', 'name',
 			'transparent', 'depthTest', 'depthWrite', 'colorWrite', 'polygonOffset', 'visible'
 		],
 
@@ -587,7 +616,7 @@ var JBBProfileThree =
 
 		// THREE.Mesh
 		PROPERTYSET.Object3D.concat([
-			'geometry', 'material'
+			'geometry', 'material', 'materialTexture', 'materialWireframe'
 		]),
 		// THREE.AmbientLight
 		PROPERTYSET.Object3D.concat([
@@ -702,7 +731,8 @@ var JBBProfileThree =
 
 		// THREE.MD2Character
 		[
-			'scale', 'animationFPS', 'root', 'meshBody', 'meshWeapon', 'weapons', 'activeAnimation'
+			'scale', 'animationFPS', 'root', 'meshBody', 'skinsBody', 'meshWeapon', 'skinsWeapon', 'weapons', 
+			'activeAnimation'
 		]
 
 	];
@@ -762,7 +792,6 @@ var JBBProfileThree =
 
 			var weaponsTextures = [];
 			for ( var i = 0; i < config.weapons.length; i ++ ) weaponsTextures[ i ] = config.weapons[ i ][ 1 ];
-
 			// SKINS
 
 			this.skinsBody = loadTextures( config.baseUrl + "skins/", config.skins );
@@ -809,6 +838,21 @@ var JBBProfileThree =
 
 					scope.weapons[ index ] = mesh;
 					scope.meshWeapon = mesh;
+
+
+					// the animation system requires unique names, so append the
+					// uuid of the source geometry:
+
+					var geometry = mesh.geometry,
+						animations = geometry.animations;
+
+					for ( var i = 0, n = animations.length; i !== n; ++ i ) {
+
+						var animation = animations[ i ];
+						animation.name += geometry.uuid;
+
+					}
+
 
 					checkLoadingComplete();
 
@@ -883,17 +927,15 @@ var JBBProfileThree =
 			if ( this.meshBody ) {
 
 				if( this.meshBody.activeAction ) {
-					scope.mixer.removeAction( this.meshBody.activeAction );
+					this.meshBody.activeAction.stop();
 					this.meshBody.activeAction = null;
 				}
 
 				var clip = THREE.AnimationClip.findByName( this.meshBody.geometry.animations, clipName );
 				if( clip ) {
 
-					var action = new THREE.AnimationAction( clip, this.mixer.time ).setLocalRoot( this.meshBody );
-					scope.mixer.addAction( action );
-
-					this.meshBody.activeAction = action;
+					this.meshBody.activeAction =
+							this.mixer.clipAction( clip, this.meshBody ).play();
 
 				}
 
@@ -912,22 +954,24 @@ var JBBProfileThree =
 			if ( scope.meshWeapon ) {
 
 				if( this.meshWeapon.activeAction ) {
-					scope.mixer.removeAction( this.meshWeapon.activeAction );
+					this.meshWeapon.activeAction.stop();
 					this.meshWeapon.activeAction = null;
 				}
 
-				var clip = THREE.AnimationClip.findByName( this.meshWeapon.geometry.animations, clipName );
+				var geometry = this.meshWeapon.geometry,
+					animations = geometry.animations;
+
+				var clip = THREE.AnimationClip.findByName( animations, clipName + geometry.uuid );
 				if( clip ) {
 
-					var action = new THREE.AnimationAction( clip ).syncWith( this.meshBody.activeAction ).setLocalRoot( this.meshWeapon );
-					scope.mixer.addAction( action );
-
-					this.meshWeapon.activeAction = action;
+					this.meshWeapon.activeAction =
+							this.mixer.clipAction( clip, this.meshWeapon ).
+								syncWith( this.meshBody.activeAction ).play();
 
 				}
 
 			}
-				
+
 		}
 
 		this.update = function ( delta ) {
@@ -938,12 +982,13 @@ var JBBProfileThree =
 
 		function loadTextures( baseUrl, textureUrls ) {
 
-			var mapping = THREE.UVMapping;
+			var textureLoader = new THREE.TextureLoader();
 			var textures = [];
 
 			for ( var i = 0; i < textureUrls.length; i ++ ) {
 
-				textures[ i ] = THREE.ImageUtils.loadTexture( baseUrl + textureUrls[ i ], mapping, checkLoadingComplete );
+				textures[ i ] = textureLoader.load( baseUrl + textureUrls[ i ], checkLoadingComplete );
+				textures[ i ].mapping = THREE.UVMapping;
 				textures[ i ].name = textureUrls[ i ];
 
 			}
@@ -969,7 +1014,7 @@ var JBBProfileThree =
 
 			mesh.materialTexture = materialTexture;
 			mesh.materialWireframe = materialWireframe;
-		
+
 			return mesh;
 
 		}
@@ -983,6 +1028,8 @@ var JBBProfileThree =
 		}
 
 	};
+
+	module.exports = THREE.MD2Character;
 
 
 /***/ }

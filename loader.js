@@ -44,14 +44,11 @@ module.exports = {
 		var isBrowser=new Function("try {return this===window;}catch(e){ return false;}"); // browser exclude
 		if (!isBrowser()) {
 
-			// Replace default XHR Loader with node.js - specific
-			var XHRLoader = require('./lib/FileXHRLoader');
-
 			// Expose 'THREE' for non-compatible scripts
 			global.THREE = THREE;
 
 			// Override XHR Loader
-			global.THREE.XHRLoader = XHRLoader;
+			global.THREE.XHRLoader = require('./lib/FileXHRLoader');
 
 		}
 
