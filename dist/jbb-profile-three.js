@@ -792,6 +792,7 @@ var JBBProfileThree =
 
 			var weaponsTextures = [];
 			for ( var i = 0; i < config.weapons.length; i ++ ) weaponsTextures[ i ] = config.weapons[ i ][ 1 ];
+
 			// SKINS
 
 			this.skinsBody = loadTextures( config.baseUrl + "skins/", config.skins );
@@ -838,21 +839,6 @@ var JBBProfileThree =
 
 					scope.weapons[ index ] = mesh;
 					scope.meshWeapon = mesh;
-
-
-					// the animation system requires unique names, so append the
-					// uuid of the source geometry:
-
-					var geometry = mesh.geometry,
-						animations = geometry.animations;
-
-					for ( var i = 0, n = animations.length; i !== n; ++ i ) {
-
-						var animation = animations[ i ];
-						animation.name += geometry.uuid;
-
-					}
-
 
 					checkLoadingComplete();
 
@@ -927,15 +913,17 @@ var JBBProfileThree =
 			if ( this.meshBody ) {
 
 				if( this.meshBody.activeAction ) {
-					this.meshBody.activeAction.stop();
+					scope.mixer.removeAction( this.meshBody.activeAction );
 					this.meshBody.activeAction = null;
 				}
 
 				var clip = THREE.AnimationClip.findByName( this.meshBody.geometry.animations, clipName );
 				if( clip ) {
 
-					this.meshBody.activeAction =
-							this.mixer.clipAction( clip, this.meshBody ).play();
+					var action = new THREE.AnimationAction( clip, this.mixer.time ).setLocalRoot( this.meshBody );
+					scope.mixer.addAction( action );
+
+					this.meshBody.activeAction = action;
 
 				}
 
@@ -954,24 +942,22 @@ var JBBProfileThree =
 			if ( scope.meshWeapon ) {
 
 				if( this.meshWeapon.activeAction ) {
-					this.meshWeapon.activeAction.stop();
+					scope.mixer.removeAction( this.meshWeapon.activeAction );
 					this.meshWeapon.activeAction = null;
 				}
 
-				var geometry = this.meshWeapon.geometry,
-					animations = geometry.animations;
-
-				var clip = THREE.AnimationClip.findByName( animations, clipName + geometry.uuid );
+				var clip = THREE.AnimationClip.findByName( this.meshWeapon.geometry.animations, clipName );
 				if( clip ) {
 
-					this.meshWeapon.activeAction =
-							this.mixer.clipAction( clip, this.meshWeapon ).
-								syncWith( this.meshBody.activeAction ).play();
+					var action = new THREE.AnimationAction( clip ).syncWith( this.meshBody.activeAction ).setLocalRoot( this.meshWeapon );
+					scope.mixer.addAction( action );
+
+					this.meshWeapon.activeAction = action;
 
 				}
 
 			}
-
+				
 		}
 
 		this.update = function ( delta ) {
@@ -982,13 +968,12 @@ var JBBProfileThree =
 
 		function loadTextures( baseUrl, textureUrls ) {
 
-			var textureLoader = new THREE.TextureLoader();
+			var mapping = THREE.UVMapping;
 			var textures = [];
 
 			for ( var i = 0; i < textureUrls.length; i ++ ) {
 
-				textures[ i ] = textureLoader.load( baseUrl + textureUrls[ i ], checkLoadingComplete );
-				textures[ i ].mapping = THREE.UVMapping;
+				textures[ i ] = THREE.ImageUtils.loadTexture( baseUrl + textureUrls[ i ], mapping, checkLoadingComplete );
 				textures[ i ].name = textureUrls[ i ];
 
 			}
@@ -1014,7 +999,7 @@ var JBBProfileThree =
 
 			mesh.materialTexture = materialTexture;
 			mesh.materialWireframe = materialWireframe;
-
+		
 			return mesh;
 
 		}
