@@ -463,7 +463,7 @@ var PROPERTYSET = {
 	// Texture
 	Texture: [ 
 		'mipmaps', 'flipY', 'mapping', 'wrapS', 'wrapT', 'magFilter', 'minFilter',
-		'anisotropy', 'format', 'type', 'offset', 'repeat', 'unpackAlignment'
+		'anisotropy', 'format', 'type', 'offset', 'repeat', 'unpackAlignment', 'name'
 	],
 
 };
