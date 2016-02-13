@@ -360,9 +360,6 @@ var ENTITIES = [
 	[THREE.Matrix3, 								FACTORY.Default, 				INIT.Default ],
 	[THREE.Matrix4, 								FACTORY.Default, 				INIT.Default ],
 	[THREE.BufferAttribute, 						FACTORY.Default, 				INIT.Default ],
-	[], // Reserved
-	[], // Reserved
-	[], // Reserved
 
 	[THREE.AnimationClip, 							FACTORY.Unconstructed,			INIT.AnimationClip ],
 	[THREE.VectorKeyframeTrack, 					FACTORY.Unconstructed,			INIT.KeyframeTrack ],
@@ -370,6 +367,21 @@ var ENTITIES = [
 	[THREE.NumberKeyframeTrack, 					FACTORY.Unconstructed,			INIT.KeyframeTrack ],
 	[THREE.BooleanKeyframeTrack, 					FACTORY.Unconstructed,			INIT.KeyframeTrack ],
 	[THREE.StringKeyframeTrack, 					FACTORY.Unconstructed,			INIT.KeyframeTrack ],
+
+	[], // Reserved
+	[], // Reserved
+	[], // Reserved
+
+	[], // Reserved
+	[], // Reserved
+	[], // Reserved
+	[], // Reserved
+	[], // Reserved
+	[], // Reserved
+	[], // Reserved
+	[], // Reserved
+	[], // Reserved
+	[], // Reserved
 
 	[THREE.BoxGeometry, 							FACTORY.Unconstructed,			INIT.WidthHeightDepth ],
 	[THREE.CircleBufferGeometry, 					FACTORY.Unconstructed,			INIT.RadiusSegmentsTheta ],
@@ -502,12 +514,6 @@ var PROPERTIES = [
 	[ 'elements' ],
 	// THREE.BufferAttribute
 	[ 'array', 'itemSize', 'dynamic', 'updateRange' ],
-	// Reserved
-	[],
-	// Reserved
-	[],
-	// Reserved
-	[],
 
 	// THREE.AnimationClip
 	[ 'name', 'duration', 'tracks', 'results' ],
@@ -521,6 +527,34 @@ var PROPERTIES = [
 	PROPERTYSET.KeyframeTrack,
 	// THREE.StringKeyframeTrack
 	PROPERTYSET.KeyframeTrack,
+
+	// Reserved
+	[],
+	// Reserved
+	[],
+	// Reserved
+	[],
+
+	// Reserved
+	[],
+	// Reserved
+	[],
+	// Reserved
+	[],
+	// Reserved
+	[],
+	// Reserved
+	[],
+	// Reserved
+	[],
+	// Reserved
+	[],
+	// Reserved
+	[],
+	// Reserved
+	[],
+	// Reserved
+	[],
 
 	// THREE.BoxGeometry
 	[ 'parameters' ],
