@@ -60,41 +60,21 @@ module.exports = {
 	/**
 	 * Load object(s) from the specified filename and put them in the database record under the given name
 	 */
-	'load': function( filename, name, loadClass, callback ) {
+	'load': function( loadClass, loadSpecs, name, callback ) {
 
-		// If we haven't specified a loader
-		if (!loadClass) {
+		// Trigger bundle loader and return TRUE if this
+		// was handled by this loader.
+		return BundleLoader.load( loadClass, loadSpecs, function( data, extra ) {
 
-			// Use default Three.js loader
-			var loadClass = new THREE.ObjectLoader();
-			loadClass.load( filename, function(data, extra) {
+			// Prepare response array
+			var objects = {};
+			objects[name] = data;
+			if (extra) objects[name+':extra'] = extra;
 
-				// Prepare response array
-				var objects = {};
-				objects[name] = data;
-				if (extra) objects[name+':extra'] = extra;
+			// Notify that we are compiled
+			callback( null, objects );
 
-				// Notify that we are compiled
-				callback( null, objects );
-
-			});
-
-		} else {
-
-			// Trigger bundle loader
-			BundleLoader.load( loadClass, filename, function( data, extra ) {
-
-				// Prepare response array
-				var objects = {};
-				objects[name] = data;
-				if (extra) objects[name+':extra'] = extra;
-
-				// Notify that we are compiled
-				callback( null, objects );
-
-			});
-
-		}
+		});
 
 
 	}
