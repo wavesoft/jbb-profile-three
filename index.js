@@ -27,7 +27,7 @@ var MD2Character = require("./lib/helpers/MD2Character");
  * Prefix and revision of the objects table
  */
 var ID_VERSION  = 0x0001,
-	ID_REVISION = 0x0;
+	ID_REVISION = 0x1;
 
 /**
  * Factories for different entity types
