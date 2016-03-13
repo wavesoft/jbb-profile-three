@@ -108,41 +108,21 @@ var JBBProfileThreeLoader =
 		/**
 		 * Load object(s) from the specified filename and put them in the database record under the given name
 		 */
-		'load': function( filename, name, loadClass, callback ) {
+		'load': function( loadClass, loadSpecs, name, callback ) {
 
-			// If we haven't specified a loader
-			if (!loadClass) {
+			// Trigger bundle loader and return TRUE if this
+			// was handled by this loader.
+			return BundleLoader.load( loadClass, loadSpecs, function( data, extra ) {
 
-				// Use default Three.js loader
-				var loadClass = new THREE.ObjectLoader();
-				loadClass.load( filename, function(data, extra) {
+				// Prepare response array
+				var objects = {};
+				objects[name] = data;
+				if (extra) objects[name+':extra'] = extra;
 
-					// Prepare response array
-					var objects = {};
-					objects[name] = data;
-					if (extra) objects[name+':extra'] = extra;
+				// Notify that we are compiled
+				callback( null, objects );
 
-					// Notify that we are compiled
-					callback( null, objects );
-
-				});
-
-			} else {
-
-				// Trigger bundle loader
-				BundleLoader.load( loadClass, filename, function( data, extra ) {
-
-					// Prepare response array
-					var objects = {};
-					objects[name] = data;
-					if (extra) objects[name+':extra'] = extra;
-
-					// Notify that we are compiled
-					callback( null, objects );
-
-				});
-
-			}
+			});
 
 
 		}
@@ -569,10 +549,13 @@ var JBBProfileThreeLoader =
 			// Load
 			loaderInst.load( loaderConfig, callback );
 
+			// Return TRUE to inform loader that this class was handled
+			return true;
+
 		} else {
 
-			// We don't know how to handle this
-			throw "Unknown loader!";
+			// Return FALSE to inform loader that we can't handle this class
+			return false;
 
 		}
 	}
@@ -14752,13 +14735,13 @@ var JBBProfileThreeLoader =
 	        fs.readFile(url, { }, function (err, data ) {
 	            if (err) {
 	                console.error(err);
-	                onError( err );
+	                if (onError) onError( err );
 	            } else {
 	                if (scope.responseType == "arraybuffer") {
 	                    var barr = toArrayBuffer(data);
-	                    onLoad( barr );
+	                    if (onLoad) onLoad( barr );
 	                } else {
-	                    onLoad( data.toString() );
+	                    if (onLoad) onLoad( data.toString() );
 	                }
 	                scope.manager.itemEnd( url );
 	            }

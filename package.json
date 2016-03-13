@@ -12,6 +12,7 @@
   },
   "keywords": [
     "jbb",
+    "jbb-profile",
     "three.js"
   ],
   "author": "Ioannis Charalampidis <johnys2@gmail.com>",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/wavesoft/jbb-profile-three#readme",
   "devDependencies": {
+    "concat-map": "0.0.1",
     "gulp": "^3.9.0",
     "gulp-header": "^1.7.1",
     "imports-loader": "^0.6.5",

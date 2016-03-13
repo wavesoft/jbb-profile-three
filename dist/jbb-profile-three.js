@@ -501,7 +501,7 @@ var JBBProfileThree =
 	var PROPERTYSET = {
 
 		// Object3D is a superclass of Mesh
-		Object3D	: [
+		Object3D: [
 			'name', 'up', 'position', 'quaternion', 'scale', 'rotationAutoUpdate',
 			'matrix', 'matrixWorld', 'matrixAutoUpdate', 'matrixWorldNeedsUpdate',
 			'visible', 'castShadow', 'receiveShadow', 'frustumCulled', 'renderOrder',
@@ -515,15 +515,20 @@ var JBBProfileThree =
 
 		// Material is superclass of many materials
 		Material : [
-			'side', 'opacity', 'blending', 'blendSrc', 'blendDst', 'blendEquation', 'depthFunc',
-			'polygonOffsetFactor', 'polygonOffsetUnits', 'alphaTest', 'overdraw', 'name',
-			'transparent', 'depthTest', 'depthWrite', 'colorWrite', 'polygonOffset', 'visible'
+			'name', 'side', 'opacity', 'blending', 'blendSrc', 'blendDst', 'blendEquation', 'depthFunc',
+			'polygonOffsetFactor', 'polygonOffsetUnits', 'alphaTest', 'overdraw', 'transparent', 
+			'depthTest', 'depthWrite', 'colorWrite', 'polygonOffset', 'visible'
 		],
 
 		// Texture
 		Texture: [ 
-			'mipmaps', 'flipY', 'mapping', 'wrapS', 'wrapT', 'magFilter', 'minFilter',
-			'anisotropy', 'format', 'type', 'offset', 'repeat', 'unpackAlignment', 'name'
+			'name', 'mipmaps', 'flipY', 'mapping', 'wrapS', 'wrapT', 'magFilter', 'minFilter',
+			'anisotropy', 'format', 'type', 'offset', 'repeat', 'unpackAlignment'
+		],
+
+		// Geometry
+		Geometry: [
+			'name'
 		],
 
 	};
@@ -605,48 +610,90 @@ var JBBProfileThree =
 		[],
 
 		// THREE.BoxGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.CircleBufferGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.CircleGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.CylinderGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.DodecahedronGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.IcosahedronGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.LatheGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.OctahedronGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.ParametricGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.PlaneBufferGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.PlaneGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.PolyhedronGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.RingGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.SphereBufferGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.SphereGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.TetrahedronGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.TorusGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.TorusKnotGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 		// THREE.TubeGeometry
-		[ 'parameters' ],
+		PROPERTYSET.Geometry.concat([
+			'parameters'
+		]),
 
 		// THREE.BufferGeometry
-		[ 'attributes', 'index' ],
+		PROPERTYSET.Geometry.concat([
+			'attributes', 'index' 
+		]),
 		// THREE.Geometry
-		[ 'vertices', 'faces', 'faceVertexUvs', 'morphTargets', 'morphNormals', 'morphColors', 'animations', 'boundingSphere' ],
+		PROPERTYSET.Geometry.concat([
+			'vertices', 'faces', 'faceVertexUvs', 'morphTargets', 'morphNormals', 'morphColors', 'animations', 'boundingSphere' 
+		]),
 
 		// THREE.Mesh
 		PROPERTYSET.Object3D.concat([
