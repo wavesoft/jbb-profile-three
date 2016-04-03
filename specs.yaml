@@ -5,6 +5,8 @@
 @revision: 1
 @include.encode: lib/Encode.js
 @include.decode: lib/Decode.js
+@require:
+    THREE: three
 
 # Objects
 
@@ -150,7 +152,6 @@ THREE.StringKeyframeTrack:
         - keys
 
 THREE.BoxGeometry:
-    extends: THREE.Geometry
     init: 
         - parameters.width
         - parameters.height
@@ -159,7 +160,6 @@ THREE.BoxGeometry:
         - parameters
 
 THREE.CircleBufferGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.segments
@@ -169,7 +169,6 @@ THREE.CircleBufferGeometry:
         - parameters
 
 THREE.CircleGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.segments
@@ -179,7 +178,6 @@ THREE.CircleGeometry:
         - parameters
 
 THREE.CylinderGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.radiusTop
         - parameters.radiusBottom
@@ -193,7 +191,6 @@ THREE.CylinderGeometry:
         - parameters
 
 THREE.DodecahedronGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.detail
@@ -201,7 +198,6 @@ THREE.DodecahedronGeometry:
         - parameters
 
 THREE.IcosahedronGeometry:
-    extends: THREE.Geometry
     init: 
         - parameters.radius
         - parameters.detail
@@ -209,7 +205,6 @@ THREE.IcosahedronGeometry:
         - parameters
 
 THREE.LatheGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.points
         - parameters.segments
@@ -219,16 +214,13 @@ THREE.LatheGeometry:
         - parameters
 
 THREE.OctahedronGeometry:
-    factory: create
     init: 
         - parameters.radius
         - parameters.detail
-    extends: THREE.Geometry
     properties:
         - parameters
 
 THREE.ParametricGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.width
         - parameters.height
@@ -238,7 +230,6 @@ THREE.ParametricGeometry:
         - parameters
 
 THREE.PlaneBufferGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.width
         - parameters.height
@@ -250,7 +241,6 @@ THREE.PlaneBufferGeometry:
         - parameters
 
 THREE.PlaneGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.width
         - parameters.height
@@ -262,7 +252,6 @@ THREE.PlaneGeometry:
         - parameters
 
 THREE.PolyhedronGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.vertices
         - parameters.indices
@@ -272,7 +261,6 @@ THREE.PolyhedronGeometry:
         - parameters
 
 THREE.RingGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.innerRadius
         - parameters.outerRadius
@@ -284,7 +272,6 @@ THREE.RingGeometry:
         - parameters
 
 THREE.SphereBufferGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.widthSegments
@@ -297,7 +284,6 @@ THREE.SphereBufferGeometry:
         - parameters
 
 THREE.SphereGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.widthSegments
@@ -310,7 +296,6 @@ THREE.SphereGeometry:
         - parameters
 
 THREE.TetrahedronGeometry:
-    factory: create
     init: 
         - parameters.radius
         - parameters.detail
@@ -319,7 +304,6 @@ THREE.TetrahedronGeometry:
         - parameters
 
 THREE.TorusGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.tube
@@ -330,7 +314,6 @@ THREE.TorusGeometry:
         - parameters
 
 THREE.TorusKnotGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.tube
@@ -343,7 +326,6 @@ THREE.TorusKnotGeometry:
         - parameters
 
 THREE.TubeGeometry:
-    extends: THREE.Geometry
     init:
         - parameters.path
         - parameters.segments

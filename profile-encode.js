@@ -19,9 +19,9 @@
  * @author Ioannis Charalampidis / https://github.com/wavesoft
  */
 
-var THREE = require('three');
-
 /* Generated source follows */
+
+var THREE = require('three');
 
 /**
  * Property getter THREE.CubeTexture
@@ -487,297 +487,9 @@ function getter_THREE_BufferGeometry(inst) {
 }
 
 /**
- * Property getter THREE.TubeGeometry
- */
-function getter_THREE_TubeGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.TorusKnotGeometry
- */
-function getter_THREE_TorusKnotGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.TorusGeometry
- */
-function getter_THREE_TorusGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
  * Property getter THREE.TetrahedronGeometry
  */
 function getter_THREE_TetrahedronGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.SphereGeometry
- */
-function getter_THREE_SphereGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.SphereBufferGeometry
- */
-function getter_THREE_SphereBufferGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.RingGeometry
- */
-function getter_THREE_RingGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.PolyhedronGeometry
- */
-function getter_THREE_PolyhedronGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.PlaneGeometry
- */
-function getter_THREE_PlaneGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.PlaneBufferGeometry
- */
-function getter_THREE_PlaneBufferGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.ParametricGeometry
- */
-function getter_THREE_ParametricGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.OctahedronGeometry
- */
-function getter_THREE_OctahedronGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.LatheGeometry
- */
-function getter_THREE_LatheGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.IcosahedronGeometry
- */
-function getter_THREE_IcosahedronGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.DodecahedronGeometry
- */
-function getter_THREE_DodecahedronGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.CylinderGeometry
- */
-function getter_THREE_CylinderGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.CircleGeometry
- */
-function getter_THREE_CircleGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.CircleBufferGeometry
- */
-function getter_THREE_CircleBufferGeometry(inst) {
-	return [
-		inst.vertices,
-		inst.faces,
-		inst.faceVertexUvs,
-		inst.morphTargets,
-		inst.morphNormals,
-		inst.morphColors,
-		inst.animations,
-		inst.boundingSphere,
-		inst.parameters];
-}
-
-/**
- * Property getter THREE.BoxGeometry
- */
-function getter_THREE_BoxGeometry(inst) {
 	return [
 		inst.vertices,
 		inst.faces,
@@ -992,6 +704,150 @@ function getter_THREE_StringKeyframeTrack(inst) {
 }
 
 /**
+ * Property getter THREE.BoxGeometry
+ */
+function getter_THREE_BoxGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.CircleBufferGeometry
+ */
+function getter_THREE_CircleBufferGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.CircleGeometry
+ */
+function getter_THREE_CircleGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.CylinderGeometry
+ */
+function getter_THREE_CylinderGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.DodecahedronGeometry
+ */
+function getter_THREE_DodecahedronGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.IcosahedronGeometry
+ */
+function getter_THREE_IcosahedronGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.LatheGeometry
+ */
+function getter_THREE_LatheGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.OctahedronGeometry
+ */
+function getter_THREE_OctahedronGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.ParametricGeometry
+ */
+function getter_THREE_ParametricGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.PlaneBufferGeometry
+ */
+function getter_THREE_PlaneBufferGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.PlaneGeometry
+ */
+function getter_THREE_PlaneGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.PolyhedronGeometry
+ */
+function getter_THREE_PolyhedronGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.RingGeometry
+ */
+function getter_THREE_RingGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.SphereBufferGeometry
+ */
+function getter_THREE_SphereBufferGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.SphereGeometry
+ */
+function getter_THREE_SphereGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.TorusGeometry
+ */
+function getter_THREE_TorusGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.TorusKnotGeometry
+ */
+function getter_THREE_TorusKnotGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
+ * Property getter THREE.TubeGeometry
+ */
+function getter_THREE_TubeGeometry(inst) {
+	return [
+		inst.parameters];
+}
+
+/**
  * Property getter THREE.Fog
  */
 function getter_THREE_Fog(inst) {
@@ -1181,84 +1037,84 @@ module.exports = {
 				return [14, getter_THREE_Object3D];
 			} else if (inst instanceof THREE.BufferGeometry) {
 				return [15, getter_THREE_BufferGeometry];
-			} else if (inst instanceof THREE.TubeGeometry) {
-				return [16, getter_THREE_TubeGeometry];
-			} else if (inst instanceof THREE.TorusKnotGeometry) {
-				return [17, getter_THREE_TorusKnotGeometry];
-			} else if (inst instanceof THREE.TorusGeometry) {
-				return [18, getter_THREE_TorusGeometry];
 			} else if (inst instanceof THREE.TetrahedronGeometry) {
-				return [19, getter_THREE_TetrahedronGeometry];
-			} else if (inst instanceof THREE.SphereGeometry) {
-				return [20, getter_THREE_SphereGeometry];
-			} else if (inst instanceof THREE.SphereBufferGeometry) {
-				return [21, getter_THREE_SphereBufferGeometry];
-			} else if (inst instanceof THREE.RingGeometry) {
-				return [22, getter_THREE_RingGeometry];
-			} else if (inst instanceof THREE.PolyhedronGeometry) {
-				return [23, getter_THREE_PolyhedronGeometry];
-			} else if (inst instanceof THREE.PlaneGeometry) {
-				return [24, getter_THREE_PlaneGeometry];
-			} else if (inst instanceof THREE.PlaneBufferGeometry) {
-				return [25, getter_THREE_PlaneBufferGeometry];
-			} else if (inst instanceof THREE.ParametricGeometry) {
-				return [26, getter_THREE_ParametricGeometry];
-			} else if (inst instanceof THREE.OctahedronGeometry) {
-				return [27, getter_THREE_OctahedronGeometry];
-			} else if (inst instanceof THREE.LatheGeometry) {
-				return [28, getter_THREE_LatheGeometry];
-			} else if (inst instanceof THREE.IcosahedronGeometry) {
-				return [29, getter_THREE_IcosahedronGeometry];
-			} else if (inst instanceof THREE.DodecahedronGeometry) {
-				return [30, getter_THREE_DodecahedronGeometry];
-			} else if (inst instanceof THREE.CylinderGeometry) {
-				return [31, getter_THREE_CylinderGeometry];
-			} else if (inst instanceof THREE.CircleGeometry) {
-				return [32, getter_THREE_CircleGeometry];
-			} else if (inst instanceof THREE.CircleBufferGeometry) {
-				return [33, getter_THREE_CircleBufferGeometry];
-			} else if (inst instanceof THREE.BoxGeometry) {
-				return [34, getter_THREE_BoxGeometry];
+				return [16, getter_THREE_TetrahedronGeometry];
 			} else if (inst instanceof THREE.Geometry) {
-				return [35, getter_THREE_Geometry];
+				return [17, getter_THREE_Geometry];
 			} else if (inst instanceof THREE.Vector2) {
-				return [36, getter_THREE_Vector2];
+				return [18, getter_THREE_Vector2];
 			} else if (inst instanceof THREE.Vector3) {
-				return [37, getter_THREE_Vector3];
+				return [19, getter_THREE_Vector3];
 			} else if (inst instanceof THREE.Vector4) {
-				return [38, getter_THREE_Vector4];
+				return [20, getter_THREE_Vector4];
 			} else if (inst instanceof THREE.Face3) {
-				return [39, getter_THREE_Face3];
+				return [21, getter_THREE_Face3];
 			} else if (inst instanceof THREE.Color) {
-				return [40, getter_THREE_Color];
+				return [22, getter_THREE_Color];
 			} else if (inst instanceof THREE.Quaternion) {
-				return [41, getter_THREE_Quaternion];
+				return [23, getter_THREE_Quaternion];
 			} else if (inst instanceof THREE.Euler) {
-				return [42, getter_THREE_Euler];
+				return [24, getter_THREE_Euler];
 			} else if (inst instanceof THREE.Box2) {
-				return [43, getter_THREE_Box2];
+				return [25, getter_THREE_Box2];
 			} else if (inst instanceof THREE.Box3) {
-				return [44, getter_THREE_Box3];
+				return [26, getter_THREE_Box3];
 			} else if (inst instanceof THREE.Sphere) {
-				return [45, getter_THREE_Sphere];
+				return [27, getter_THREE_Sphere];
 			} else if (inst instanceof THREE.Matrix3) {
-				return [46, getter_THREE_Matrix3];
+				return [28, getter_THREE_Matrix3];
 			} else if (inst instanceof THREE.Matrix4) {
-				return [47, getter_THREE_Matrix4];
+				return [29, getter_THREE_Matrix4];
 			} else if (inst instanceof THREE.BufferAttribute) {
-				return [48, getter_THREE_BufferAttribute];
+				return [30, getter_THREE_BufferAttribute];
 			} else if (inst instanceof THREE.AnimationClip) {
-				return [49, getter_THREE_AnimationClip];
+				return [31, getter_THREE_AnimationClip];
 			} else if (inst instanceof THREE.VectorKeyframeTrack) {
-				return [50, getter_THREE_VectorKeyframeTrack];
+				return [32, getter_THREE_VectorKeyframeTrack];
 			} else if (inst instanceof THREE.QuaternionKeyframeTrack) {
-				return [51, getter_THREE_QuaternionKeyframeTrack];
+				return [33, getter_THREE_QuaternionKeyframeTrack];
 			} else if (inst instanceof THREE.NumberKeyframeTrack) {
-				return [52, getter_THREE_NumberKeyframeTrack];
+				return [34, getter_THREE_NumberKeyframeTrack];
 			} else if (inst instanceof THREE.BooleanKeyframeTrack) {
-				return [53, getter_THREE_BooleanKeyframeTrack];
+				return [35, getter_THREE_BooleanKeyframeTrack];
 			} else if (inst instanceof THREE.StringKeyframeTrack) {
-				return [54, getter_THREE_StringKeyframeTrack];
+				return [36, getter_THREE_StringKeyframeTrack];
+			} else if (inst instanceof THREE.BoxGeometry) {
+				return [37, getter_THREE_BoxGeometry];
+			} else if (inst instanceof THREE.CircleBufferGeometry) {
+				return [38, getter_THREE_CircleBufferGeometry];
+			} else if (inst instanceof THREE.CircleGeometry) {
+				return [39, getter_THREE_CircleGeometry];
+			} else if (inst instanceof THREE.CylinderGeometry) {
+				return [40, getter_THREE_CylinderGeometry];
+			} else if (inst instanceof THREE.DodecahedronGeometry) {
+				return [41, getter_THREE_DodecahedronGeometry];
+			} else if (inst instanceof THREE.IcosahedronGeometry) {
+				return [42, getter_THREE_IcosahedronGeometry];
+			} else if (inst instanceof THREE.LatheGeometry) {
+				return [43, getter_THREE_LatheGeometry];
+			} else if (inst instanceof THREE.OctahedronGeometry) {
+				return [44, getter_THREE_OctahedronGeometry];
+			} else if (inst instanceof THREE.ParametricGeometry) {
+				return [45, getter_THREE_ParametricGeometry];
+			} else if (inst instanceof THREE.PlaneBufferGeometry) {
+				return [46, getter_THREE_PlaneBufferGeometry];
+			} else if (inst instanceof THREE.PlaneGeometry) {
+				return [47, getter_THREE_PlaneGeometry];
+			} else if (inst instanceof THREE.PolyhedronGeometry) {
+				return [48, getter_THREE_PolyhedronGeometry];
+			} else if (inst instanceof THREE.RingGeometry) {
+				return [49, getter_THREE_RingGeometry];
+			} else if (inst instanceof THREE.SphereBufferGeometry) {
+				return [50, getter_THREE_SphereBufferGeometry];
+			} else if (inst instanceof THREE.SphereGeometry) {
+				return [51, getter_THREE_SphereGeometry];
+			} else if (inst instanceof THREE.TorusGeometry) {
+				return [52, getter_THREE_TorusGeometry];
+			} else if (inst instanceof THREE.TorusKnotGeometry) {
+				return [53, getter_THREE_TorusKnotGeometry];
+			} else if (inst instanceof THREE.TubeGeometry) {
+				return [54, getter_THREE_TubeGeometry];
 			} else if (inst instanceof THREE.Fog) {
 				return [55, getter_THREE_Fog];
 			} else if (inst instanceof THREE.FogExp2) {
