@@ -66,7 +66,7 @@ var INIT = {
 	 * Default Initializer
 	 */
 	'Default': function( instance, properties, values ) {
-		for (var i=0; i<properties.length; i++) {
+		for (var i=0, l=properties.length; i<l; ++i) {
 			instance[properties[i]] = values[i];
 		}
 	},
@@ -75,7 +75,7 @@ var INIT = {
 	 * Update 'parent' property of each Object3D
 	 */
 	'Object3D': function( instance, properties, values ) {
-		for (var i=0; i<properties.length; i++) {
+		for (var i=0, l=properties.length; i<l; ++i) {
 			var n = properties[i];
 			switch (n) {
 				case 'position':
@@ -90,7 +90,7 @@ var INIT = {
 					break;
 			}
 		}
-		for (var i=0; i<instance.children.length; i++) {
+		for (var i=0, l=instance.children.length; i<l; ++i) {
 			instance.children[i].parent = instance;
 		}
 	},
@@ -347,34 +347,34 @@ var INIT = {
  */
 var ENTITIES = [
 
-	[THREE.Vector2, 								FACTORY.Default, 				INIT.Default ],
-	[THREE.Vector3, 								FACTORY.Default, 				INIT.Default ],
-	[THREE.Vector4, 								FACTORY.Default, 				INIT.Default ],
-	[THREE.Face3, 									FACTORY.Default, 				INIT.Default ],
-	[THREE.Color, 									FACTORY.Default, 				INIT.Default ],
-	[THREE.Quaternion,								FACTORY.Default, 				INIT.Default ],
-	[THREE.Euler,									FACTORY.Default, 				INIT.Default ],
-	[THREE.Box2,									FACTORY.Default, 				INIT.Default ],
-	[THREE.Box3,									FACTORY.Default, 				INIT.Default ],
-	[THREE.Sphere, 									FACTORY.Default, 				INIT.Default ],
-	[THREE.Matrix3, 								FACTORY.Default, 				INIT.Default ],
-	[THREE.Matrix4, 								FACTORY.Default, 				INIT.Default ],
-	[THREE.BufferAttribute, 						FACTORY.Default, 				INIT.Default ],
+	["THREE.Vector2", 								FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Vector3", 								FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Vector4", 								FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Face3", 									FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Color", 									FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Quaternion",								FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Euler",									FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Box2",									FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Box3",									FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Sphere", 									FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Matrix3", 								FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Matrix4", 								FACTORY.Default, 				"INIT.Default" ],
+	["THREE.BufferAttribute", 						FACTORY.Default, 				"INIT.Default" ],
 
-	[THREE.AnimationClip, 							FACTORY.Unconstructed,			INIT.AnimationClip ],
-	[THREE.VectorKeyframeTrack, 					FACTORY.Unconstructed,			INIT.KeyframeTrack ],
-	[THREE.QuaternionKeyframeTrack, 				FACTORY.Unconstructed,			INIT.KeyframeTrack ],
-	[THREE.NumberKeyframeTrack, 					FACTORY.Unconstructed,			INIT.KeyframeTrack ],
-	[THREE.BooleanKeyframeTrack, 					FACTORY.Unconstructed,			INIT.KeyframeTrack ],
-	[THREE.StringKeyframeTrack, 					FACTORY.Unconstructed,			INIT.KeyframeTrack ],
-
-	[], // Reserved
-	[], // Reserved
-	[], // Reserved
+	["THREE.AnimationClip", 							FACTORY.Unconstructed,			"INIT.AnimationClip" ],
+	["THREE.VectorKeyframeTrack", 					FACTORY.Unconstructed,			"INIT.KeyframeTrack" ],
+	["THREE.QuaternionKeyframeTrack", 				FACTORY.Unconstructed,			"INIT.KeyframeTrack" ],
+	["THREE.NumberKeyframeTrack", 					FACTORY.Unconstructed,			"INIT.KeyframeTrack" ],
+	["THREE.BooleanKeyframeTrack", 					FACTORY.Unconstructed,			"INIT.KeyframeTrack" ],
+	["THREE.StringKeyframeTrack", 					FACTORY.Unconstructed,			"INIT.KeyframeTrack" ],
 
 	[], // Reserved
 	[], // Reserved
 	[], // Reserved
+
+	[], // Reserved
+	[], // Reserved
+	[], // Reserved
 	[], // Reserved
 	[], // Reserved
 	[], // Reserved
@@ -383,63 +383,63 @@ var ENTITIES = [
 	[], // Reserved
 	[], // Reserved
 
-	[THREE.BoxGeometry, 							FACTORY.Unconstructed,			INIT.WidthHeightDepth ],
-	[THREE.CircleBufferGeometry, 					FACTORY.Unconstructed,			INIT.RadiusSegmentsTheta ],
-	[THREE.CircleGeometry, 							FACTORY.Unconstructed,			INIT.RadiusSegmentsTheta ],
-	[THREE.CylinderGeometry, 						FACTORY.Unconstructed,			INIT.CylinderGeometry ],
-	[THREE.DodecahedronGeometry, 					FACTORY.Unconstructed,			INIT.RadiusDetail ],
-	[THREE.IcosahedronGeometry, 					FACTORY.Unconstructed,			INIT.RadiusDetail ],
-	[THREE.LatheGeometry, 							FACTORY.Unconstructed,			INIT.LatheGeometry ],
-	[THREE.OctahedronGeometry, 						FACTORY.Unconstructed,			INIT.RadiusDetail ],
-	[THREE.ParametricGeometry, 						FACTORY.Unconstructed,			INIT.WidthHeight ],
-	[THREE.PlaneBufferGeometry, 					FACTORY.Unconstructed,			INIT.WidthHeightDepth ],
-	[THREE.PlaneGeometry, 							FACTORY.Unconstructed,			INIT.WidthHeightDepth ],
-	[THREE.PolyhedronGeometry, 						FACTORY.Unconstructed,			INIT.PolyhedronGeometry ],
-	[THREE.RingGeometry, 							FACTORY.Unconstructed,			INIT.RingGeometry ],
-	[THREE.SphereBufferGeometry, 					FACTORY.Unconstructed,			INIT.SphereGeometry ],
-	[THREE.SphereGeometry, 							FACTORY.Unconstructed,			INIT.SphereGeometry ],
-	[THREE.TetrahedronGeometry, 					FACTORY.Unconstructed,			INIT.RadiusDetail ],
-	[THREE.TorusGeometry, 							FACTORY.Unconstructed,			INIT.TorusGeometry ],
-	[THREE.TorusKnotGeometry, 						FACTORY.Unconstructed,			INIT.TorusKnot ],
-	[THREE.TubeGeometry, 							FACTORY.Unconstructed,			INIT.TubeGeometry ],
+	["THREE.BoxGeometry", 							FACTORY.Unconstructed,			"INIT.WidthHeightDepth" ],
+	["THREE.CircleBufferGeometry", 					FACTORY.Unconstructed,			"INIT.RadiusSegmentsTheta" ],
+	["THREE.CircleGeometry", 							FACTORY.Unconstructed,			"INIT.RadiusSegmentsTheta" ],
+	["THREE.CylinderGeometry", 						FACTORY.Unconstructed,			"INIT.CylinderGeometry" ],
+	["THREE.DodecahedronGeometry", 					FACTORY.Unconstructed,			"INIT.RadiusDetail" ],
+	["THREE.IcosahedronGeometry", 					FACTORY.Unconstructed,			"INIT.RadiusDetail" ],
+	["THREE.LatheGeometry", 							FACTORY.Unconstructed,			"INIT.LatheGeometry" ],
+	["THREE.OctahedronGeometry", 						FACTORY.Unconstructed,			"INIT.RadiusDetail" ],
+	["THREE.ParametricGeometry", 						FACTORY.Unconstructed,			"INIT.WidthHeight" ],
+	["THREE.PlaneBufferGeometry", 					FACTORY.Unconstructed,			"INIT.WidthHeightDepth" ],
+	["THREE.PlaneGeometry", 							FACTORY.Unconstructed,			"INIT.WidthHeightDepth" ],
+	["THREE.PolyhedronGeometry", 						FACTORY.Unconstructed,			"INIT.PolyhedronGeometry" ],
+	["THREE.RingGeometry", 							FACTORY.Unconstructed,			"INIT.RingGeometry" ],
+	["THREE.SphereBufferGeometry", 					FACTORY.Unconstructed,			"INIT.SphereGeometry" ],
+	["THREE.SphereGeometry", 							FACTORY.Unconstructed,			"INIT.SphereGeometry" ],
+	["THREE.TetrahedronGeometry", 					FACTORY.Unconstructed,			"INIT.RadiusDetail" ],
+	["THREE.TorusGeometry", 							FACTORY.Unconstructed,			"INIT.TorusGeometry" ],
+	["THREE.TorusKnotGeometry", 						FACTORY.Unconstructed,			"INIT.TorusKnot" ],
+	["THREE.TubeGeometry", 							FACTORY.Unconstructed,			"INIT.TubeGeometry" ],
 
-	[THREE.BufferGeometry, 							FACTORY.Default, 				INIT.Default ],
-	[THREE.Geometry, 								FACTORY.Default, 				INIT.Default ],
+	["THREE.BufferGeometry", 							FACTORY.Default, 				"INIT.Default" ],
+	["THREE.Geometry", 								FACTORY.Default, 				"INIT.Default" ],
 
-	[THREE.Mesh, 									FACTORY.Default, 				INIT.Mesh ],
-	[THREE.AmbientLight,							FACTORY.Default,				INIT.Default ],
-	[THREE.DirectionalLight,						FACTORY.Default,				INIT.Default ],
-	[THREE.HemisphereLight,							FACTORY.Default,				INIT.Default ],
-	[THREE.PointLight,								FACTORY.Default,				INIT.Default ],
-	[THREE.SpotLight,								FACTORY.Default,				INIT.Default ],
-	[THREE.Scene,									FACTORY.Default,				INIT.Object3D ],
-	[THREE.Object3D, 								FACTORY.Default, 				INIT.Object3D ],
+	["THREE.Mesh", 									FACTORY.Default, 				"INIT.Mesh" ],
+	["THREE.AmbientLight",							FACTORY.Default,				"INIT.Default" ],
+	["THREE.DirectionalLight",						FACTORY.Default,				"INIT.Default" ],
+	["THREE.HemisphereLight",							FACTORY.Default,				"INIT.Default" ],
+	["THREE.PointLight",								FACTORY.Default,				"INIT.Default" ],
+	["THREE.SpotLight",								FACTORY.Default,				"INIT.Default" ],
+	["THREE.Scene",									FACTORY.Default,				"INIT.Object3D" ],
+	["THREE.Object3D", 								FACTORY.Default, 				"INIT.Object3D" ],
 
-	[THREE.Fog, 									FACTORY.Default, 				INIT.Object3D ],
-	[THREE.FogExp2, 								FACTORY.Default, 				INIT.Object3D ],
+	["THREE.Fog", 									FACTORY.Default, 				"INIT.Object3D" ],
+	["THREE.FogExp2", 								FACTORY.Default, 				"INIT.Object3D" ],
 
-	[THREE.MeshBasicMaterial, 						FACTORY.Default, 				INIT.Default ],
-	[THREE.MeshPhongMaterial, 						FACTORY.Default, 				INIT.Default ],
-	[THREE.MeshLambertMaterial, 					FACTORY.Default, 				INIT.Default ],
-	[THREE.MeshDepthMaterial, 						FACTORY.Default, 				INIT.Default ],
-	[THREE.MeshNormalMaterial, 						FACTORY.Default, 				INIT.Default ],
-	[THREE.MultiMaterial, 							FACTORY.Default,				INIT.Default ],
-	[THREE.PointsMaterial, 							FACTORY.Default,				INIT.Default ],
-	[THREE.SpriteMaterial, 							FACTORY.Default,				INIT.Default ],
-	[THREE.LineBasicMaterial, 						FACTORY.Default,				INIT.Default ],
-	[THREE.Material, 								FACTORY.Default, 				INIT.Default ],
+	["THREE.MeshBasicMaterial", 						FACTORY.Default, 				"INIT.Default" ],
+	["THREE.MeshPhongMaterial", 						FACTORY.Default, 				"INIT.Default" ],
+	["THREE.MeshLambertMaterial", 					FACTORY.Default, 				"INIT.Default" ],
+	["THREE.MeshDepthMaterial", 						FACTORY.Default, 				"INIT.Default" ],
+	["THREE.MeshNormalMaterial", 						FACTORY.Default, 				"INIT.Default" ],
+	["THREE.MultiMaterial", 							FACTORY.Default,				"INIT.Default" ],
+	["THREE.PointsMaterial", 							FACTORY.Default,				"INIT.Default" ],
+	["THREE.SpriteMaterial", 							FACTORY.Default,				"INIT.Default" ],
+	["THREE.LineBasicMaterial", 						FACTORY.Default,				"INIT.Default" ],
+	["THREE.Material", 								FACTORY.Default, 				"INIT.Default" ],
 
-	[THREE.PerspectiveCamera,						FACTORY.Default,				INIT.Camera],
-	[THREE.OrthographicCamera,						FACTORY.Default,				INIT.Camera],
-	[THREE.CubeCamera,								FACTORY.Unconstructed,			INIT.CubeCamera],
+	["THREE.PerspectiveCamera",						FACTORY.Default,				"INIT.Camera"],
+	["THREE.OrthographicCamera",						FACTORY.Default,				"INIT.Camera"],
+	["THREE.CubeCamera",								FACTORY.Unconstructed,			"INIT.CubeCamera"],
 
-	[THREE.CompressedTexture, 						FACTORY.Default, 				INIT.Texture ],
-	[THREE.CubeTexture, 							FACTORY.Default, 				INIT.Texture ],
-	[THREE.Texture, 								FACTORY.Default, 				INIT.Texture ],
+	["THREE.CompressedTexture", 						FACTORY.Default, 				"INIT.Texture" ],
+	["THREE.CubeTexture", 							FACTORY.Default, 				"INIT.Texture" ],
+	["THREE.Texture", 								FACTORY.Default, 				"INIT.Texture" ],
 
 	// Special types
 
-	[THREE.MD2Character, 							FACTORY.Default, 				INIT.MD2Character ],
+	["THREE.MD2Character", 							FACTORY.Default, 				"INIT.MD2Character" ],
 
 ];
 
@@ -457,30 +457,30 @@ var PROPERTYSET = {
 		'name', 'up', 'position', 'quaternion', 'scale', 'rotationAutoUpdate',
 		'matrix', 'matrixWorld', 'matrixAutoUpdate', 'matrixWorldNeedsUpdate',
 		'visible', 'castShadow', 'receiveShadow', 'frustumCulled', 'renderOrder',
-		'userData', 'children'
+		'userData', 'children', 'object3d-only-crap'
 	],
 
 	// Key frame track
 	KeyframeTrack: [
-		'name', 'keys', 'lastIndex', 'result'
+		'name', 'keys', 'lastIndex', 'result', 'KeyframeTrack-only-crap'
 	],
 
 	// Material is superclass of many materials
 	Material : [
 		'name', 'side', 'opacity', 'blending', 'blendSrc', 'blendDst', 'blendEquation', 'depthFunc',
 		'polygonOffsetFactor', 'polygonOffsetUnits', 'alphaTest', 'overdraw', 'transparent', 
-		'depthTest', 'depthWrite', 'colorWrite', 'polygonOffset', 'visible'
+		'depthTest', 'depthWrite', 'colorWrite', 'polygonOffset', 'visible', 'Material-only-crap'
 	],
 
 	// Texture
 	Texture: [ 
 		'name', 'mipmaps', 'flipY', 'mapping', 'wrapS', 'wrapT', 'magFilter', 'minFilter',
-		'anisotropy', 'format', 'type', 'offset', 'repeat', 'unpackAlignment'
+		'anisotropy', 'format', 'type', 'offset', 'repeat', 'unpackAlignment', 'Texture-only-crap'
 	],
 
 	// Geometry
 	Geometry: [
-		'name'
+		'name', 'Geometry-only-crap'
 	],
 
 };
@@ -777,4 +777,7 @@ module.exports = {
 	'ID' 		: (ID_VERSION << 2) | ID_REVISION,
 	'ENTITIES' 	: ENTITIES,
 	'PROPERTIES': PROPERTIES,
+	'FACTORY'	: FACTORY,
+	'INIT'		: INIT,
+	'PROPERTYSET': PROPERTYSET,
 };
