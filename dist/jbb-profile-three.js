@@ -70,11 +70,13 @@ var JBBProfileThree =
 	/* Generated source follows */
 
 	var THREE = __webpack_require__(1);
+	var MD2Character = __webpack_require__(2);
 
 	/**
 	 * Factory & Initializer of THREE.CubeTexture
 	 */
 	var factory_THREE_CubeTexture = {
+		props: 15,
 		create: function() {
 			return new THREE.CubeTexture();
 		},
@@ -110,6 +112,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.CompressedTexture
 	 */
 	var factory_THREE_CompressedTexture = {
+		props: 15,
 		create: function() {
 			return new THREE.CompressedTexture();
 		},
@@ -145,6 +148,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Texture
 	 */
 	var factory_THREE_Texture = {
+		props: 15,
 		create: function() {
 			return new THREE.Texture();
 		},
@@ -180,6 +184,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.MeshLambertMaterial
 	 */
 	var factory_THREE_MeshLambertMaterial = {
+		props: 33,
 		create: function() {
 			return new THREE.MeshLambertMaterial();
 		},
@@ -224,6 +229,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.MeshPhongMaterial
 	 */
 	var factory_THREE_MeshPhongMaterial = {
+		props: 50,
 		create: function() {
 			return new THREE.MeshPhongMaterial();
 		},
@@ -285,6 +291,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.MeshBasicMaterial
 	 */
 	var factory_THREE_MeshBasicMaterial = {
+		props: 37,
 		create: function() {
 			return new THREE.MeshBasicMaterial();
 		},
@@ -333,6 +340,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Material
 	 */
 	var factory_THREE_Material = {
+		props: 18,
 		create: function() {
 			return new THREE.Material();
 		},
@@ -362,6 +370,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Scene
 	 */
 	var factory_THREE_Scene = {
+		props: 19,
 		create: function() {
 			return new THREE.Scene();
 		},
@@ -392,6 +401,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.SpotLight
 	 */
 	var factory_THREE_SpotLight = {
+		props: 23,
 		create: function() {
 			return new THREE.SpotLight();
 		},
@@ -426,6 +436,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.PointLight
 	 */
 	var factory_THREE_PointLight = {
+		props: 21,
 		create: function() {
 			return new THREE.PointLight();
 		},
@@ -458,6 +469,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.HemisphereLight
 	 */
 	var factory_THREE_HemisphereLight = {
+		props: 20,
 		create: function() {
 			return new THREE.HemisphereLight();
 		},
@@ -489,6 +501,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.DirectionalLight
 	 */
 	var factory_THREE_DirectionalLight = {
+		props: 19,
 		create: function() {
 			return new THREE.DirectionalLight();
 		},
@@ -519,6 +532,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.AmbientLight
 	 */
 	var factory_THREE_AmbientLight = {
+		props: 18,
 		create: function() {
 			return new THREE.AmbientLight();
 		},
@@ -548,6 +562,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Mesh
 	 */
 	var factory_THREE_Mesh = {
+		props: 21,
 		create: function() {
 			return new THREE.Mesh();
 		},
@@ -585,6 +600,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Object3D
 	 */
 	var factory_THREE_Object3D = {
+		props: 17,
 		create: function() {
 			return new THREE.Object3D();
 		},
@@ -613,6 +629,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.BufferGeometry
 	 */
 	var factory_THREE_BufferGeometry = {
+		props: 11,
 		create: function() {
 			return new THREE.BufferGeometry();
 		},
@@ -625,8 +642,69 @@ var JBBProfileThree =
 			inst.morphColors = props[5];
 			inst.animations = props[6];
 			inst.boundingSphere = props[7];
-			inst.attributes = props[8];
-			inst.index = props[9];
+			inst.name = props[8];
+			inst.attributes = props[9];
+			inst.index = props[10];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.TubeGeometry
+	 */
+	var factory_THREE_TubeGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.TubeGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.TubeGeometry.call(inst,
+				props[0].path,
+				props[0].segments,
+				props[0].radius,
+				props[0].radialSegments,
+				props[0].closed,
+				props[0].taper);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.TorusKnotGeometry
+	 */
+	var factory_THREE_TorusKnotGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.TorusKnotGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.TorusKnotGeometry.call(inst,
+				props[0].radius,
+				props[0].tube,
+				props[0].radialSegments,
+				props[0].tubularSegments,
+				props[0].p,
+				props[0].q,
+				props[0].heightScale);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.TorusGeometry
+	 */
+	var factory_THREE_TorusGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.TorusGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.TorusGeometry.call(inst,
+				props[0].radius,
+				props[0].tube,
+				props[0].radialSegments,
+				props[0].tubularSegments,
+				props[0].arc);
+			inst.name = props[1];
 		}
 	}
 
@@ -634,21 +712,294 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.TetrahedronGeometry
 	 */
 	var factory_THREE_TetrahedronGeometry = {
+		props: 2,
 		create: function() {
 			return Object.create(THREE.TetrahedronGeometry.prototype);
 		},
 		init: function(inst, props) {
 			THREE.TetrahedronGeometry.call(inst,
-				props[8].radius,
-				props[8].detail);
-			inst.vertices = props[0];
-			inst.faces = props[1];
-			inst.faceVertexUvs = props[2];
-			inst.morphTargets = props[3];
-			inst.morphNormals = props[4];
-			inst.morphColors = props[5];
-			inst.animations = props[6];
-			inst.boundingSphere = props[7];
+				props[0].radius,
+				props[0].detail);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.SphereGeometry
+	 */
+	var factory_THREE_SphereGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.SphereGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.SphereGeometry.call(inst,
+				props[0].radius,
+				props[0].widthSegments,
+				props[0].heightSegments,
+				props[0].phiStart,
+				props[0].phiLength,
+				props[0].thetaStart,
+				props[0].thetaLength);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.SphereBufferGeometry
+	 */
+	var factory_THREE_SphereBufferGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.SphereBufferGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.SphereBufferGeometry.call(inst,
+				props[0].radius,
+				props[0].widthSegments,
+				props[0].heightSegments,
+				props[0].phiStart,
+				props[0].phiLength,
+				props[0].thetaStart,
+				props[0].thetaLength);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.RingGeometry
+	 */
+	var factory_THREE_RingGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.RingGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.RingGeometry.call(inst,
+				props[0].innerRadius,
+				props[0].outerRadius,
+				props[0].thetaSegments,
+				props[0].phiSegments,
+				props[0].thetaStart,
+				props[0].thetaLength);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.PolyhedronGeometry
+	 */
+	var factory_THREE_PolyhedronGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.PolyhedronGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.PolyhedronGeometry.call(inst,
+				props[0].vertices,
+				props[0].indices,
+				props[0].radius,
+				props[0].detail);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.PlaneGeometry
+	 */
+	var factory_THREE_PlaneGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.PlaneGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.PlaneGeometry.call(inst,
+				props[0].width,
+				props[0].height,
+				props[0].depth,
+				props[0].widthSegments,
+				props[0].heightSegments,
+				props[0].depthSegments);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.PlaneBufferGeometry
+	 */
+	var factory_THREE_PlaneBufferGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.PlaneBufferGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.PlaneBufferGeometry.call(inst,
+				props[0].width,
+				props[0].height,
+				props[0].depth,
+				props[0].widthSegments,
+				props[0].heightSegments,
+				props[0].depthSegments);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.ParametricGeometry
+	 */
+	var factory_THREE_ParametricGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.ParametricGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.ParametricGeometry.call(inst,
+				props[0].width,
+				props[0].height,
+				props[0].widthSegments,
+				props[0].heightSegments);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.OctahedronGeometry
+	 */
+	var factory_THREE_OctahedronGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.OctahedronGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.OctahedronGeometry.call(inst,
+				props[0].radius,
+				props[0].detail);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.LatheGeometry
+	 */
+	var factory_THREE_LatheGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.LatheGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.LatheGeometry.call(inst,
+				props[0].points,
+				props[0].segments,
+				props[0].phiStart,
+				props[0].phiLength);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.IcosahedronGeometry
+	 */
+	var factory_THREE_IcosahedronGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.IcosahedronGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.IcosahedronGeometry.call(inst,
+				props[0].radius,
+				props[0].detail);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.DodecahedronGeometry
+	 */
+	var factory_THREE_DodecahedronGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.DodecahedronGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.DodecahedronGeometry.call(inst,
+				props[0].radius,
+				props[0].detail);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.CylinderGeometry
+	 */
+	var factory_THREE_CylinderGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.CylinderGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.CylinderGeometry.call(inst,
+				props[0].radiusTop,
+				props[0].radiusBottom,
+				props[0].height,
+				props[0].radialSegments,
+				props[0].heightSegments,
+				props[0].openEnded,
+				props[0].thetaStart,
+				props[0].thetaLength);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.CircleGeometry
+	 */
+	var factory_THREE_CircleGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.CircleGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.CircleGeometry.call(inst,
+				props[0].radius,
+				props[0].segments,
+				props[0].thetaStart,
+				props[0].thetaLength);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.CircleBufferGeometry
+	 */
+	var factory_THREE_CircleBufferGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.CircleBufferGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.CircleBufferGeometry.call(inst,
+				props[0].radius,
+				props[0].segments,
+				props[0].thetaStart,
+				props[0].thetaLength);
+			inst.name = props[1];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.BoxGeometry
+	 */
+	var factory_THREE_BoxGeometry = {
+		props: 2,
+		create: function() {
+			return Object.create(THREE.BoxGeometry.prototype);
+		},
+		init: function(inst, props) {
+			THREE.BoxGeometry.call(inst,
+				props[0].width,
+				props[0].height,
+				props[0].depth);
+			inst.name = props[1];
 		}
 	}
 
@@ -656,6 +1007,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Geometry
 	 */
 	var factory_THREE_Geometry = {
+		props: 9,
 		create: function() {
 			return new THREE.Geometry();
 		},
@@ -668,6 +1020,7 @@ var JBBProfileThree =
 			inst.morphColors = props[5];
 			inst.animations = props[6];
 			inst.boundingSphere = props[7];
+			inst.name = props[8];
 		}
 	}
 
@@ -675,6 +1028,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Vector2
 	 */
 	var factory_THREE_Vector2 = {
+		props: 2,
 		create: function() {
 			return new THREE.Vector2();
 		},
@@ -688,6 +1042,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Vector3
 	 */
 	var factory_THREE_Vector3 = {
+		props: 3,
 		create: function() {
 			return new THREE.Vector3();
 		},
@@ -702,6 +1057,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Vector4
 	 */
 	var factory_THREE_Vector4 = {
+		props: 4,
 		create: function() {
 			return new THREE.Vector4();
 		},
@@ -717,6 +1073,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Face3
 	 */
 	var factory_THREE_Face3 = {
+		props: 8,
 		create: function() {
 			return new THREE.Face3();
 		},
@@ -736,6 +1093,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Color
 	 */
 	var factory_THREE_Color = {
+		props: 3,
 		create: function() {
 			return new THREE.Color();
 		},
@@ -750,6 +1108,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Quaternion
 	 */
 	var factory_THREE_Quaternion = {
+		props: 4,
 		create: function() {
 			return new THREE.Quaternion();
 		},
@@ -765,6 +1124,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Euler
 	 */
 	var factory_THREE_Euler = {
+		props: 4,
 		create: function() {
 			return new THREE.Euler();
 		},
@@ -780,6 +1140,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Box2
 	 */
 	var factory_THREE_Box2 = {
+		props: 2,
 		create: function() {
 			return new THREE.Box2();
 		},
@@ -793,6 +1154,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Box3
 	 */
 	var factory_THREE_Box3 = {
+		props: 2,
 		create: function() {
 			return new THREE.Box3();
 		},
@@ -806,6 +1168,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Sphere
 	 */
 	var factory_THREE_Sphere = {
+		props: 2,
 		create: function() {
 			return new THREE.Sphere();
 		},
@@ -819,6 +1182,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Matrix3
 	 */
 	var factory_THREE_Matrix3 = {
+		props: 1,
 		create: function() {
 			return new THREE.Matrix3();
 		},
@@ -831,6 +1195,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Matrix4
 	 */
 	var factory_THREE_Matrix4 = {
+		props: 1,
 		create: function() {
 			return new THREE.Matrix4();
 		},
@@ -843,6 +1208,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.BufferAttribute
 	 */
 	var factory_THREE_BufferAttribute = {
+		props: 4,
 		create: function() {
 			return new THREE.BufferAttribute();
 		},
@@ -858,6 +1224,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.AnimationClip
 	 */
 	var factory_THREE_AnimationClip = {
+		props: 3,
 		create: function() {
 			return Object.create(THREE.AnimationClip.prototype);
 		},
@@ -873,6 +1240,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.VectorKeyframeTrack
 	 */
 	var factory_THREE_VectorKeyframeTrack = {
+		props: 2,
 		create: function() {
 			return Object.create(THREE.VectorKeyframeTrack.prototype);
 		},
@@ -887,6 +1255,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.QuaternionKeyframeTrack
 	 */
 	var factory_THREE_QuaternionKeyframeTrack = {
+		props: 2,
 		create: function() {
 			return Object.create(THREE.QuaternionKeyframeTrack.prototype);
 		},
@@ -901,6 +1270,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.NumberKeyframeTrack
 	 */
 	var factory_THREE_NumberKeyframeTrack = {
+		props: 2,
 		create: function() {
 			return Object.create(THREE.NumberKeyframeTrack.prototype);
 		},
@@ -915,6 +1285,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.BooleanKeyframeTrack
 	 */
 	var factory_THREE_BooleanKeyframeTrack = {
+		props: 2,
 		create: function() {
 			return Object.create(THREE.BooleanKeyframeTrack.prototype);
 		},
@@ -929,6 +1300,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.StringKeyframeTrack
 	 */
 	var factory_THREE_StringKeyframeTrack = {
+		props: 2,
 		create: function() {
 			return Object.create(THREE.StringKeyframeTrack.prototype);
 		},
@@ -940,312 +1312,10 @@ var JBBProfileThree =
 	}
 
 	/**
-	 * Factory & Initializer of THREE.BoxGeometry
-	 */
-	var factory_THREE_BoxGeometry = {
-		create: function() {
-			return Object.create(THREE.BoxGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.BoxGeometry.call(inst,
-				props[0].width,
-				props[0].height,
-				props[0].depth);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.CircleBufferGeometry
-	 */
-	var factory_THREE_CircleBufferGeometry = {
-		create: function() {
-			return Object.create(THREE.CircleBufferGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.CircleBufferGeometry.call(inst,
-				props[0].radius,
-				props[0].segments,
-				props[0].thetaStart,
-				props[0].thetaLength);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.CircleGeometry
-	 */
-	var factory_THREE_CircleGeometry = {
-		create: function() {
-			return Object.create(THREE.CircleGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.CircleGeometry.call(inst,
-				props[0].radius,
-				props[0].segments,
-				props[0].thetaStart,
-				props[0].thetaLength);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.CylinderGeometry
-	 */
-	var factory_THREE_CylinderGeometry = {
-		create: function() {
-			return Object.create(THREE.CylinderGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.CylinderGeometry.call(inst,
-				props[0].radiusTop,
-				props[0].radiusBottom,
-				props[0].height,
-				props[0].radialSegments,
-				props[0].heightSegments,
-				props[0].openEnded,
-				props[0].thetaStart,
-				props[0].thetaLength);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.DodecahedronGeometry
-	 */
-	var factory_THREE_DodecahedronGeometry = {
-		create: function() {
-			return Object.create(THREE.DodecahedronGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.DodecahedronGeometry.call(inst,
-				props[0].radius,
-				props[0].detail);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.IcosahedronGeometry
-	 */
-	var factory_THREE_IcosahedronGeometry = {
-		create: function() {
-			return Object.create(THREE.IcosahedronGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.IcosahedronGeometry.call(inst,
-				props[0].radius,
-				props[0].detail);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.LatheGeometry
-	 */
-	var factory_THREE_LatheGeometry = {
-		create: function() {
-			return Object.create(THREE.LatheGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.LatheGeometry.call(inst,
-				props[0].points,
-				props[0].segments,
-				props[0].phiStart,
-				props[0].phiLength);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.OctahedronGeometry
-	 */
-	var factory_THREE_OctahedronGeometry = {
-		create: function() {
-			return Object.create(THREE.OctahedronGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.OctahedronGeometry.call(inst,
-				props[0].radius,
-				props[0].detail);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.ParametricGeometry
-	 */
-	var factory_THREE_ParametricGeometry = {
-		create: function() {
-			return Object.create(THREE.ParametricGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.ParametricGeometry.call(inst,
-				props[0].width,
-				props[0].height,
-				props[0].widthSegments,
-				props[0].heightSegments);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.PlaneBufferGeometry
-	 */
-	var factory_THREE_PlaneBufferGeometry = {
-		create: function() {
-			return Object.create(THREE.PlaneBufferGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.PlaneBufferGeometry.call(inst,
-				props[0].width,
-				props[0].height,
-				props[0].depth,
-				props[0].widthSegments,
-				props[0].heightSegments,
-				props[0].depthSegments);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.PlaneGeometry
-	 */
-	var factory_THREE_PlaneGeometry = {
-		create: function() {
-			return Object.create(THREE.PlaneGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.PlaneGeometry.call(inst,
-				props[0].width,
-				props[0].height,
-				props[0].depth,
-				props[0].widthSegments,
-				props[0].heightSegments,
-				props[0].depthSegments);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.PolyhedronGeometry
-	 */
-	var factory_THREE_PolyhedronGeometry = {
-		create: function() {
-			return Object.create(THREE.PolyhedronGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.PolyhedronGeometry.call(inst,
-				props[0].vertices,
-				props[0].indices,
-				props[0].radius,
-				props[0].detail);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.RingGeometry
-	 */
-	var factory_THREE_RingGeometry = {
-		create: function() {
-			return Object.create(THREE.RingGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.RingGeometry.call(inst,
-				props[0].innerRadius,
-				props[0].outerRadius,
-				props[0].thetaSegments,
-				props[0].phiSegments,
-				props[0].thetaStart,
-				props[0].thetaLength);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.SphereBufferGeometry
-	 */
-	var factory_THREE_SphereBufferGeometry = {
-		create: function() {
-			return Object.create(THREE.SphereBufferGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.SphereBufferGeometry.call(inst,
-				props[0].radius,
-				props[0].widthSegments,
-				props[0].heightSegments,
-				props[0].phiStart,
-				props[0].phiLength,
-				props[0].thetaStart,
-				props[0].thetaLength);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.SphereGeometry
-	 */
-	var factory_THREE_SphereGeometry = {
-		create: function() {
-			return Object.create(THREE.SphereGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.SphereGeometry.call(inst,
-				props[0].radius,
-				props[0].widthSegments,
-				props[0].heightSegments,
-				props[0].phiStart,
-				props[0].phiLength,
-				props[0].thetaStart,
-				props[0].thetaLength);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.TorusGeometry
-	 */
-	var factory_THREE_TorusGeometry = {
-		create: function() {
-			return Object.create(THREE.TorusGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.TorusGeometry.call(inst,
-				props[0].radius,
-				props[0].tube,
-				props[0].radialSegments,
-				props[0].tubularSegments,
-				props[0].arc);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.TorusKnotGeometry
-	 */
-	var factory_THREE_TorusKnotGeometry = {
-		create: function() {
-			return Object.create(THREE.TorusKnotGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.TorusKnotGeometry.call(inst,
-				props[0].radius,
-				props[0].tube,
-				props[0].radialSegments,
-				props[0].tubularSegments,
-				props[0].p,
-				props[0].q,
-				props[0].heightScale);
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.TubeGeometry
-	 */
-	var factory_THREE_TubeGeometry = {
-		create: function() {
-			return Object.create(THREE.TubeGeometry.prototype);
-		},
-		init: function(inst, props) {
-			THREE.TubeGeometry.call(inst,
-				props[0].path,
-				props[0].segments,
-				props[0].radius,
-				props[0].radialSegments,
-				props[0].closed,
-				props[0].taper);
-		}
-	}
-
-	/**
 	 * Factory & Initializer of THREE.Fog
 	 */
 	var factory_THREE_Fog = {
+		props: 3,
 		create: function() {
 			return new THREE.Fog();
 		},
@@ -1260,6 +1330,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.FogExp2
 	 */
 	var factory_THREE_FogExp2 = {
+		props: 2,
 		create: function() {
 			return new THREE.FogExp2();
 		},
@@ -1273,6 +1344,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.MeshDepthMaterial
 	 */
 	var factory_THREE_MeshDepthMaterial = {
+		props: 6,
 		create: function() {
 			return new THREE.MeshDepthMaterial();
 		},
@@ -1290,6 +1362,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.MeshNormalMaterial
 	 */
 	var factory_THREE_MeshNormalMaterial = {
+		props: 6,
 		create: function() {
 			return new THREE.MeshNormalMaterial();
 		},
@@ -1307,6 +1380,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.MultiMaterial
 	 */
 	var factory_THREE_MultiMaterial = {
+		props: 2,
 		create: function() {
 			return new THREE.MultiMaterial();
 		},
@@ -1320,6 +1394,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.PointsMaterial
 	 */
 	var factory_THREE_PointsMaterial = {
+		props: 10,
 		create: function() {
 			return new THREE.PointsMaterial();
 		},
@@ -1341,6 +1416,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.SpriteMaterial
 	 */
 	var factory_THREE_SpriteMaterial = {
+		props: 9,
 		create: function() {
 			return new THREE.SpriteMaterial();
 		},
@@ -1361,6 +1437,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.LineBasicMaterial
 	 */
 	var factory_THREE_LineBasicMaterial = {
+		props: 10,
 		create: function() {
 			return new THREE.LineBasicMaterial();
 		},
@@ -1382,6 +1459,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.PerspectiveCamera
 	 */
 	var factory_THREE_PerspectiveCamera = {
+		props: 4,
 		create: function() {
 			return new THREE.PerspectiveCamera();
 		},
@@ -1402,6 +1480,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.OrthographicCamera
 	 */
 	var factory_THREE_OrthographicCamera = {
+		props: 6,
 		create: function() {
 			return new THREE.OrthographicCamera();
 		},
@@ -1424,6 +1503,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.CubeCamera
 	 */
 	var factory_THREE_CubeCamera = {
+		props: 3,
 		create: function() {
 			return Object.create(THREE.CubeCamera.prototype);
 		},
@@ -1439,6 +1519,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.MD2Character
 	 */
 	var factory_THREE_MD2Character = {
+		props: 9,
 		create: function() {
 			return new THREE.MD2Character();
 		},
@@ -1462,146 +1543,147 @@ var JBBProfileThree =
 
 	module.exports = {
 		id: 1,
+		size: 67,
 		decode: function( id ) {
-				if (id < 34) {
-					if (id < 17) {
-						if (id < 9) {
-							if (id < 5) {
+				if (id < 32) {
+					if (id < 10) {
+						if (id < 5) {
+							if (id < 3) {
 								switch (id) {
-									case 0: return factory_THREE_CubeTexture;
-									case 1: return factory_THREE_CompressedTexture;
-									case 2: return factory_THREE_Texture;
-									case 3: return factory_THREE_MeshLambertMaterial;
-									case 4: return factory_THREE_MeshPhongMaterial;
+									case 0: return factory_THREE_Vector2;
+									case 1: return factory_THREE_Vector3;
+									case 2: return factory_THREE_Vector4;
 								}
 							} else {
 								switch (id) {
-									case 5: return factory_THREE_MeshBasicMaterial;
-									case 6: return factory_THREE_Material;
-									case 7: return factory_THREE_Scene;
-									case 8: return factory_THREE_SpotLight;
+									case 3: return factory_THREE_Face3;
+									case 4: return factory_THREE_Color;
 								}
 							}
 						} else {
-							if (id < 13) {
+							if (id < 8) {
 								switch (id) {
-									case 9: return factory_THREE_PointLight;
-									case 10: return factory_THREE_HemisphereLight;
-									case 11: return factory_THREE_DirectionalLight;
-									case 12: return factory_THREE_AmbientLight;
+									case 5: return factory_THREE_Quaternion;
+									case 6: return factory_THREE_Euler;
+									case 7: return factory_THREE_Box2;
 								}
 							} else {
 								switch (id) {
-									case 13: return factory_THREE_Mesh;
-									case 14: return factory_THREE_Object3D;
-									case 15: return factory_THREE_BufferGeometry;
-									case 16: return factory_THREE_TetrahedronGeometry;
+									case 8: return factory_THREE_Box3;
+									case 9: return factory_THREE_Sphere;
 								}
 							}
 						}
 					} else {
-						if (id < 26) {
-							if (id < 22) {
+						if (id < 15) {
+							if (id < 13) {
 								switch (id) {
-									case 17: return factory_THREE_Geometry;
-									case 18: return factory_THREE_Vector2;
-									case 19: return factory_THREE_Vector3;
-									case 20: return factory_THREE_Vector4;
-									case 21: return factory_THREE_Face3;
+									case 10: return factory_THREE_Matrix3;
+									case 11: return factory_THREE_Matrix4;
+									case 12: return factory_THREE_BufferAttribute;
 								}
 							} else {
 								switch (id) {
-									case 22: return factory_THREE_Color;
-									case 23: return factory_THREE_Quaternion;
-									case 24: return factory_THREE_Euler;
-									case 25: return factory_THREE_Box2;
+									case 13: return factory_THREE_AnimationClip;
+									case 14: return factory_THREE_VectorKeyframeTrack;
 								}
 							}
 						} else {
-							if (id < 30) {
+							if (id < 17) {
 								switch (id) {
-									case 26: return factory_THREE_Box3;
-									case 27: return factory_THREE_Sphere;
-									case 28: return factory_THREE_Matrix3;
-									case 29: return factory_THREE_Matrix4;
+									case 15: return factory_THREE_QuaternionKeyframeTrack;
+									case 16: return factory_THREE_NumberKeyframeTrack;
 								}
 							} else {
 								switch (id) {
-									case 30: return factory_THREE_BufferAttribute;
-									case 31: return factory_THREE_AnimationClip;
-									case 32: return factory_THREE_VectorKeyframeTrack;
-									case 33: return factory_THREE_QuaternionKeyframeTrack;
+									case 17: return factory_THREE_BooleanKeyframeTrack;
+									case 18: return factory_THREE_StringKeyframeTrack;
 								}
 							}
 						}
 					}
 				} else {
-					if (id < 51) {
+					if (id < 55) {
 						if (id < 43) {
-							if (id < 39) {
+							if (id < 37) {
 								switch (id) {
-									case 34: return factory_THREE_NumberKeyframeTrack;
-									case 35: return factory_THREE_BooleanKeyframeTrack;
-									case 36: return factory_THREE_StringKeyframeTrack;
-									case 37: return factory_THREE_BoxGeometry;
-									case 38: return factory_THREE_CircleBufferGeometry;
+									case 31: return factory_THREE_CubeTexture;
+									case 32: return factory_THREE_CompressedTexture;
+									case 33: return factory_THREE_Texture;
+									case 34: return factory_THREE_MeshLambertMaterial;
+									case 35: return factory_THREE_MeshPhongMaterial;
+									case 36: return factory_THREE_MeshBasicMaterial;
 								}
 							} else {
 								switch (id) {
-									case 39: return factory_THREE_CircleGeometry;
-									case 40: return factory_THREE_CylinderGeometry;
-									case 41: return factory_THREE_DodecahedronGeometry;
-									case 42: return factory_THREE_IcosahedronGeometry;
+									case 37: return factory_THREE_Material;
+									case 38: return factory_THREE_Scene;
+									case 39: return factory_THREE_SpotLight;
+									case 40: return factory_THREE_PointLight;
+									case 41: return factory_THREE_HemisphereLight;
+									case 42: return factory_THREE_DirectionalLight;
 								}
 							}
 						} else {
-							if (id < 47) {
+							if (id < 49) {
 								switch (id) {
-									case 43: return factory_THREE_LatheGeometry;
-									case 44: return factory_THREE_OctahedronGeometry;
-									case 45: return factory_THREE_ParametricGeometry;
-									case 46: return factory_THREE_PlaneBufferGeometry;
+									case 43: return factory_THREE_AmbientLight;
+									case 44: return factory_THREE_Mesh;
+									case 45: return factory_THREE_Object3D;
+									case 46: return factory_THREE_BufferGeometry;
+									case 47: return factory_THREE_TubeGeometry;
+									case 48: return factory_THREE_TorusKnotGeometry;
 								}
 							} else {
 								switch (id) {
-									case 47: return factory_THREE_PlaneGeometry;
-									case 48: return factory_THREE_PolyhedronGeometry;
-									case 49: return factory_THREE_RingGeometry;
-									case 50: return factory_THREE_SphereBufferGeometry;
+									case 49: return factory_THREE_TorusGeometry;
+									case 50: return factory_THREE_TetrahedronGeometry;
+									case 51: return factory_THREE_SphereGeometry;
+									case 52: return factory_THREE_SphereBufferGeometry;
+									case 53: return factory_THREE_RingGeometry;
+									case 54: return factory_THREE_PolyhedronGeometry;
 								}
 							}
 						}
 					} else {
-						if (id < 59) {
-							if (id < 55) {
+						if (id < 67) {
+							if (id < 61) {
 								switch (id) {
-									case 51: return factory_THREE_SphereGeometry;
-									case 52: return factory_THREE_TorusGeometry;
-									case 53: return factory_THREE_TorusKnotGeometry;
-									case 54: return factory_THREE_TubeGeometry;
+									case 55: return factory_THREE_PlaneGeometry;
+									case 56: return factory_THREE_PlaneBufferGeometry;
+									case 57: return factory_THREE_ParametricGeometry;
+									case 58: return factory_THREE_OctahedronGeometry;
+									case 59: return factory_THREE_LatheGeometry;
+									case 60: return factory_THREE_IcosahedronGeometry;
 								}
 							} else {
 								switch (id) {
-									case 55: return factory_THREE_Fog;
-									case 56: return factory_THREE_FogExp2;
-									case 57: return factory_THREE_MeshDepthMaterial;
-									case 58: return factory_THREE_MeshNormalMaterial;
+									case 61: return factory_THREE_DodecahedronGeometry;
+									case 62: return factory_THREE_CylinderGeometry;
+									case 63: return factory_THREE_CircleGeometry;
+									case 64: return factory_THREE_CircleBufferGeometry;
+									case 65: return factory_THREE_BoxGeometry;
+									case 66: return factory_THREE_Geometry;
 								}
 							}
 						} else {
-							if (id < 63) {
+							if (id < 73) {
 								switch (id) {
-									case 59: return factory_THREE_MultiMaterial;
-									case 60: return factory_THREE_PointsMaterial;
-									case 61: return factory_THREE_SpriteMaterial;
-									case 62: return factory_THREE_LineBasicMaterial;
+									case 67: return factory_THREE_Fog;
+									case 68: return factory_THREE_FogExp2;
+									case 69: return factory_THREE_MeshDepthMaterial;
+									case 70: return factory_THREE_MeshNormalMaterial;
+									case 71: return factory_THREE_MultiMaterial;
+									case 72: return factory_THREE_PointsMaterial;
 								}
 							} else {
 								switch (id) {
-									case 63: return factory_THREE_PerspectiveCamera;
-									case 64: return factory_THREE_OrthographicCamera;
-									case 65: return factory_THREE_CubeCamera;
-									case 66: return factory_THREE_MD2Character;
+									case 73: return factory_THREE_SpriteMaterial;
+									case 74: return factory_THREE_LineBasicMaterial;
+									case 75: return factory_THREE_PerspectiveCamera;
+									case 76: return factory_THREE_OrthographicCamera;
+									case 77: return factory_THREE_CubeCamera;
+									case 78: return factory_THREE_MD2Character;
 								}
 							}
 						}
@@ -1616,6 +1698,270 @@ var JBBProfileThree =
 /***/ function(module, exports) {
 
 	module.exports = THREE;
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @author alteredq / http://alteredqualia.com/
+	 */
+	var THREE = __webpack_require__(1);
+	THREE.MD2Character = function () {
+
+		var scope = this;
+
+		this.scale = 1;
+		this.animationFPS = 6;
+
+		this.root = new THREE.Object3D();
+
+		this.meshBody = null;
+		this.meshWeapon = null;
+
+		this.skinsBody = [];
+		this.skinsWeapon = [];
+
+		this.weapons = [];
+
+		this.activeAnimation = null;
+
+		this.mixer = null;
+
+		this.onLoadComplete = function () {};
+
+		this.loadCounter = 0;
+
+		this.loadParts = function ( config ) {
+
+			this.loadCounter = config.weapons.length * 2 + config.skins.length + 1;
+
+			var weaponsTextures = [];
+			for ( var i = 0; i < config.weapons.length; i ++ ) weaponsTextures[ i ] = config.weapons[ i ][ 1 ];
+
+			// SKINS
+
+			this.skinsBody = loadTextures( config.baseUrl + "skins/", config.skins );
+			this.skinsWeapon = loadTextures( config.baseUrl + "skins/", weaponsTextures );
+
+			// BODY
+
+			var loader = new THREE.MD2Loader();
+
+			loader.load( config.baseUrl + config.body, function( geo ) {
+
+				geo.computeBoundingBox();
+				scope.root.position.y = - scope.scale * geo.boundingBox.min.y;
+
+				var mesh = createPart( geo, scope.skinsBody[ 0 ] );
+				mesh.scale.set( scope.scale, scope.scale, scope.scale );
+
+				scope.root.add( mesh );
+
+				scope.meshBody = mesh;
+
+				scope.meshBody.clipOffset = 0;
+				scope.activeAnimationClipName = mesh.geometry.animations[0].name;
+
+				scope.mixer = new THREE.AnimationMixer( mesh );
+
+				checkLoadingComplete();
+
+			} );
+
+			// WEAPONS
+
+			var generateCallback = function ( index, name ) {
+
+				return function( geo ) {
+
+					var mesh = createPart( geo, scope.skinsWeapon[ index ] );
+					mesh.scale.set( scope.scale, scope.scale, scope.scale );
+					mesh.visible = false;
+
+					mesh.name = name;
+
+					scope.root.add( mesh );
+
+					scope.weapons[ index ] = mesh;
+					scope.meshWeapon = mesh;
+
+					checkLoadingComplete();
+
+				}
+
+			};
+
+			for ( var i = 0; i < config.weapons.length; i ++ ) {
+
+				loader.load( config.baseUrl + config.weapons[ i ][ 0 ], generateCallback( i, config.weapons[ i ][ 0 ] ) );
+
+			}
+
+		};
+
+		this.setPlaybackRate = function ( rate ) {
+
+			if( rate !== 0 ) {
+				this.mixer.timeScale = 1 / rate;
+			}
+			else {
+				this.mixer.timeScale = 0;
+			}
+
+		};
+
+		this.setWireframe = function ( wireframeEnabled ) {
+
+			if ( wireframeEnabled ) {
+
+				if ( this.meshBody ) this.meshBody.material = this.meshBody.materialWireframe;
+				if ( this.meshWeapon ) this.meshWeapon.material = this.meshWeapon.materialWireframe;
+
+			} else {
+
+				if ( this.meshBody ) this.meshBody.material = this.meshBody.materialTexture;
+				if ( this.meshWeapon ) this.meshWeapon.material = this.meshWeapon.materialTexture;
+
+			}
+
+		};
+
+		this.setSkin = function( index ) {
+
+			if ( this.meshBody && this.meshBody.material.wireframe === false ) {
+
+				this.meshBody.material.map = this.skinsBody[ index ];
+
+			}
+
+		};
+
+		this.setWeapon = function ( index ) {
+
+			for ( var i = 0; i < this.weapons.length; i ++ ) this.weapons[ i ].visible = false;
+
+			var activeWeapon = this.weapons[ index ];
+
+			if ( activeWeapon ) {
+
+				activeWeapon.visible = true;
+				this.meshWeapon = activeWeapon;
+
+				scope.syncWeaponAnimation();
+
+			}
+
+		};
+
+		this.setAnimation = function ( clipName ) {
+
+			if ( this.meshBody ) {
+
+				if( this.meshBody.activeAction ) {
+					scope.mixer.removeAction( this.meshBody.activeAction );
+					this.meshBody.activeAction = null;
+				}
+
+				var clip = THREE.AnimationClip.findByName( this.meshBody.geometry.animations, clipName );
+				if( clip ) {
+
+					var action = new THREE.AnimationAction( clip, this.mixer.time ).setLocalRoot( this.meshBody );
+					scope.mixer.addAction( action );
+
+					this.meshBody.activeAction = action;
+
+				}
+
+			}
+
+			scope.activeClipName = clipName;
+
+			scope.syncWeaponAnimation();
+
+		};
+
+		this.syncWeaponAnimation = function() {
+
+			var clipName = scope.activeClipName;
+
+			if ( scope.meshWeapon ) {
+
+				if( this.meshWeapon.activeAction ) {
+					scope.mixer.removeAction( this.meshWeapon.activeAction );
+					this.meshWeapon.activeAction = null;
+				}
+
+				var clip = THREE.AnimationClip.findByName( this.meshWeapon.geometry.animations, clipName );
+				if( clip ) {
+
+					var action = new THREE.AnimationAction( clip ).syncWith( this.meshBody.activeAction ).setLocalRoot( this.meshWeapon );
+					scope.mixer.addAction( action );
+
+					this.meshWeapon.activeAction = action;
+
+				}
+
+			}
+				
+		}
+
+		this.update = function ( delta ) {
+
+			if( this.mixer ) this.mixer.update( delta );
+
+		};
+
+		function loadTextures( baseUrl, textureUrls ) {
+
+			var mapping = THREE.UVMapping;
+			var textures = [];
+
+			for ( var i = 0; i < textureUrls.length; i ++ ) {
+
+				textures[ i ] = THREE.ImageUtils.loadTexture( baseUrl + textureUrls[ i ], mapping, checkLoadingComplete );
+				textures[ i ].name = textureUrls[ i ];
+
+			}
+
+			return textures;
+
+		}
+
+		function createPart( geometry, skinMap ) {
+
+			var materialWireframe = new THREE.MeshLambertMaterial( { color: 0xffaa00, wireframe: true, morphTargets: true, morphNormals: true } );
+			var materialTexture = new THREE.MeshLambertMaterial( { color: 0xffffff, wireframe: false, map: skinMap, morphTargets: true, morphNormals: true } );
+
+			//
+
+			var mesh = new THREE.Mesh( geometry, materialTexture );
+			mesh.rotation.y = - Math.PI / 2;
+
+			mesh.castShadow = true;
+			mesh.receiveShadow = true;
+
+			//
+
+			mesh.materialTexture = materialTexture;
+			mesh.materialWireframe = materialWireframe;
+		
+			return mesh;
+
+		}
+
+		function checkLoadingComplete() {
+
+			scope.loadCounter -= 1;
+
+			if ( scope.loadCounter === 0 ) scope.onLoadComplete();
+
+		}
+
+	};
+
+	module.exports = THREE.MD2Character;
+
 
 /***/ }
 /******/ ]);

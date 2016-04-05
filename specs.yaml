@@ -7,6 +7,7 @@
 @include.decode: lib/Decode.js
 @require:
     THREE: three
+    MD2Character: "./lib/helpers/MD2Character"
 
 # Objects
 
@@ -113,7 +114,6 @@ THREE.AnimationClip:
 
 THREE.VectorKeyframeTrack:
     frequent: yes
-    factory: create
     init: [ name, keys ]
     properties:
         - name
@@ -121,7 +121,6 @@ THREE.VectorKeyframeTrack:
 
 THREE.QuaternionKeyframeTrack:
     frequent: yes
-    factory: create
     init: [ name, keys ]
     properties:
         - name
@@ -129,7 +128,6 @@ THREE.QuaternionKeyframeTrack:
 
 THREE.NumberKeyframeTrack:
     frequent: yes
-    factory: create
     init: [ name, keys ]
     properties:
         - name
@@ -137,7 +135,6 @@ THREE.NumberKeyframeTrack:
 
 THREE.BooleanKeyframeTrack:
     frequent: yes
-    factory: create
     init: [ name, keys ]
     properties:
         - name
@@ -145,21 +142,23 @@ THREE.BooleanKeyframeTrack:
 
 THREE.StringKeyframeTrack:
     frequent: yes
-    factory: create
     init: [ name, keys ]
     properties:
         - name
         - keys
 
 THREE.BoxGeometry:
+    depends: THREE.Geometry
     init: 
         - parameters.width
         - parameters.height
         - parameters.depth
     properties:
         - parameters
+        - name
 
 THREE.CircleBufferGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.segments
@@ -167,8 +166,10 @@ THREE.CircleBufferGeometry:
         - parameters.thetaLength
     properties:
         - parameters
+        - name
 
 THREE.CircleGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.segments
@@ -176,8 +177,10 @@ THREE.CircleGeometry:
         - parameters.thetaLength
     properties:
         - parameters
+        - name
 
 THREE.CylinderGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.radiusTop
         - parameters.radiusBottom
@@ -189,22 +192,28 @@ THREE.CylinderGeometry:
         - parameters.thetaLength
     properties:
         - parameters
+        - name
 
 THREE.DodecahedronGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.detail
     properties:
         - parameters
+        - name
 
 THREE.IcosahedronGeometry:
+    depends: THREE.Geometry
     init: 
         - parameters.radius
         - parameters.detail
     properties:
         - parameters
+        - name
 
 THREE.LatheGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.points
         - parameters.segments
@@ -212,15 +221,19 @@ THREE.LatheGeometry:
         - parameters.phiLength
     properties:
         - parameters
+        - name
 
 THREE.OctahedronGeometry:
+    depends: THREE.Geometry
     init: 
         - parameters.radius
         - parameters.detail
     properties:
         - parameters
+        - name
 
 THREE.ParametricGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.width
         - parameters.height
@@ -228,8 +241,10 @@ THREE.ParametricGeometry:
         - parameters.heightSegments
     properties:
         - parameters
+        - name
 
 THREE.PlaneBufferGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.width
         - parameters.height
@@ -239,8 +254,10 @@ THREE.PlaneBufferGeometry:
         - parameters.depthSegments
     properties:
         - parameters
+        - name
 
 THREE.PlaneGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.width
         - parameters.height
@@ -250,8 +267,10 @@ THREE.PlaneGeometry:
         - parameters.depthSegments
     properties:
         - parameters
+        - name
 
 THREE.PolyhedronGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.vertices
         - parameters.indices
@@ -259,8 +278,10 @@ THREE.PolyhedronGeometry:
         - parameters.detail
     properties:
         - parameters
+        - name
 
 THREE.RingGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.innerRadius
         - parameters.outerRadius
@@ -270,8 +291,10 @@ THREE.RingGeometry:
         - parameters.thetaLength
     properties:
         - parameters
+        - name
 
 THREE.SphereBufferGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.widthSegments
@@ -282,8 +305,10 @@ THREE.SphereBufferGeometry:
         - parameters.thetaLength
     properties:
         - parameters
+        - name
 
 THREE.SphereGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.widthSegments
@@ -294,16 +319,19 @@ THREE.SphereGeometry:
         - parameters.thetaLength
     properties:
         - parameters
+        - name
 
 THREE.TetrahedronGeometry:
+    depends: THREE.Geometry
     init: 
         - parameters.radius
         - parameters.detail
-    extends: THREE.Geometry
     properties:
         - parameters
+        - name
 
 THREE.TorusGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.tube
@@ -312,8 +340,10 @@ THREE.TorusGeometry:
         - parameters.arc
     properties:
         - parameters
+        - name
 
 THREE.TorusKnotGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.radius
         - parameters.tube
@@ -324,8 +354,10 @@ THREE.TorusKnotGeometry:
         - parameters.heightScale
     properties:
         - parameters
+        - name
 
 THREE.TubeGeometry:
+    depends: THREE.Geometry
     init:
         - parameters.path
         - parameters.segments
@@ -335,6 +367,7 @@ THREE.TubeGeometry:
         - parameters.taper
     properties:
         - parameters
+        - name
 
 THREE.BufferGeometry:
     extends: THREE.Geometry
@@ -352,6 +385,7 @@ THREE.Geometry:
         - morphColors
         - animations
         - boundingSphere
+        - name
 
 THREE.Mesh:
     extends: THREE.Object3D
