@@ -1021,77 +1021,77 @@ module.exports = {
 	size: 67,
 	encode: function( inst ) {
 			if (inst instanceof THREE.CubeTexture) {
-				return [31, getter_THREE_CubeTexture];
+				return [32, getter_THREE_CubeTexture];
 			} else if (inst instanceof THREE.CompressedTexture) {
-				return [32, getter_THREE_CompressedTexture];
+				return [33, getter_THREE_CompressedTexture];
 			} else if (inst instanceof THREE.Texture) {
-				return [33, getter_THREE_Texture];
+				return [34, getter_THREE_Texture];
 			} else if (inst instanceof THREE.MeshLambertMaterial) {
-				return [34, getter_THREE_MeshLambertMaterial];
+				return [35, getter_THREE_MeshLambertMaterial];
 			} else if (inst instanceof THREE.MeshPhongMaterial) {
-				return [35, getter_THREE_MeshPhongMaterial];
+				return [36, getter_THREE_MeshPhongMaterial];
 			} else if (inst instanceof THREE.MeshBasicMaterial) {
-				return [36, getter_THREE_MeshBasicMaterial];
+				return [37, getter_THREE_MeshBasicMaterial];
 			} else if (inst instanceof THREE.Material) {
-				return [37, getter_THREE_Material];
+				return [38, getter_THREE_Material];
 			} else if (inst instanceof THREE.Scene) {
-				return [38, getter_THREE_Scene];
+				return [39, getter_THREE_Scene];
 			} else if (inst instanceof THREE.SpotLight) {
-				return [39, getter_THREE_SpotLight];
+				return [40, getter_THREE_SpotLight];
 			} else if (inst instanceof THREE.PointLight) {
-				return [40, getter_THREE_PointLight];
+				return [41, getter_THREE_PointLight];
 			} else if (inst instanceof THREE.HemisphereLight) {
-				return [41, getter_THREE_HemisphereLight];
+				return [42, getter_THREE_HemisphereLight];
 			} else if (inst instanceof THREE.DirectionalLight) {
-				return [42, getter_THREE_DirectionalLight];
+				return [43, getter_THREE_DirectionalLight];
 			} else if (inst instanceof THREE.AmbientLight) {
-				return [43, getter_THREE_AmbientLight];
+				return [44, getter_THREE_AmbientLight];
 			} else if (inst instanceof THREE.Mesh) {
-				return [44, getter_THREE_Mesh];
+				return [45, getter_THREE_Mesh];
 			} else if (inst instanceof THREE.Object3D) {
-				return [45, getter_THREE_Object3D];
+				return [46, getter_THREE_Object3D];
 			} else if (inst instanceof THREE.BufferGeometry) {
-				return [46, getter_THREE_BufferGeometry];
+				return [47, getter_THREE_BufferGeometry];
 			} else if (inst instanceof THREE.TubeGeometry) {
-				return [47, getter_THREE_TubeGeometry];
+				return [48, getter_THREE_TubeGeometry];
 			} else if (inst instanceof THREE.TorusKnotGeometry) {
-				return [48, getter_THREE_TorusKnotGeometry];
+				return [49, getter_THREE_TorusKnotGeometry];
 			} else if (inst instanceof THREE.TorusGeometry) {
-				return [49, getter_THREE_TorusGeometry];
+				return [50, getter_THREE_TorusGeometry];
 			} else if (inst instanceof THREE.TetrahedronGeometry) {
-				return [50, getter_THREE_TetrahedronGeometry];
+				return [51, getter_THREE_TetrahedronGeometry];
 			} else if (inst instanceof THREE.SphereGeometry) {
-				return [51, getter_THREE_SphereGeometry];
+				return [52, getter_THREE_SphereGeometry];
 			} else if (inst instanceof THREE.SphereBufferGeometry) {
-				return [52, getter_THREE_SphereBufferGeometry];
+				return [53, getter_THREE_SphereBufferGeometry];
 			} else if (inst instanceof THREE.RingGeometry) {
-				return [53, getter_THREE_RingGeometry];
+				return [54, getter_THREE_RingGeometry];
 			} else if (inst instanceof THREE.PolyhedronGeometry) {
-				return [54, getter_THREE_PolyhedronGeometry];
+				return [55, getter_THREE_PolyhedronGeometry];
 			} else if (inst instanceof THREE.PlaneGeometry) {
-				return [55, getter_THREE_PlaneGeometry];
+				return [56, getter_THREE_PlaneGeometry];
 			} else if (inst instanceof THREE.PlaneBufferGeometry) {
-				return [56, getter_THREE_PlaneBufferGeometry];
+				return [57, getter_THREE_PlaneBufferGeometry];
 			} else if (inst instanceof THREE.ParametricGeometry) {
-				return [57, getter_THREE_ParametricGeometry];
+				return [58, getter_THREE_ParametricGeometry];
 			} else if (inst instanceof THREE.OctahedronGeometry) {
-				return [58, getter_THREE_OctahedronGeometry];
+				return [59, getter_THREE_OctahedronGeometry];
 			} else if (inst instanceof THREE.LatheGeometry) {
-				return [59, getter_THREE_LatheGeometry];
+				return [60, getter_THREE_LatheGeometry];
 			} else if (inst instanceof THREE.IcosahedronGeometry) {
-				return [60, getter_THREE_IcosahedronGeometry];
+				return [61, getter_THREE_IcosahedronGeometry];
 			} else if (inst instanceof THREE.DodecahedronGeometry) {
-				return [61, getter_THREE_DodecahedronGeometry];
+				return [62, getter_THREE_DodecahedronGeometry];
 			} else if (inst instanceof THREE.CylinderGeometry) {
-				return [62, getter_THREE_CylinderGeometry];
+				return [63, getter_THREE_CylinderGeometry];
 			} else if (inst instanceof THREE.CircleGeometry) {
-				return [63, getter_THREE_CircleGeometry];
+				return [64, getter_THREE_CircleGeometry];
 			} else if (inst instanceof THREE.CircleBufferGeometry) {
-				return [64, getter_THREE_CircleBufferGeometry];
+				return [65, getter_THREE_CircleBufferGeometry];
 			} else if (inst instanceof THREE.BoxGeometry) {
-				return [65, getter_THREE_BoxGeometry];
+				return [66, getter_THREE_BoxGeometry];
 			} else if (inst instanceof THREE.Geometry) {
-				return [66, getter_THREE_Geometry];
+				return [67, getter_THREE_Geometry];
 			} else if (inst instanceof THREE.Vector2) {
 				return [0, getter_THREE_Vector2];
 			} else if (inst instanceof THREE.Vector3) {
@@ -1131,29 +1131,29 @@ module.exports = {
 			} else if (inst instanceof THREE.StringKeyframeTrack) {
 				return [18, getter_THREE_StringKeyframeTrack];
 			} else if (inst instanceof THREE.Fog) {
-				return [67, getter_THREE_Fog];
+				return [68, getter_THREE_Fog];
 			} else if (inst instanceof THREE.FogExp2) {
-				return [68, getter_THREE_FogExp2];
+				return [69, getter_THREE_FogExp2];
 			} else if (inst instanceof THREE.MeshDepthMaterial) {
-				return [69, getter_THREE_MeshDepthMaterial];
+				return [70, getter_THREE_MeshDepthMaterial];
 			} else if (inst instanceof THREE.MeshNormalMaterial) {
-				return [70, getter_THREE_MeshNormalMaterial];
+				return [71, getter_THREE_MeshNormalMaterial];
 			} else if (inst instanceof THREE.MultiMaterial) {
-				return [71, getter_THREE_MultiMaterial];
+				return [72, getter_THREE_MultiMaterial];
 			} else if (inst instanceof THREE.PointsMaterial) {
-				return [72, getter_THREE_PointsMaterial];
+				return [73, getter_THREE_PointsMaterial];
 			} else if (inst instanceof THREE.SpriteMaterial) {
-				return [73, getter_THREE_SpriteMaterial];
+				return [74, getter_THREE_SpriteMaterial];
 			} else if (inst instanceof THREE.LineBasicMaterial) {
-				return [74, getter_THREE_LineBasicMaterial];
+				return [75, getter_THREE_LineBasicMaterial];
 			} else if (inst instanceof THREE.PerspectiveCamera) {
-				return [75, getter_THREE_PerspectiveCamera];
+				return [76, getter_THREE_PerspectiveCamera];
 			} else if (inst instanceof THREE.OrthographicCamera) {
-				return [76, getter_THREE_OrthographicCamera];
+				return [77, getter_THREE_OrthographicCamera];
 			} else if (inst instanceof THREE.CubeCamera) {
-				return [77, getter_THREE_CubeCamera];
+				return [78, getter_THREE_CubeCamera];
 			} else if (inst instanceof THREE.MD2Character) {
-				return [78, getter_THREE_MD2Character];
+				return [79, getter_THREE_MD2Character];
 			}
 		}
 };

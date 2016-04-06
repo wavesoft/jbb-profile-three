@@ -1603,87 +1603,87 @@ var JBBProfileThree =
 						}
 					}
 				} else {
-					if (id < 55) {
-						if (id < 43) {
-							if (id < 37) {
+					if (id < 56) {
+						if (id < 44) {
+							if (id < 38) {
 								switch (id) {
-									case 31: return factory_THREE_CubeTexture;
-									case 32: return factory_THREE_CompressedTexture;
-									case 33: return factory_THREE_Texture;
-									case 34: return factory_THREE_MeshLambertMaterial;
-									case 35: return factory_THREE_MeshPhongMaterial;
-									case 36: return factory_THREE_MeshBasicMaterial;
+									case 32: return factory_THREE_CubeTexture;
+									case 33: return factory_THREE_CompressedTexture;
+									case 34: return factory_THREE_Texture;
+									case 35: return factory_THREE_MeshLambertMaterial;
+									case 36: return factory_THREE_MeshPhongMaterial;
+									case 37: return factory_THREE_MeshBasicMaterial;
 								}
 							} else {
 								switch (id) {
-									case 37: return factory_THREE_Material;
-									case 38: return factory_THREE_Scene;
-									case 39: return factory_THREE_SpotLight;
-									case 40: return factory_THREE_PointLight;
-									case 41: return factory_THREE_HemisphereLight;
-									case 42: return factory_THREE_DirectionalLight;
+									case 38: return factory_THREE_Material;
+									case 39: return factory_THREE_Scene;
+									case 40: return factory_THREE_SpotLight;
+									case 41: return factory_THREE_PointLight;
+									case 42: return factory_THREE_HemisphereLight;
+									case 43: return factory_THREE_DirectionalLight;
 								}
 							}
 						} else {
-							if (id < 49) {
+							if (id < 50) {
 								switch (id) {
-									case 43: return factory_THREE_AmbientLight;
-									case 44: return factory_THREE_Mesh;
-									case 45: return factory_THREE_Object3D;
-									case 46: return factory_THREE_BufferGeometry;
-									case 47: return factory_THREE_TubeGeometry;
-									case 48: return factory_THREE_TorusKnotGeometry;
+									case 44: return factory_THREE_AmbientLight;
+									case 45: return factory_THREE_Mesh;
+									case 46: return factory_THREE_Object3D;
+									case 47: return factory_THREE_BufferGeometry;
+									case 48: return factory_THREE_TubeGeometry;
+									case 49: return factory_THREE_TorusKnotGeometry;
 								}
 							} else {
 								switch (id) {
-									case 49: return factory_THREE_TorusGeometry;
-									case 50: return factory_THREE_TetrahedronGeometry;
-									case 51: return factory_THREE_SphereGeometry;
-									case 52: return factory_THREE_SphereBufferGeometry;
-									case 53: return factory_THREE_RingGeometry;
-									case 54: return factory_THREE_PolyhedronGeometry;
+									case 50: return factory_THREE_TorusGeometry;
+									case 51: return factory_THREE_TetrahedronGeometry;
+									case 52: return factory_THREE_SphereGeometry;
+									case 53: return factory_THREE_SphereBufferGeometry;
+									case 54: return factory_THREE_RingGeometry;
+									case 55: return factory_THREE_PolyhedronGeometry;
 								}
 							}
 						}
 					} else {
-						if (id < 67) {
-							if (id < 61) {
+						if (id < 68) {
+							if (id < 62) {
 								switch (id) {
-									case 55: return factory_THREE_PlaneGeometry;
-									case 56: return factory_THREE_PlaneBufferGeometry;
-									case 57: return factory_THREE_ParametricGeometry;
-									case 58: return factory_THREE_OctahedronGeometry;
-									case 59: return factory_THREE_LatheGeometry;
-									case 60: return factory_THREE_IcosahedronGeometry;
+									case 56: return factory_THREE_PlaneGeometry;
+									case 57: return factory_THREE_PlaneBufferGeometry;
+									case 58: return factory_THREE_ParametricGeometry;
+									case 59: return factory_THREE_OctahedronGeometry;
+									case 60: return factory_THREE_LatheGeometry;
+									case 61: return factory_THREE_IcosahedronGeometry;
 								}
 							} else {
 								switch (id) {
-									case 61: return factory_THREE_DodecahedronGeometry;
-									case 62: return factory_THREE_CylinderGeometry;
-									case 63: return factory_THREE_CircleGeometry;
-									case 64: return factory_THREE_CircleBufferGeometry;
-									case 65: return factory_THREE_BoxGeometry;
-									case 66: return factory_THREE_Geometry;
+									case 62: return factory_THREE_DodecahedronGeometry;
+									case 63: return factory_THREE_CylinderGeometry;
+									case 64: return factory_THREE_CircleGeometry;
+									case 65: return factory_THREE_CircleBufferGeometry;
+									case 66: return factory_THREE_BoxGeometry;
+									case 67: return factory_THREE_Geometry;
 								}
 							}
 						} else {
-							if (id < 73) {
+							if (id < 74) {
 								switch (id) {
-									case 67: return factory_THREE_Fog;
-									case 68: return factory_THREE_FogExp2;
-									case 69: return factory_THREE_MeshDepthMaterial;
-									case 70: return factory_THREE_MeshNormalMaterial;
-									case 71: return factory_THREE_MultiMaterial;
-									case 72: return factory_THREE_PointsMaterial;
+									case 68: return factory_THREE_Fog;
+									case 69: return factory_THREE_FogExp2;
+									case 70: return factory_THREE_MeshDepthMaterial;
+									case 71: return factory_THREE_MeshNormalMaterial;
+									case 72: return factory_THREE_MultiMaterial;
+									case 73: return factory_THREE_PointsMaterial;
 								}
 							} else {
 								switch (id) {
-									case 73: return factory_THREE_SpriteMaterial;
-									case 74: return factory_THREE_LineBasicMaterial;
-									case 75: return factory_THREE_PerspectiveCamera;
-									case 76: return factory_THREE_OrthographicCamera;
-									case 77: return factory_THREE_CubeCamera;
-									case 78: return factory_THREE_MD2Character;
+									case 74: return factory_THREE_SpriteMaterial;
+									case 75: return factory_THREE_LineBasicMaterial;
+									case 76: return factory_THREE_PerspectiveCamera;
+									case 77: return factory_THREE_OrthographicCamera;
+									case 78: return factory_THREE_CubeCamera;
+									case 79: return factory_THREE_MD2Character;
 								}
 							}
 						}
