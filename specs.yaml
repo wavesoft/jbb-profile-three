@@ -7,25 +7,25 @@
 @include.decode: lib/Decode.js
 @require:
     THREE: three
-    MD2Character: "./lib/helpers/MD2Character"
+    MD2Character: ./lib/helpers/MD2Character
 
 # Objects
 
 THREE.Vector2:
-    frequent: yes
+    frequent: true
     properties:
         - x
         - y
 
 THREE.Vector3:
-    frequent: yes
+    frequent: true
     properties:
         - x
         - y
         - z
 
 THREE.Vector4:
-    frequent: yes
+    frequent: true
     properties:
         - x
         - y
@@ -33,7 +33,7 @@ THREE.Vector4:
         - w
 
 THREE.Face3:
-    frequent: yes
+    frequent: true
     properties:
         - a
         - b
@@ -45,14 +45,14 @@ THREE.Face3:
         - vertexColors
 
 THREE.Color:
-    frequent: yes
+    frequent: true
     properties:
         - r
         - g
         - b
 
 THREE.Quaternion:
-    frequent: yes
+    frequent: true
     properties:
         - _x
         - _y
@@ -60,7 +60,7 @@ THREE.Quaternion:
         - _w
 
 THREE.Euler:
-    frequent: yes
+    frequent: true
     properties:
         - _x
         - _y
@@ -68,35 +68,35 @@ THREE.Euler:
         - _order
 
 THREE.Box2:
-    frequent: yes
+    frequent: true
     properties:
         - min
         - max
 
 THREE.Box3:
-    frequent: yes
+    frequent: true
     properties:
         - min
         - max
 
 THREE.Sphere:
-    frequent: yes
+    frequent: true
     properties:
         - center
         - radius
 
 THREE.Matrix3:
-    frequent: yes
+    frequent: true
     properties:
         - elements
 
 THREE.Matrix4:
-    frequent: yes
+    frequent: true
     properties:
         - elements
 
 THREE.BufferAttribute:
-    frequent: yes
+    frequent: true
     properties:
         - array
         - itemSize
@@ -104,7 +104,7 @@ THREE.BufferAttribute:
         - updateRange
 
 THREE.AnimationClip:
-    frequent: yes
+    frequent: true
     factory: create
     init: [ name, duration, tracks ]
     properties:
@@ -113,35 +113,35 @@ THREE.AnimationClip:
         - tracks
 
 THREE.VectorKeyframeTrack:
-    frequent: yes
+    frequent: true
     init: [ name, keys ]
     properties:
         - name
         - keys
 
 THREE.QuaternionKeyframeTrack:
-    frequent: yes
+    frequent: true
     init: [ name, keys ]
     properties:
         - name
         - keys
 
 THREE.NumberKeyframeTrack:
-    frequent: yes
+    frequent: true
     init: [ name, keys ]
     properties:
         - name
         - keys
 
 THREE.BooleanKeyframeTrack:
-    frequent: yes
+    frequent: true
     init: [ name, keys ]
     properties:
         - name
         - keys
 
 THREE.StringKeyframeTrack:
-    frequent: yes
+    frequent: true
     init: [ name, keys ]
     properties:
         - name
@@ -390,7 +390,7 @@ THREE.Geometry:
 THREE.Mesh:
     extends: THREE.Object3D
     postInit: |
-        inst.updateMorphTargets();
+        $inst.updateMorphTargets();
     properties:
         - geometry
         - material
@@ -440,6 +440,14 @@ THREE.Scene:
         - overrideMaterial
 
 THREE.Object3D:
+    init:
+        position: $inst.position.copy( $value )
+        rotation: $inst.rotation.copy( $value )
+        quaternion: $inst.quaternion.copy( $value )
+    postInit: |
+        for (var i=0, l=$inst.children.length; i<l; ++i) {
+            $inst.children[i].parent = $inst;
+        }
     properties:
         - name
         - up
@@ -632,7 +640,7 @@ THREE.Material:
 
 THREE.PerspectiveCamera:
     postInit: |
-        inst.updateProjectionMatrix();
+        $inst.updateProjectionMatrix();
     properties:
         - fov
         - aspect
@@ -641,7 +649,7 @@ THREE.PerspectiveCamera:
 
 THREE.OrthographicCamera:
     postInit: |
-        inst.updateProjectionMatrix();
+        $inst.updateProjectionMatrix();
     properties:
         - left
         - right
@@ -665,9 +673,9 @@ THREE.CubeTexture:
 
 THREE.Texture:
     postInit: |
-        if (inst.image) {
-            inst.image.onload = function() {
-                inst.needsUpdate = true;
+        if ($inst.image) {
+            $inst.image.onload = function() {
+                $inst.needsUpdate = true;
             }
         }
     properties:
@@ -689,7 +697,7 @@ THREE.Texture:
 
 THREE.MD2Character:
     postInit: |
-        inst.mixer = new THREE.AnimationMixer( inst.mesh );
+        $inst.mixer = new THREE.AnimationMixer( $inst.mesh );
     properties:
         - scale
         - animationFPS

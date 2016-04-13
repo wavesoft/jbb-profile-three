@@ -104,8 +104,7 @@ var JBBProfileThree =
 			    }
 			}
 			
-			
-		}
+				}
 	}
 
 	/**
@@ -140,8 +139,7 @@ var JBBProfileThree =
 			    }
 			}
 			
-			
-		}
+				}
 	}
 
 	/**
@@ -176,8 +174,7 @@ var JBBProfileThree =
 			    }
 			}
 			
-			
-		}
+				}
 	}
 
 	/**
@@ -377,8 +374,8 @@ var JBBProfileThree =
 		init: function(inst, props) {
 			inst.name = props[0];
 			inst.up = props[1];
-			inst.position = props[2];
-			inst.quaternion = props[3];
+			inst.position.copy( props[2] );
+			inst.quaternion.copy( props[3] );
 			inst.scale = props[4];
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
@@ -394,7 +391,13 @@ var JBBProfileThree =
 			inst.children = props[16];
 			inst.fog = props[17];
 			inst.overrideMaterial = props[18];
-		}
+
+			// Custom init function
+			for (var i=0, l=inst.children.length; i<l; ++i) {
+			    inst.children[i].parent = inst;
+			}
+			
+				}
 	}
 
 	/**
@@ -408,8 +411,8 @@ var JBBProfileThree =
 		init: function(inst, props) {
 			inst.name = props[0];
 			inst.up = props[1];
-			inst.position = props[2];
-			inst.quaternion = props[3];
+			inst.position.copy( props[2] );
+			inst.quaternion.copy( props[3] );
 			inst.scale = props[4];
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
@@ -429,7 +432,13 @@ var JBBProfileThree =
 			inst.decay = props[20];
 			inst.angle = props[21];
 			inst.exponent = props[22];
-		}
+
+			// Custom init function
+			for (var i=0, l=inst.children.length; i<l; ++i) {
+			    inst.children[i].parent = inst;
+			}
+			
+				}
 	}
 
 	/**
@@ -443,8 +452,8 @@ var JBBProfileThree =
 		init: function(inst, props) {
 			inst.name = props[0];
 			inst.up = props[1];
-			inst.position = props[2];
-			inst.quaternion = props[3];
+			inst.position.copy( props[2] );
+			inst.quaternion.copy( props[3] );
 			inst.scale = props[4];
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
@@ -462,7 +471,13 @@ var JBBProfileThree =
 			inst.intensity = props[18];
 			inst.distance = props[19];
 			inst.decay = props[20];
-		}
+
+			// Custom init function
+			for (var i=0, l=inst.children.length; i<l; ++i) {
+			    inst.children[i].parent = inst;
+			}
+			
+				}
 	}
 
 	/**
@@ -476,8 +491,8 @@ var JBBProfileThree =
 		init: function(inst, props) {
 			inst.name = props[0];
 			inst.up = props[1];
-			inst.position = props[2];
-			inst.quaternion = props[3];
+			inst.position.copy( props[2] );
+			inst.quaternion.copy( props[3] );
 			inst.scale = props[4];
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
@@ -494,7 +509,13 @@ var JBBProfileThree =
 			inst.color = props[17];
 			inst.groundColor = props[18];
 			inst.intensity = props[19];
-		}
+
+			// Custom init function
+			for (var i=0, l=inst.children.length; i<l; ++i) {
+			    inst.children[i].parent = inst;
+			}
+			
+				}
 	}
 
 	/**
@@ -508,8 +529,8 @@ var JBBProfileThree =
 		init: function(inst, props) {
 			inst.name = props[0];
 			inst.up = props[1];
-			inst.position = props[2];
-			inst.quaternion = props[3];
+			inst.position.copy( props[2] );
+			inst.quaternion.copy( props[3] );
 			inst.scale = props[4];
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
@@ -525,7 +546,13 @@ var JBBProfileThree =
 			inst.children = props[16];
 			inst.color = props[17];
 			inst.intensity = props[18];
-		}
+
+			// Custom init function
+			for (var i=0, l=inst.children.length; i<l; ++i) {
+			    inst.children[i].parent = inst;
+			}
+			
+				}
 	}
 
 	/**
@@ -539,8 +566,8 @@ var JBBProfileThree =
 		init: function(inst, props) {
 			inst.name = props[0];
 			inst.up = props[1];
-			inst.position = props[2];
-			inst.quaternion = props[3];
+			inst.position.copy( props[2] );
+			inst.quaternion.copy( props[3] );
 			inst.scale = props[4];
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
@@ -555,7 +582,13 @@ var JBBProfileThree =
 			inst.userData = props[15];
 			inst.children = props[16];
 			inst.color = props[17];
-		}
+
+			// Custom init function
+			for (var i=0, l=inst.children.length; i<l; ++i) {
+			    inst.children[i].parent = inst;
+			}
+			
+				}
 	}
 
 	/**
@@ -569,8 +602,8 @@ var JBBProfileThree =
 		init: function(inst, props) {
 			inst.name = props[0];
 			inst.up = props[1];
-			inst.position = props[2];
-			inst.quaternion = props[3];
+			inst.position.copy( props[2] );
+			inst.quaternion.copy( props[3] );
 			inst.scale = props[4];
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
@@ -590,10 +623,13 @@ var JBBProfileThree =
 			inst.materialWireframe = props[20];
 
 			// Custom init function
+			for (var i=0, l=inst.children.length; i<l; ++i) {
+			    inst.children[i].parent = inst;
+			}
+			
 			inst.updateMorphTargets();
 			
-			
-		}
+				}
 	}
 
 	/**
@@ -607,8 +643,8 @@ var JBBProfileThree =
 		init: function(inst, props) {
 			inst.name = props[0];
 			inst.up = props[1];
-			inst.position = props[2];
-			inst.quaternion = props[3];
+			inst.position.copy( props[2] );
+			inst.quaternion.copy( props[3] );
 			inst.scale = props[4];
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
@@ -622,7 +658,13 @@ var JBBProfileThree =
 			inst.renderOrder = props[14];
 			inst.userData = props[15];
 			inst.children = props[16];
-		}
+
+			// Custom init function
+			for (var i=0, l=inst.children.length; i<l; ++i) {
+			    inst.children[i].parent = inst;
+			}
+			
+				}
 	}
 
 	/**
@@ -1472,8 +1514,7 @@ var JBBProfileThree =
 			// Custom init function
 			inst.updateProjectionMatrix();
 			
-			
-		}
+				}
 	}
 
 	/**
@@ -1495,8 +1536,7 @@ var JBBProfileThree =
 			// Custom init function
 			inst.updateProjectionMatrix();
 			
-			
-		}
+				}
 	}
 
 	/**
@@ -1537,8 +1577,7 @@ var JBBProfileThree =
 			// Custom init function
 			inst.mixer = new THREE.AnimationMixer( inst.mesh );
 			
-			
-		}
+				}
 	}
 
 	module.exports = {

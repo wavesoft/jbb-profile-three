@@ -56,8 +56,7 @@ var factory_THREE_CubeTexture = {
 		    }
 		}
 		
-		
-	}
+			}
 }
 
 /**
@@ -92,8 +91,7 @@ var factory_THREE_CompressedTexture = {
 		    }
 		}
 		
-		
-	}
+			}
 }
 
 /**
@@ -128,8 +126,7 @@ var factory_THREE_Texture = {
 		    }
 		}
 		
-		
-	}
+			}
 }
 
 /**
@@ -329,8 +326,8 @@ var factory_THREE_Scene = {
 	init: function(inst, props) {
 		inst.name = props[0];
 		inst.up = props[1];
-		inst.position = props[2];
-		inst.quaternion = props[3];
+		inst.position.copy( props[2] );
+		inst.quaternion.copy( props[3] );
 		inst.scale = props[4];
 		inst.rotationAutoUpdate = props[5];
 		inst.matrix = props[6];
@@ -346,7 +343,13 @@ var factory_THREE_Scene = {
 		inst.children = props[16];
 		inst.fog = props[17];
 		inst.overrideMaterial = props[18];
-	}
+
+		// Custom init function
+		for (var i=0, l=inst.children.length; i<l; ++i) {
+		    inst.children[i].parent = inst;
+		}
+		
+			}
 }
 
 /**
@@ -360,8 +363,8 @@ var factory_THREE_SpotLight = {
 	init: function(inst, props) {
 		inst.name = props[0];
 		inst.up = props[1];
-		inst.position = props[2];
-		inst.quaternion = props[3];
+		inst.position.copy( props[2] );
+		inst.quaternion.copy( props[3] );
 		inst.scale = props[4];
 		inst.rotationAutoUpdate = props[5];
 		inst.matrix = props[6];
@@ -381,7 +384,13 @@ var factory_THREE_SpotLight = {
 		inst.decay = props[20];
 		inst.angle = props[21];
 		inst.exponent = props[22];
-	}
+
+		// Custom init function
+		for (var i=0, l=inst.children.length; i<l; ++i) {
+		    inst.children[i].parent = inst;
+		}
+		
+			}
 }
 
 /**
@@ -395,8 +404,8 @@ var factory_THREE_PointLight = {
 	init: function(inst, props) {
 		inst.name = props[0];
 		inst.up = props[1];
-		inst.position = props[2];
-		inst.quaternion = props[3];
+		inst.position.copy( props[2] );
+		inst.quaternion.copy( props[3] );
 		inst.scale = props[4];
 		inst.rotationAutoUpdate = props[5];
 		inst.matrix = props[6];
@@ -414,7 +423,13 @@ var factory_THREE_PointLight = {
 		inst.intensity = props[18];
 		inst.distance = props[19];
 		inst.decay = props[20];
-	}
+
+		// Custom init function
+		for (var i=0, l=inst.children.length; i<l; ++i) {
+		    inst.children[i].parent = inst;
+		}
+		
+			}
 }
 
 /**
@@ -428,8 +443,8 @@ var factory_THREE_HemisphereLight = {
 	init: function(inst, props) {
 		inst.name = props[0];
 		inst.up = props[1];
-		inst.position = props[2];
-		inst.quaternion = props[3];
+		inst.position.copy( props[2] );
+		inst.quaternion.copy( props[3] );
 		inst.scale = props[4];
 		inst.rotationAutoUpdate = props[5];
 		inst.matrix = props[6];
@@ -446,7 +461,13 @@ var factory_THREE_HemisphereLight = {
 		inst.color = props[17];
 		inst.groundColor = props[18];
 		inst.intensity = props[19];
-	}
+
+		// Custom init function
+		for (var i=0, l=inst.children.length; i<l; ++i) {
+		    inst.children[i].parent = inst;
+		}
+		
+			}
 }
 
 /**
@@ -460,8 +481,8 @@ var factory_THREE_DirectionalLight = {
 	init: function(inst, props) {
 		inst.name = props[0];
 		inst.up = props[1];
-		inst.position = props[2];
-		inst.quaternion = props[3];
+		inst.position.copy( props[2] );
+		inst.quaternion.copy( props[3] );
 		inst.scale = props[4];
 		inst.rotationAutoUpdate = props[5];
 		inst.matrix = props[6];
@@ -477,7 +498,13 @@ var factory_THREE_DirectionalLight = {
 		inst.children = props[16];
 		inst.color = props[17];
 		inst.intensity = props[18];
-	}
+
+		// Custom init function
+		for (var i=0, l=inst.children.length; i<l; ++i) {
+		    inst.children[i].parent = inst;
+		}
+		
+			}
 }
 
 /**
@@ -491,8 +518,8 @@ var factory_THREE_AmbientLight = {
 	init: function(inst, props) {
 		inst.name = props[0];
 		inst.up = props[1];
-		inst.position = props[2];
-		inst.quaternion = props[3];
+		inst.position.copy( props[2] );
+		inst.quaternion.copy( props[3] );
 		inst.scale = props[4];
 		inst.rotationAutoUpdate = props[5];
 		inst.matrix = props[6];
@@ -507,7 +534,13 @@ var factory_THREE_AmbientLight = {
 		inst.userData = props[15];
 		inst.children = props[16];
 		inst.color = props[17];
-	}
+
+		// Custom init function
+		for (var i=0, l=inst.children.length; i<l; ++i) {
+		    inst.children[i].parent = inst;
+		}
+		
+			}
 }
 
 /**
@@ -521,8 +554,8 @@ var factory_THREE_Mesh = {
 	init: function(inst, props) {
 		inst.name = props[0];
 		inst.up = props[1];
-		inst.position = props[2];
-		inst.quaternion = props[3];
+		inst.position.copy( props[2] );
+		inst.quaternion.copy( props[3] );
 		inst.scale = props[4];
 		inst.rotationAutoUpdate = props[5];
 		inst.matrix = props[6];
@@ -542,10 +575,13 @@ var factory_THREE_Mesh = {
 		inst.materialWireframe = props[20];
 
 		// Custom init function
+		for (var i=0, l=inst.children.length; i<l; ++i) {
+		    inst.children[i].parent = inst;
+		}
+		
 		inst.updateMorphTargets();
 		
-		
-	}
+			}
 }
 
 /**
@@ -559,8 +595,8 @@ var factory_THREE_Object3D = {
 	init: function(inst, props) {
 		inst.name = props[0];
 		inst.up = props[1];
-		inst.position = props[2];
-		inst.quaternion = props[3];
+		inst.position.copy( props[2] );
+		inst.quaternion.copy( props[3] );
 		inst.scale = props[4];
 		inst.rotationAutoUpdate = props[5];
 		inst.matrix = props[6];
@@ -574,7 +610,13 @@ var factory_THREE_Object3D = {
 		inst.renderOrder = props[14];
 		inst.userData = props[15];
 		inst.children = props[16];
-	}
+
+		// Custom init function
+		for (var i=0, l=inst.children.length; i<l; ++i) {
+		    inst.children[i].parent = inst;
+		}
+		
+			}
 }
 
 /**
@@ -1424,8 +1466,7 @@ var factory_THREE_PerspectiveCamera = {
 		// Custom init function
 		inst.updateProjectionMatrix();
 		
-		
-	}
+			}
 }
 
 /**
@@ -1447,8 +1488,7 @@ var factory_THREE_OrthographicCamera = {
 		// Custom init function
 		inst.updateProjectionMatrix();
 		
-		
-	}
+			}
 }
 
 /**
@@ -1489,8 +1529,7 @@ var factory_THREE_MD2Character = {
 		// Custom init function
 		inst.mixer = new THREE.AnimationMixer( inst.mesh );
 		
-		
-	}
+			}
 }
 
 module.exports = {
