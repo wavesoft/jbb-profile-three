@@ -1,0 +1,709 @@
+
+# Metadata
+
+@uuid: 1
+@revision: 0
+@include.encode: lib/Encode.js
+@include.decode: lib/Decode.js
+@require:
+    THREE: three
+    MD2Character: ./lib/helpers/MD2Character
+
+# Objects
+
+THREE.Vector2:
+    frequent: true
+    properties:
+        - x
+        - y
+
+THREE.Vector3:
+    frequent: true
+    properties:
+        - x
+        - y
+        - z
+
+THREE.Vector4:
+    frequent: true
+    properties:
+        - x
+        - y
+        - z
+        - w
+
+THREE.Face3:
+    frequent: true
+    properties:
+        - a
+        - b
+        - c
+        - materialIndex
+        - normal
+        - color
+        - vertexNormals
+        - vertexColors
+
+THREE.Color:
+    frequent: true
+    properties:
+        - r
+        - g
+        - b
+
+THREE.Quaternion:
+    frequent: true
+    init: [ _x, _y, _z, _w ]
+    properties:
+        - _x
+        - _y
+        - _z
+        - _w
+
+THREE.Euler:
+    frequent: true
+    properties:
+        - _x
+        - _y
+        - _z
+        - _order
+
+THREE.Box2:
+    frequent: true
+    properties:
+        - min
+        - max
+
+THREE.Box3:
+    frequent: true
+    properties:
+        - min
+        - max
+
+THREE.Sphere:
+    frequent: true
+    properties:
+        - center
+        - radius
+
+THREE.Matrix3:
+    frequent: true
+    properties:
+        - elements
+
+THREE.Matrix4:
+    frequent: true
+    properties:
+        - elements
+
+THREE.BufferAttribute:
+    frequent: true
+    properties:
+        - array
+        - itemSize
+        - dynamic
+        - updateRange
+
+THREE.AnimationClip:
+    frequent: true
+    factory: create
+    init: [ name, duration, tracks ]
+    properties:
+        - name
+        - duration
+        - tracks
+
+THREE.VectorKeyframeTrack:
+    frequent: true
+    init: [ name, keys ]
+    properties:
+        - name
+        - keys
+
+THREE.QuaternionKeyframeTrack:
+    frequent: true
+    init: [ name, keys ]
+    properties:
+        - name
+        - keys
+
+THREE.NumberKeyframeTrack:
+    frequent: true
+    init: [ name, keys ]
+    properties:
+        - name
+        - keys
+
+THREE.BooleanKeyframeTrack:
+    frequent: true
+    init: [ name, keys ]
+    properties:
+        - name
+        - keys
+
+THREE.StringKeyframeTrack:
+    frequent: true
+    init: [ name, keys ]
+    properties:
+        - name
+        - keys
+
+THREE.BoxGeometry:
+    depends: THREE.Geometry
+    init: 
+        - parameters.width
+        - parameters.height
+        - parameters.depth
+    properties:
+        - parameters
+        - name
+
+THREE.CircleBufferGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.radius
+        - parameters.segments
+        - parameters.thetaStart
+        - parameters.thetaLength
+    properties:
+        - parameters
+        - name
+
+THREE.CircleGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.radius
+        - parameters.segments
+        - parameters.thetaStart
+        - parameters.thetaLength
+    properties:
+        - parameters
+        - name
+
+THREE.CylinderGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.radiusTop
+        - parameters.radiusBottom
+        - parameters.height
+        - parameters.radialSegments
+        - parameters.heightSegments
+        - parameters.openEnded
+        - parameters.thetaStart
+        - parameters.thetaLength
+    properties:
+        - parameters
+        - name
+
+THREE.DodecahedronGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.radius
+        - parameters.detail
+    properties:
+        - parameters
+        - name
+
+THREE.IcosahedronGeometry:
+    depends: THREE.Geometry
+    init: 
+        - parameters.radius
+        - parameters.detail
+    properties:
+        - parameters
+        - name
+
+THREE.LatheGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.points
+        - parameters.segments
+        - parameters.phiStart
+        - parameters.phiLength
+    properties:
+        - parameters
+        - name
+
+THREE.OctahedronGeometry:
+    depends: THREE.Geometry
+    init: 
+        - parameters.radius
+        - parameters.detail
+    properties:
+        - parameters
+        - name
+
+THREE.ParametricGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.width
+        - parameters.height
+        - parameters.widthSegments
+        - parameters.heightSegments
+    properties:
+        - parameters
+        - name
+
+THREE.PlaneBufferGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.width
+        - parameters.height
+        - parameters.depth
+        - parameters.widthSegments
+        - parameters.heightSegments
+        - parameters.depthSegments
+    properties:
+        - parameters
+        - name
+
+THREE.PlaneGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.width
+        - parameters.height
+        - parameters.depth
+        - parameters.widthSegments
+        - parameters.heightSegments
+        - parameters.depthSegments
+    properties:
+        - parameters
+        - name
+
+THREE.PolyhedronGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.vertices
+        - parameters.indices
+        - parameters.radius
+        - parameters.detail
+    properties:
+        - parameters
+        - name
+
+THREE.RingGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.innerRadius
+        - parameters.outerRadius
+        - parameters.thetaSegments
+        - parameters.phiSegments
+        - parameters.thetaStart
+        - parameters.thetaLength
+    properties:
+        - parameters
+        - name
+
+THREE.SphereBufferGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.radius
+        - parameters.widthSegments
+        - parameters.heightSegments
+        - parameters.phiStart
+        - parameters.phiLength
+        - parameters.thetaStart
+        - parameters.thetaLength
+    properties:
+        - parameters
+        - name
+
+THREE.SphereGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.radius
+        - parameters.widthSegments
+        - parameters.heightSegments
+        - parameters.phiStart
+        - parameters.phiLength
+        - parameters.thetaStart
+        - parameters.thetaLength
+    properties:
+        - parameters
+        - name
+
+THREE.TetrahedronGeometry:
+    depends: THREE.Geometry
+    init: 
+        - parameters.radius
+        - parameters.detail
+    properties:
+        - parameters
+        - name
+
+THREE.TorusGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.radius
+        - parameters.tube
+        - parameters.radialSegments
+        - parameters.tubularSegments
+        - parameters.arc
+    properties:
+        - parameters
+        - name
+
+THREE.TorusKnotGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.radius
+        - parameters.tube
+        - parameters.radialSegments
+        - parameters.tubularSegments
+        - parameters.p
+        - parameters.q
+        - parameters.heightScale
+    properties:
+        - parameters
+        - name
+
+THREE.TubeGeometry:
+    depends: THREE.Geometry
+    init:
+        - parameters.path
+        - parameters.segments
+        - parameters.radius
+        - parameters.radialSegments
+        - parameters.closed
+        - parameters.taper
+    properties:
+        - parameters
+        - name
+
+THREE.BufferGeometry:
+    extends: THREE.Geometry
+    properties:
+        - attributes
+        - index
+
+THREE.Geometry:
+    properties:
+        - vertices
+        - faces
+        - faceVertexUvs
+        - morphTargets
+        - morphNormals
+        - morphColors
+        - animations
+        - boundingSphere
+        - boundingBox
+        - name
+
+THREE.Mesh:
+    extends: THREE.Object3D
+    postInit: |
+        $inst.updateMorphTargets();
+    properties:
+        - geometry
+        - material
+        - materialTexture
+        - materialWireframe
+
+THREE.AmbientLight:
+    extends: THREE.Object3D
+    properties:
+        - color
+
+THREE.DirectionalLight:
+    extends: THREE.Object3D
+    properties:
+        - color
+        - intensity
+
+THREE.HemisphereLight:
+    extends: THREE.Object3D
+    properties:
+        - color
+        - groundColor
+        - intensity
+
+THREE.PointLight:
+    extends: THREE.Object3D
+    properties:
+        - color
+        - intensity
+        - distance
+        - decay
+
+THREE.SpotLight:
+    extends: THREE.Object3D
+    properties:
+        - color
+        - intensity
+        - distance
+        - decay
+        - angle
+        - exponent
+
+THREE.Scene:
+    extends: THREE.Object3D
+    properties:
+        - fog
+        - overrideMaterial
+
+THREE.Object3D:
+    init:
+        quaternion: $inst.quaternion.copy( $value )
+        position: $inst.position.copy( $value )
+        rotation: $inst.rotation.copy( $value )
+        scale: $inst.scale.copy( $value )
+        up: $inst.up.copy( $value )
+    postInit: |
+        for (var i=0, l=$inst.children.length; i<l; ++i) {
+            $inst.children[i].parent = $inst;
+        }
+    properties:
+        - name
+        - up
+        - position
+        - quaternion
+        - scale
+        - rotationAutoUpdate
+        - matrix
+        - matrixWorld
+        - matrixAutoUpdate
+        - visible
+        - castShadow
+        - receiveShadow
+        - frustumCulled
+        - renderOrder
+        - userData
+        - children
+
+THREE.Fog:
+    properties:
+        - color
+        - near
+        - far
+
+THREE.FogExp2:
+    properties:
+        - color
+        - density
+
+THREE.MeshBasicMaterial:
+    extends: THREE.Material
+    properties:
+        - color
+        - vertexColors
+        - map
+        - aoMap
+        - specularMap
+        - alphaMap
+        - envMap
+        - aoMapIntensity
+        - reflectivity
+        - refractionRatio
+        - wireframeLinewidth
+        - combine
+        - shading
+        - fog
+        - wireframe
+        - skinning
+        - morphTargets
+        - wireframeLinecap
+        - wireframeLinejoin
+
+THREE.MeshPhongMaterial:
+    extends: THREE.Material
+    properties:
+        - color
+        - emissive
+        - specular
+        - shininess
+        - vertexColors
+        - metal
+        - fog
+        - skinning
+        - morphTargets
+        - morphNormals
+        - map
+        - lightMap
+        - emissiveMap
+        - aoMap
+        - emissiveMap
+        - bumpMap
+        - normalMap
+        - displacementMap
+        - specularMap
+        - alphaMap
+        - envMap
+        - lightMapIntensity
+        - aoMapIntensity
+        - bumpScale
+        - normalScale
+        - displacementScale
+        - displacementBias
+        - reflectivity
+        - refractionRatio
+        - combine
+        - shading
+        - wireframe
+        - wireframeLinewidth
+        - wireframeLinecap
+        - wireframeLinecap
+
+THREE.MeshLambertMaterial:
+    extends: THREE.Material
+    properties:
+        - wireframeLinecap
+        - wireframeLinejoin
+        - color
+        - emissive
+        - vertexColors
+        - map
+        - specularMap
+        - alphaMap
+        - envMap
+        - combine
+        - reflectivity
+        - wireframeLinewidth
+        - refractionRatio
+        - fog
+        - wireframe
+        - skinning
+        - morphTargets
+        - morphNormals
+
+THREE.MeshDepthMaterial:
+    extends: THREE.Material
+    properties:
+        - wireframeLinewidth
+        - wireframe
+        - morphTargets
+
+THREE.MeshNormalMaterial:
+    extends: THREE.Material
+    properties:
+        - wireframeLinewidth
+        - wireframe
+        - morphTargets
+
+THREE.MultiMaterial:
+    properties:
+        - materials
+        - visible
+
+THREE.PointsMaterial:
+    extends: THREE.Material
+    properties:
+        - color
+        - map
+        - size
+        - vertexColors
+        - sizeAttenuation
+        - fog
+
+THREE.SpriteMaterial:
+    extends: THREE.Material
+    properties:
+        - color
+        - map
+        - rotation
+        - fog
+
+THREE.LineBasicMaterial:
+    extends: THREE.Material
+    properties:
+        - color
+        - linewidth
+        - linecap
+        - linejoin
+        - vertexColors
+        - fog
+
+THREE.Material:
+    properties:
+        - name
+        - side
+        - opacity
+        - blending
+        - blendSrc
+        - blendDst
+        - blendEquation
+        - depthFunc
+        - polygonOffsetFactor
+        - polygonOffsetUnits
+        - alphaTest
+        - overdraw
+        - blendSrcAlpha
+        - blendDstAlpha
+        - blendEquationAlpha
+        - transparent
+        - depthTest
+        - depthWrite
+        - colorWrite
+        - polygonOffset
+        - visible
+        - precision
+
+THREE.PerspectiveCamera:
+    postInit: |
+        $inst.updateProjectionMatrix();
+    properties:
+        - fov
+        - aspect
+        - near
+        - far
+
+THREE.OrthographicCamera:
+    postInit: |
+        $inst.updateProjectionMatrix();
+    properties:
+        - left
+        - right
+        - top
+        - bottom
+        - near
+        - far
+
+THREE.CubeCamera:
+    init: [ near, far, cubeResolution ]
+    properties:
+        - near
+        - far
+        - cubeResolution
+
+THREE.CompressedTexture:
+    extends: THREE.Texture
+
+THREE.CubeTexture:
+    extends: THREE.Texture
+
+THREE.Texture:
+    postInit: |
+        if ($inst.image) {
+            $inst.image.onload = function() {
+                $inst.needsUpdate = true;
+            }
+        }
+    properties:
+        - name
+        - mipmaps
+        - flipY
+        - mapping
+        - wrapS
+        - wrapT
+        - magFilter
+        - minFilter
+        - anisotropy
+        - format
+        - type
+        - offset
+        - repeat
+        - unpackAlignment
+        - image
+
+THREE.MD2Character:
+    postInit: |
+        $inst.mixer = new THREE.AnimationMixer( $inst.mesh );
+    properties:
+        - scale
+        - animationFPS
+        - root
+        - meshBody
+        - skinsBody
+        - meshWeapon
+        - skinsWeapon
+        - weapons
+        - activeAnimation

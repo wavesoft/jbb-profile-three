@@ -2,9 +2,9 @@
   "name": "jbb-profile-three",
   "version": "0.5.0",
   "description": "THREE.js profile for Javascript Binary Bundles",
-  "main": "index.js",
+  "main": "profile-decode.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha test/test-core.js"
   },
   "repository": {
     "type": "git",
@@ -22,10 +22,13 @@
   },
   "homepage": "https://github.com/wavesoft/jbb-profile-three#readme",
   "devDependencies": {
+    "assert": "^1.3.0",
     "concat-map": "0.0.1",
     "gulp": "^3.9.0",
     "gulp-header": "^1.7.1",
+    "gulp-jbb-profile": "^1.0.0",
     "imports-loader": "^0.6.5",
+    "mocha": "^2.4.5",
     "webpack-stream": "^3.1.0"
   },
   "dependencies": {
