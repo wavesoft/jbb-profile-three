@@ -91,6 +91,173 @@ function getter_THREE_Texture(inst) {
 }
 
 /**
+ * Property getter THREE.LineBasicMaterial
+ */
+function getter_THREE_LineBasicMaterial(inst) {
+	return [
+		inst.name,
+		inst.side,
+		inst.opacity,
+		inst.blending,
+		inst.blendSrc,
+		inst.blendDst,
+		inst.blendEquation,
+		inst.depthFunc,
+		inst.polygonOffsetFactor,
+		inst.polygonOffsetUnits,
+		inst.alphaTest,
+		inst.overdraw,
+		inst.blendSrcAlpha,
+		inst.blendDstAlpha,
+		inst.blendEquationAlpha,
+		inst.transparent,
+		inst.depthTest,
+		inst.depthWrite,
+		inst.colorWrite,
+		inst.polygonOffset,
+		inst.visible,
+		inst.precision,
+		inst.color,
+		inst.linewidth,
+		inst.linecap,
+		inst.linejoin,
+		inst.vertexColors,
+		inst.fog];
+}
+
+/**
+ * Property getter THREE.SpriteMaterial
+ */
+function getter_THREE_SpriteMaterial(inst) {
+	return [
+		inst.name,
+		inst.side,
+		inst.opacity,
+		inst.blending,
+		inst.blendSrc,
+		inst.blendDst,
+		inst.blendEquation,
+		inst.depthFunc,
+		inst.polygonOffsetFactor,
+		inst.polygonOffsetUnits,
+		inst.alphaTest,
+		inst.overdraw,
+		inst.blendSrcAlpha,
+		inst.blendDstAlpha,
+		inst.blendEquationAlpha,
+		inst.transparent,
+		inst.depthTest,
+		inst.depthWrite,
+		inst.colorWrite,
+		inst.polygonOffset,
+		inst.visible,
+		inst.precision,
+		inst.color,
+		inst.map,
+		inst.rotation,
+		inst.fog];
+}
+
+/**
+ * Property getter THREE.PointsMaterial
+ */
+function getter_THREE_PointsMaterial(inst) {
+	return [
+		inst.name,
+		inst.side,
+		inst.opacity,
+		inst.blending,
+		inst.blendSrc,
+		inst.blendDst,
+		inst.blendEquation,
+		inst.depthFunc,
+		inst.polygonOffsetFactor,
+		inst.polygonOffsetUnits,
+		inst.alphaTest,
+		inst.overdraw,
+		inst.blendSrcAlpha,
+		inst.blendDstAlpha,
+		inst.blendEquationAlpha,
+		inst.transparent,
+		inst.depthTest,
+		inst.depthWrite,
+		inst.colorWrite,
+		inst.polygonOffset,
+		inst.visible,
+		inst.precision,
+		inst.color,
+		inst.map,
+		inst.size,
+		inst.vertexColors,
+		inst.sizeAttenuation,
+		inst.fog];
+}
+
+/**
+ * Property getter THREE.MeshNormalMaterial
+ */
+function getter_THREE_MeshNormalMaterial(inst) {
+	return [
+		inst.name,
+		inst.side,
+		inst.opacity,
+		inst.blending,
+		inst.blendSrc,
+		inst.blendDst,
+		inst.blendEquation,
+		inst.depthFunc,
+		inst.polygonOffsetFactor,
+		inst.polygonOffsetUnits,
+		inst.alphaTest,
+		inst.overdraw,
+		inst.blendSrcAlpha,
+		inst.blendDstAlpha,
+		inst.blendEquationAlpha,
+		inst.transparent,
+		inst.depthTest,
+		inst.depthWrite,
+		inst.colorWrite,
+		inst.polygonOffset,
+		inst.visible,
+		inst.precision,
+		inst.wireframeLinewidth,
+		inst.wireframe,
+		inst.morphTargets];
+}
+
+/**
+ * Property getter THREE.MeshDepthMaterial
+ */
+function getter_THREE_MeshDepthMaterial(inst) {
+	return [
+		inst.name,
+		inst.side,
+		inst.opacity,
+		inst.blending,
+		inst.blendSrc,
+		inst.blendDst,
+		inst.blendEquation,
+		inst.depthFunc,
+		inst.polygonOffsetFactor,
+		inst.polygonOffsetUnits,
+		inst.alphaTest,
+		inst.overdraw,
+		inst.blendSrcAlpha,
+		inst.blendDstAlpha,
+		inst.blendEquationAlpha,
+		inst.transparent,
+		inst.depthTest,
+		inst.depthWrite,
+		inst.colorWrite,
+		inst.polygonOffset,
+		inst.visible,
+		inst.precision,
+		inst.wireframeLinewidth,
+		inst.wireframe,
+		inst.morphTargets];
+}
+
+/**
  * Property getter THREE.MeshLambertMaterial
  */
 function getter_THREE_MeshLambertMaterial(inst) {
@@ -107,24 +274,31 @@ function getter_THREE_MeshLambertMaterial(inst) {
 		inst.polygonOffsetUnits,
 		inst.alphaTest,
 		inst.overdraw,
+		inst.blendSrcAlpha,
+		inst.blendDstAlpha,
+		inst.blendEquationAlpha,
 		inst.transparent,
 		inst.depthTest,
 		inst.depthWrite,
 		inst.colorWrite,
 		inst.polygonOffset,
 		inst.visible,
+		inst.precision,
+		inst.wireframeLinecap,
+		inst.wireframeLinejoin,
 		inst.color,
 		inst.emissive,
+		inst.vertexColors,
 		inst.map,
 		inst.specularMap,
 		inst.alphaMap,
 		inst.envMap,
 		inst.combine,
 		inst.reflectivity,
+		inst.wireframeLinewidth,
+		inst.refractionRatio,
 		inst.fog,
 		inst.wireframe,
-		inst.wireframeLinewidth,
-		inst.vertexColors,
 		inst.skinning,
 		inst.morphTargets,
 		inst.morphNormals];
@@ -147,44 +321,51 @@ function getter_THREE_MeshPhongMaterial(inst) {
 		inst.polygonOffsetUnits,
 		inst.alphaTest,
 		inst.overdraw,
+		inst.blendSrcAlpha,
+		inst.blendDstAlpha,
+		inst.blendEquationAlpha,
 		inst.transparent,
 		inst.depthTest,
 		inst.depthWrite,
 		inst.colorWrite,
 		inst.polygonOffset,
 		inst.visible,
+		inst.precision,
 		inst.color,
 		inst.emissive,
 		inst.specular,
 		inst.shininess,
+		inst.vertexColors,
 		inst.metal,
+		inst.fog,
+		inst.skinning,
+		inst.morphTargets,
+		inst.morphNormals,
 		inst.map,
 		inst.lightMap,
-		inst.lightMapIntensity,
+		inst.emissiveMap,
 		inst.aoMap,
-		inst.aoMapIntensity,
 		inst.emissiveMap,
 		inst.bumpMap,
-		inst.bumpScale,
 		inst.normalMap,
-		inst.normalScale,
 		inst.displacementMap,
-		inst.displacementScale,
-		inst.displacementBias,
 		inst.specularMap,
 		inst.alphaMap,
 		inst.envMap,
-		inst.combine,
+		inst.lightMapIntensity,
+		inst.aoMapIntensity,
+		inst.bumpScale,
+		inst.normalScale,
+		inst.displacementScale,
+		inst.displacementBias,
 		inst.reflectivity,
 		inst.refractionRatio,
-		inst.fog,
+		inst.combine,
 		inst.shading,
 		inst.wireframe,
 		inst.wireframeLinewidth,
-		inst.vertexColors,
-		inst.skinning,
-		inst.morphTargets,
-		inst.morphNormals];
+		inst.wireframeLinecap,
+		inst.wireframeLinecap];
 }
 
 /**
@@ -204,31 +385,35 @@ function getter_THREE_MeshBasicMaterial(inst) {
 		inst.polygonOffsetUnits,
 		inst.alphaTest,
 		inst.overdraw,
+		inst.blendSrcAlpha,
+		inst.blendDstAlpha,
+		inst.blendEquationAlpha,
 		inst.transparent,
 		inst.depthTest,
 		inst.depthWrite,
 		inst.colorWrite,
 		inst.polygonOffset,
 		inst.visible,
+		inst.precision,
 		inst.color,
+		inst.vertexColors,
 		inst.map,
 		inst.aoMap,
-		inst.aoMapIntensity,
 		inst.specularMap,
 		inst.alphaMap,
 		inst.envMap,
-		inst.combine,
+		inst.aoMapIntensity,
 		inst.reflectivity,
 		inst.refractionRatio,
-		inst.fog,
-		inst.shading,
-		inst.wireframe,
 		inst.wireframeLinewidth,
-		inst.wireframeLinecap,
-		inst.wireframeLinejoin,
-		inst.vertexColors,
+		inst.combine,
+		inst.shading,
+		inst.fog,
+		inst.wireframe,
 		inst.skinning,
-		inst.morphTargets];
+		inst.morphTargets,
+		inst.wireframeLinecap,
+		inst.wireframeLinejoin];
 }
 
 /**
@@ -248,12 +433,16 @@ function getter_THREE_Material(inst) {
 		inst.polygonOffsetUnits,
 		inst.alphaTest,
 		inst.overdraw,
+		inst.blendSrcAlpha,
+		inst.blendDstAlpha,
+		inst.blendEquationAlpha,
 		inst.transparent,
 		inst.depthTest,
 		inst.depthWrite,
 		inst.colorWrite,
 		inst.polygonOffset,
-		inst.visible];
+		inst.visible,
+		inst.precision];
 }
 
 /**
@@ -270,7 +459,6 @@ function getter_THREE_Scene(inst) {
 		inst.matrix,
 		inst.matrixWorld,
 		inst.matrixAutoUpdate,
-		inst.matrixWorldNeedsUpdate,
 		inst.visible,
 		inst.castShadow,
 		inst.receiveShadow,
@@ -296,7 +484,6 @@ function getter_THREE_SpotLight(inst) {
 		inst.matrix,
 		inst.matrixWorld,
 		inst.matrixAutoUpdate,
-		inst.matrixWorldNeedsUpdate,
 		inst.visible,
 		inst.castShadow,
 		inst.receiveShadow,
@@ -326,7 +513,6 @@ function getter_THREE_PointLight(inst) {
 		inst.matrix,
 		inst.matrixWorld,
 		inst.matrixAutoUpdate,
-		inst.matrixWorldNeedsUpdate,
 		inst.visible,
 		inst.castShadow,
 		inst.receiveShadow,
@@ -354,7 +540,6 @@ function getter_THREE_HemisphereLight(inst) {
 		inst.matrix,
 		inst.matrixWorld,
 		inst.matrixAutoUpdate,
-		inst.matrixWorldNeedsUpdate,
 		inst.visible,
 		inst.castShadow,
 		inst.receiveShadow,
@@ -381,7 +566,6 @@ function getter_THREE_DirectionalLight(inst) {
 		inst.matrix,
 		inst.matrixWorld,
 		inst.matrixAutoUpdate,
-		inst.matrixWorldNeedsUpdate,
 		inst.visible,
 		inst.castShadow,
 		inst.receiveShadow,
@@ -407,7 +591,6 @@ function getter_THREE_AmbientLight(inst) {
 		inst.matrix,
 		inst.matrixWorld,
 		inst.matrixAutoUpdate,
-		inst.matrixWorldNeedsUpdate,
 		inst.visible,
 		inst.castShadow,
 		inst.receiveShadow,
@@ -432,7 +615,6 @@ function getter_THREE_Mesh(inst) {
 		inst.matrix,
 		inst.matrixWorld,
 		inst.matrixAutoUpdate,
-		inst.matrixWorldNeedsUpdate,
 		inst.visible,
 		inst.castShadow,
 		inst.receiveShadow,
@@ -460,7 +642,6 @@ function getter_THREE_Object3D(inst) {
 		inst.matrix,
 		inst.matrixWorld,
 		inst.matrixAutoUpdate,
-		inst.matrixWorldNeedsUpdate,
 		inst.visible,
 		inst.castShadow,
 		inst.receiveShadow,
@@ -483,6 +664,7 @@ function getter_THREE_BufferGeometry(inst) {
 		inst.morphColors,
 		inst.animations,
 		inst.boundingSphere,
+		inst.boundingBox,
 		inst.name,
 		inst.attributes,
 		inst.index];
@@ -672,6 +854,7 @@ function getter_THREE_Geometry(inst) {
 		inst.morphColors,
 		inst.animations,
 		inst.boundingSphere,
+		inst.boundingBox,
 		inst.name];
 }
 
@@ -881,88 +1064,12 @@ function getter_THREE_FogExp2(inst) {
 }
 
 /**
- * Property getter THREE.MeshDepthMaterial
- */
-function getter_THREE_MeshDepthMaterial(inst) {
-	return [
-		inst.opacity,
-		inst.blending,
-		inst.depthTest,
-		inst.depthWrite,
-		inst.wireframe,
-		inst.wireframeLinewidth];
-}
-
-/**
- * Property getter THREE.MeshNormalMaterial
- */
-function getter_THREE_MeshNormalMaterial(inst) {
-	return [
-		inst.opacity,
-		inst.blending,
-		inst.depthTest,
-		inst.depthWrite,
-		inst.wireframe,
-		inst.wireframeLinewidth];
-}
-
-/**
  * Property getter THREE.MultiMaterial
  */
 function getter_THREE_MultiMaterial(inst) {
 	return [
 		inst.materials,
 		inst.visible];
-}
-
-/**
- * Property getter THREE.PointsMaterial
- */
-function getter_THREE_PointsMaterial(inst) {
-	return [
-		inst.color,
-		inst.opacity,
-		inst.map,
-		inst.side,
-		inst.sizeAttenuation,
-		inst.blending,
-		inst.depthTest,
-		inst.depthWrite,
-		inst.vertexColors,
-		inst.fog];
-}
-
-/**
- * Property getter THREE.SpriteMaterial
- */
-function getter_THREE_SpriteMaterial(inst) {
-	return [
-		inst.color,
-		inst.opacity,
-		inst.map,
-		inst.blending,
-		inst.depthTest,
-		inst.depthWrite,
-		inst.uvOffset,
-		inst.uvScale,
-		inst.fog];
-}
-
-/**
- * Property getter THREE.LineBasicMaterial
- */
-function getter_THREE_LineBasicMaterial(inst) {
-	return [
-		inst.color,
-		inst.opacity,
-		inst.blending,
-		inst.depthTest,
-		inst.depthWrite,
-		inst.linewidth,
-		inst.linecap,
-		inst.linejoin,
-		inst.vertexColors,
-		inst.fog];
 }
 
 /**
@@ -1017,7 +1124,7 @@ function getter_THREE_MD2Character(inst) {
 
 
 module.exports = {
-	id: 1,
+	id: 17,
 	size: 67,
 	encode: function( inst ) {
 			if (inst instanceof THREE.CubeTexture) {
@@ -1026,72 +1133,82 @@ module.exports = {
 				return [33, getter_THREE_CompressedTexture];
 			} else if (inst instanceof THREE.Texture) {
 				return [34, getter_THREE_Texture];
+			} else if (inst instanceof THREE.LineBasicMaterial) {
+				return [35, getter_THREE_LineBasicMaterial];
+			} else if (inst instanceof THREE.SpriteMaterial) {
+				return [36, getter_THREE_SpriteMaterial];
+			} else if (inst instanceof THREE.PointsMaterial) {
+				return [37, getter_THREE_PointsMaterial];
+			} else if (inst instanceof THREE.MeshNormalMaterial) {
+				return [38, getter_THREE_MeshNormalMaterial];
+			} else if (inst instanceof THREE.MeshDepthMaterial) {
+				return [39, getter_THREE_MeshDepthMaterial];
 			} else if (inst instanceof THREE.MeshLambertMaterial) {
-				return [35, getter_THREE_MeshLambertMaterial];
+				return [40, getter_THREE_MeshLambertMaterial];
 			} else if (inst instanceof THREE.MeshPhongMaterial) {
-				return [36, getter_THREE_MeshPhongMaterial];
+				return [41, getter_THREE_MeshPhongMaterial];
 			} else if (inst instanceof THREE.MeshBasicMaterial) {
-				return [37, getter_THREE_MeshBasicMaterial];
+				return [42, getter_THREE_MeshBasicMaterial];
 			} else if (inst instanceof THREE.Material) {
-				return [38, getter_THREE_Material];
+				return [43, getter_THREE_Material];
 			} else if (inst instanceof THREE.Scene) {
-				return [39, getter_THREE_Scene];
+				return [44, getter_THREE_Scene];
 			} else if (inst instanceof THREE.SpotLight) {
-				return [40, getter_THREE_SpotLight];
+				return [45, getter_THREE_SpotLight];
 			} else if (inst instanceof THREE.PointLight) {
-				return [41, getter_THREE_PointLight];
+				return [46, getter_THREE_PointLight];
 			} else if (inst instanceof THREE.HemisphereLight) {
-				return [42, getter_THREE_HemisphereLight];
+				return [47, getter_THREE_HemisphereLight];
 			} else if (inst instanceof THREE.DirectionalLight) {
-				return [43, getter_THREE_DirectionalLight];
+				return [48, getter_THREE_DirectionalLight];
 			} else if (inst instanceof THREE.AmbientLight) {
-				return [44, getter_THREE_AmbientLight];
+				return [49, getter_THREE_AmbientLight];
 			} else if (inst instanceof THREE.Mesh) {
-				return [45, getter_THREE_Mesh];
+				return [50, getter_THREE_Mesh];
 			} else if (inst instanceof THREE.Object3D) {
-				return [46, getter_THREE_Object3D];
+				return [51, getter_THREE_Object3D];
 			} else if (inst instanceof THREE.BufferGeometry) {
-				return [47, getter_THREE_BufferGeometry];
+				return [52, getter_THREE_BufferGeometry];
 			} else if (inst instanceof THREE.TubeGeometry) {
-				return [48, getter_THREE_TubeGeometry];
+				return [53, getter_THREE_TubeGeometry];
 			} else if (inst instanceof THREE.TorusKnotGeometry) {
-				return [49, getter_THREE_TorusKnotGeometry];
+				return [54, getter_THREE_TorusKnotGeometry];
 			} else if (inst instanceof THREE.TorusGeometry) {
-				return [50, getter_THREE_TorusGeometry];
+				return [55, getter_THREE_TorusGeometry];
 			} else if (inst instanceof THREE.TetrahedronGeometry) {
-				return [51, getter_THREE_TetrahedronGeometry];
+				return [56, getter_THREE_TetrahedronGeometry];
 			} else if (inst instanceof THREE.SphereGeometry) {
-				return [52, getter_THREE_SphereGeometry];
+				return [57, getter_THREE_SphereGeometry];
 			} else if (inst instanceof THREE.SphereBufferGeometry) {
-				return [53, getter_THREE_SphereBufferGeometry];
+				return [58, getter_THREE_SphereBufferGeometry];
 			} else if (inst instanceof THREE.RingGeometry) {
-				return [54, getter_THREE_RingGeometry];
+				return [59, getter_THREE_RingGeometry];
 			} else if (inst instanceof THREE.PolyhedronGeometry) {
-				return [55, getter_THREE_PolyhedronGeometry];
+				return [60, getter_THREE_PolyhedronGeometry];
 			} else if (inst instanceof THREE.PlaneGeometry) {
-				return [56, getter_THREE_PlaneGeometry];
+				return [61, getter_THREE_PlaneGeometry];
 			} else if (inst instanceof THREE.PlaneBufferGeometry) {
-				return [57, getter_THREE_PlaneBufferGeometry];
+				return [62, getter_THREE_PlaneBufferGeometry];
 			} else if (inst instanceof THREE.ParametricGeometry) {
-				return [58, getter_THREE_ParametricGeometry];
+				return [63, getter_THREE_ParametricGeometry];
 			} else if (inst instanceof THREE.OctahedronGeometry) {
-				return [59, getter_THREE_OctahedronGeometry];
+				return [64, getter_THREE_OctahedronGeometry];
 			} else if (inst instanceof THREE.LatheGeometry) {
-				return [60, getter_THREE_LatheGeometry];
+				return [65, getter_THREE_LatheGeometry];
 			} else if (inst instanceof THREE.IcosahedronGeometry) {
-				return [61, getter_THREE_IcosahedronGeometry];
+				return [66, getter_THREE_IcosahedronGeometry];
 			} else if (inst instanceof THREE.DodecahedronGeometry) {
-				return [62, getter_THREE_DodecahedronGeometry];
+				return [67, getter_THREE_DodecahedronGeometry];
 			} else if (inst instanceof THREE.CylinderGeometry) {
-				return [63, getter_THREE_CylinderGeometry];
+				return [68, getter_THREE_CylinderGeometry];
 			} else if (inst instanceof THREE.CircleGeometry) {
-				return [64, getter_THREE_CircleGeometry];
+				return [69, getter_THREE_CircleGeometry];
 			} else if (inst instanceof THREE.CircleBufferGeometry) {
-				return [65, getter_THREE_CircleBufferGeometry];
+				return [70, getter_THREE_CircleBufferGeometry];
 			} else if (inst instanceof THREE.BoxGeometry) {
-				return [66, getter_THREE_BoxGeometry];
+				return [71, getter_THREE_BoxGeometry];
 			} else if (inst instanceof THREE.Geometry) {
-				return [67, getter_THREE_Geometry];
+				return [72, getter_THREE_Geometry];
 			} else if (inst instanceof THREE.Vector2) {
 				return [0, getter_THREE_Vector2];
 			} else if (inst instanceof THREE.Vector3) {
@@ -1131,21 +1248,11 @@ module.exports = {
 			} else if (inst instanceof THREE.StringKeyframeTrack) {
 				return [18, getter_THREE_StringKeyframeTrack];
 			} else if (inst instanceof THREE.Fog) {
-				return [68, getter_THREE_Fog];
+				return [73, getter_THREE_Fog];
 			} else if (inst instanceof THREE.FogExp2) {
-				return [69, getter_THREE_FogExp2];
-			} else if (inst instanceof THREE.MeshDepthMaterial) {
-				return [70, getter_THREE_MeshDepthMaterial];
-			} else if (inst instanceof THREE.MeshNormalMaterial) {
-				return [71, getter_THREE_MeshNormalMaterial];
+				return [74, getter_THREE_FogExp2];
 			} else if (inst instanceof THREE.MultiMaterial) {
-				return [72, getter_THREE_MultiMaterial];
-			} else if (inst instanceof THREE.PointsMaterial) {
-				return [73, getter_THREE_PointsMaterial];
-			} else if (inst instanceof THREE.SpriteMaterial) {
-				return [74, getter_THREE_SpriteMaterial];
-			} else if (inst instanceof THREE.LineBasicMaterial) {
-				return [75, getter_THREE_LineBasicMaterial];
+				return [75, getter_THREE_MultiMaterial];
 			} else if (inst instanceof THREE.PerspectiveCamera) {
 				return [76, getter_THREE_PerspectiveCamera];
 			} else if (inst instanceof THREE.OrthographicCamera) {

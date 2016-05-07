@@ -178,10 +178,202 @@ var JBBProfileThree =
 	}
 
 	/**
+	 * Factory & Initializer of THREE.LineBasicMaterial
+	 */
+	var factory_THREE_LineBasicMaterial = {
+		props: 28,
+		create: function() {
+			return new THREE.LineBasicMaterial();
+		},
+		init: function(inst, props) {
+			inst.name = props[0];
+			inst.side = props[1];
+			inst.opacity = props[2];
+			inst.blending = props[3];
+			inst.blendSrc = props[4];
+			inst.blendDst = props[5];
+			inst.blendEquation = props[6];
+			inst.depthFunc = props[7];
+			inst.polygonOffsetFactor = props[8];
+			inst.polygonOffsetUnits = props[9];
+			inst.alphaTest = props[10];
+			inst.overdraw = props[11];
+			inst.blendSrcAlpha = props[12];
+			inst.blendDstAlpha = props[13];
+			inst.blendEquationAlpha = props[14];
+			inst.transparent = props[15];
+			inst.depthTest = props[16];
+			inst.depthWrite = props[17];
+			inst.colorWrite = props[18];
+			inst.polygonOffset = props[19];
+			inst.visible = props[20];
+			inst.precision = props[21];
+			inst.color = props[22];
+			inst.linewidth = props[23];
+			inst.linecap = props[24];
+			inst.linejoin = props[25];
+			inst.vertexColors = props[26];
+			inst.fog = props[27];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.SpriteMaterial
+	 */
+	var factory_THREE_SpriteMaterial = {
+		props: 26,
+		create: function() {
+			return new THREE.SpriteMaterial();
+		},
+		init: function(inst, props) {
+			inst.name = props[0];
+			inst.side = props[1];
+			inst.opacity = props[2];
+			inst.blending = props[3];
+			inst.blendSrc = props[4];
+			inst.blendDst = props[5];
+			inst.blendEquation = props[6];
+			inst.depthFunc = props[7];
+			inst.polygonOffsetFactor = props[8];
+			inst.polygonOffsetUnits = props[9];
+			inst.alphaTest = props[10];
+			inst.overdraw = props[11];
+			inst.blendSrcAlpha = props[12];
+			inst.blendDstAlpha = props[13];
+			inst.blendEquationAlpha = props[14];
+			inst.transparent = props[15];
+			inst.depthTest = props[16];
+			inst.depthWrite = props[17];
+			inst.colorWrite = props[18];
+			inst.polygonOffset = props[19];
+			inst.visible = props[20];
+			inst.precision = props[21];
+			inst.color = props[22];
+			inst.map = props[23];
+			inst.rotation = props[24];
+			inst.fog = props[25];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.PointsMaterial
+	 */
+	var factory_THREE_PointsMaterial = {
+		props: 28,
+		create: function() {
+			return new THREE.PointsMaterial();
+		},
+		init: function(inst, props) {
+			inst.name = props[0];
+			inst.side = props[1];
+			inst.opacity = props[2];
+			inst.blending = props[3];
+			inst.blendSrc = props[4];
+			inst.blendDst = props[5];
+			inst.blendEquation = props[6];
+			inst.depthFunc = props[7];
+			inst.polygonOffsetFactor = props[8];
+			inst.polygonOffsetUnits = props[9];
+			inst.alphaTest = props[10];
+			inst.overdraw = props[11];
+			inst.blendSrcAlpha = props[12];
+			inst.blendDstAlpha = props[13];
+			inst.blendEquationAlpha = props[14];
+			inst.transparent = props[15];
+			inst.depthTest = props[16];
+			inst.depthWrite = props[17];
+			inst.colorWrite = props[18];
+			inst.polygonOffset = props[19];
+			inst.visible = props[20];
+			inst.precision = props[21];
+			inst.color = props[22];
+			inst.map = props[23];
+			inst.size = props[24];
+			inst.vertexColors = props[25];
+			inst.sizeAttenuation = props[26];
+			inst.fog = props[27];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.MeshNormalMaterial
+	 */
+	var factory_THREE_MeshNormalMaterial = {
+		props: 25,
+		create: function() {
+			return new THREE.MeshNormalMaterial();
+		},
+		init: function(inst, props) {
+			inst.name = props[0];
+			inst.side = props[1];
+			inst.opacity = props[2];
+			inst.blending = props[3];
+			inst.blendSrc = props[4];
+			inst.blendDst = props[5];
+			inst.blendEquation = props[6];
+			inst.depthFunc = props[7];
+			inst.polygonOffsetFactor = props[8];
+			inst.polygonOffsetUnits = props[9];
+			inst.alphaTest = props[10];
+			inst.overdraw = props[11];
+			inst.blendSrcAlpha = props[12];
+			inst.blendDstAlpha = props[13];
+			inst.blendEquationAlpha = props[14];
+			inst.transparent = props[15];
+			inst.depthTest = props[16];
+			inst.depthWrite = props[17];
+			inst.colorWrite = props[18];
+			inst.polygonOffset = props[19];
+			inst.visible = props[20];
+			inst.precision = props[21];
+			inst.wireframeLinewidth = props[22];
+			inst.wireframe = props[23];
+			inst.morphTargets = props[24];
+		}
+	}
+
+	/**
+	 * Factory & Initializer of THREE.MeshDepthMaterial
+	 */
+	var factory_THREE_MeshDepthMaterial = {
+		props: 25,
+		create: function() {
+			return new THREE.MeshDepthMaterial();
+		},
+		init: function(inst, props) {
+			inst.name = props[0];
+			inst.side = props[1];
+			inst.opacity = props[2];
+			inst.blending = props[3];
+			inst.blendSrc = props[4];
+			inst.blendDst = props[5];
+			inst.blendEquation = props[6];
+			inst.depthFunc = props[7];
+			inst.polygonOffsetFactor = props[8];
+			inst.polygonOffsetUnits = props[9];
+			inst.alphaTest = props[10];
+			inst.overdraw = props[11];
+			inst.blendSrcAlpha = props[12];
+			inst.blendDstAlpha = props[13];
+			inst.blendEquationAlpha = props[14];
+			inst.transparent = props[15];
+			inst.depthTest = props[16];
+			inst.depthWrite = props[17];
+			inst.colorWrite = props[18];
+			inst.polygonOffset = props[19];
+			inst.visible = props[20];
+			inst.precision = props[21];
+			inst.wireframeLinewidth = props[22];
+			inst.wireframe = props[23];
+			inst.morphTargets = props[24];
+		}
+	}
+
+	/**
 	 * Factory & Initializer of THREE.MeshLambertMaterial
 	 */
 	var factory_THREE_MeshLambertMaterial = {
-		props: 33,
+		props: 40,
 		create: function() {
 			return new THREE.MeshLambertMaterial();
 		},
@@ -198,27 +390,34 @@ var JBBProfileThree =
 			inst.polygonOffsetUnits = props[9];
 			inst.alphaTest = props[10];
 			inst.overdraw = props[11];
-			inst.transparent = props[12];
-			inst.depthTest = props[13];
-			inst.depthWrite = props[14];
-			inst.colorWrite = props[15];
-			inst.polygonOffset = props[16];
-			inst.visible = props[17];
-			inst.color = props[18];
-			inst.emissive = props[19];
-			inst.map = props[20];
-			inst.specularMap = props[21];
-			inst.alphaMap = props[22];
-			inst.envMap = props[23];
-			inst.combine = props[24];
-			inst.reflectivity = props[25];
-			inst.fog = props[26];
-			inst.wireframe = props[27];
-			inst.wireframeLinewidth = props[28];
-			inst.vertexColors = props[29];
-			inst.skinning = props[30];
-			inst.morphTargets = props[31];
-			inst.morphNormals = props[32];
+			inst.blendSrcAlpha = props[12];
+			inst.blendDstAlpha = props[13];
+			inst.blendEquationAlpha = props[14];
+			inst.transparent = props[15];
+			inst.depthTest = props[16];
+			inst.depthWrite = props[17];
+			inst.colorWrite = props[18];
+			inst.polygonOffset = props[19];
+			inst.visible = props[20];
+			inst.precision = props[21];
+			inst.wireframeLinecap = props[22];
+			inst.wireframeLinejoin = props[23];
+			inst.color = props[24];
+			inst.emissive = props[25];
+			inst.vertexColors = props[26];
+			inst.map = props[27];
+			inst.specularMap = props[28];
+			inst.alphaMap = props[29];
+			inst.envMap = props[30];
+			inst.combine = props[31];
+			inst.reflectivity = props[32];
+			inst.wireframeLinewidth = props[33];
+			inst.refractionRatio = props[34];
+			inst.fog = props[35];
+			inst.wireframe = props[36];
+			inst.skinning = props[37];
+			inst.morphTargets = props[38];
+			inst.morphNormals = props[39];
 		}
 	}
 
@@ -226,7 +425,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.MeshPhongMaterial
 	 */
 	var factory_THREE_MeshPhongMaterial = {
-		props: 50,
+		props: 57,
 		create: function() {
 			return new THREE.MeshPhongMaterial();
 		},
@@ -243,44 +442,51 @@ var JBBProfileThree =
 			inst.polygonOffsetUnits = props[9];
 			inst.alphaTest = props[10];
 			inst.overdraw = props[11];
-			inst.transparent = props[12];
-			inst.depthTest = props[13];
-			inst.depthWrite = props[14];
-			inst.colorWrite = props[15];
-			inst.polygonOffset = props[16];
-			inst.visible = props[17];
-			inst.color = props[18];
-			inst.emissive = props[19];
-			inst.specular = props[20];
-			inst.shininess = props[21];
-			inst.metal = props[22];
-			inst.map = props[23];
-			inst.lightMap = props[24];
-			inst.lightMapIntensity = props[25];
-			inst.aoMap = props[26];
-			inst.aoMapIntensity = props[27];
-			inst.emissiveMap = props[28];
-			inst.bumpMap = props[29];
-			inst.bumpScale = props[30];
-			inst.normalMap = props[31];
-			inst.normalScale = props[32];
-			inst.displacementMap = props[33];
-			inst.displacementScale = props[34];
-			inst.displacementBias = props[35];
-			inst.specularMap = props[36];
-			inst.alphaMap = props[37];
-			inst.envMap = props[38];
-			inst.combine = props[39];
-			inst.reflectivity = props[40];
-			inst.refractionRatio = props[41];
-			inst.fog = props[42];
-			inst.shading = props[43];
-			inst.wireframe = props[44];
-			inst.wireframeLinewidth = props[45];
-			inst.vertexColors = props[46];
-			inst.skinning = props[47];
-			inst.morphTargets = props[48];
-			inst.morphNormals = props[49];
+			inst.blendSrcAlpha = props[12];
+			inst.blendDstAlpha = props[13];
+			inst.blendEquationAlpha = props[14];
+			inst.transparent = props[15];
+			inst.depthTest = props[16];
+			inst.depthWrite = props[17];
+			inst.colorWrite = props[18];
+			inst.polygonOffset = props[19];
+			inst.visible = props[20];
+			inst.precision = props[21];
+			inst.color = props[22];
+			inst.emissive = props[23];
+			inst.specular = props[24];
+			inst.shininess = props[25];
+			inst.vertexColors = props[26];
+			inst.metal = props[27];
+			inst.fog = props[28];
+			inst.skinning = props[29];
+			inst.morphTargets = props[30];
+			inst.morphNormals = props[31];
+			inst.map = props[32];
+			inst.lightMap = props[33];
+			inst.emissiveMap = props[34];
+			inst.aoMap = props[35];
+			inst.emissiveMap = props[36];
+			inst.bumpMap = props[37];
+			inst.normalMap = props[38];
+			inst.displacementMap = props[39];
+			inst.specularMap = props[40];
+			inst.alphaMap = props[41];
+			inst.envMap = props[42];
+			inst.lightMapIntensity = props[43];
+			inst.aoMapIntensity = props[44];
+			inst.bumpScale = props[45];
+			inst.normalScale = props[46];
+			inst.displacementScale = props[47];
+			inst.displacementBias = props[48];
+			inst.reflectivity = props[49];
+			inst.refractionRatio = props[50];
+			inst.combine = props[51];
+			inst.shading = props[52];
+			inst.wireframe = props[53];
+			inst.wireframeLinewidth = props[54];
+			inst.wireframeLinecap = props[55];
+			inst.wireframeLinecap = props[56];
 		}
 	}
 
@@ -288,7 +494,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.MeshBasicMaterial
 	 */
 	var factory_THREE_MeshBasicMaterial = {
-		props: 37,
+		props: 41,
 		create: function() {
 			return new THREE.MeshBasicMaterial();
 		},
@@ -305,31 +511,35 @@ var JBBProfileThree =
 			inst.polygonOffsetUnits = props[9];
 			inst.alphaTest = props[10];
 			inst.overdraw = props[11];
-			inst.transparent = props[12];
-			inst.depthTest = props[13];
-			inst.depthWrite = props[14];
-			inst.colorWrite = props[15];
-			inst.polygonOffset = props[16];
-			inst.visible = props[17];
-			inst.color = props[18];
-			inst.map = props[19];
-			inst.aoMap = props[20];
-			inst.aoMapIntensity = props[21];
-			inst.specularMap = props[22];
-			inst.alphaMap = props[23];
-			inst.envMap = props[24];
-			inst.combine = props[25];
-			inst.reflectivity = props[26];
-			inst.refractionRatio = props[27];
-			inst.fog = props[28];
-			inst.shading = props[29];
-			inst.wireframe = props[30];
-			inst.wireframeLinewidth = props[31];
-			inst.wireframeLinecap = props[32];
-			inst.wireframeLinejoin = props[33];
-			inst.vertexColors = props[34];
-			inst.skinning = props[35];
-			inst.morphTargets = props[36];
+			inst.blendSrcAlpha = props[12];
+			inst.blendDstAlpha = props[13];
+			inst.blendEquationAlpha = props[14];
+			inst.transparent = props[15];
+			inst.depthTest = props[16];
+			inst.depthWrite = props[17];
+			inst.colorWrite = props[18];
+			inst.polygonOffset = props[19];
+			inst.visible = props[20];
+			inst.precision = props[21];
+			inst.color = props[22];
+			inst.vertexColors = props[23];
+			inst.map = props[24];
+			inst.aoMap = props[25];
+			inst.specularMap = props[26];
+			inst.alphaMap = props[27];
+			inst.envMap = props[28];
+			inst.aoMapIntensity = props[29];
+			inst.reflectivity = props[30];
+			inst.refractionRatio = props[31];
+			inst.wireframeLinewidth = props[32];
+			inst.combine = props[33];
+			inst.shading = props[34];
+			inst.fog = props[35];
+			inst.wireframe = props[36];
+			inst.skinning = props[37];
+			inst.morphTargets = props[38];
+			inst.wireframeLinecap = props[39];
+			inst.wireframeLinejoin = props[40];
 		}
 	}
 
@@ -337,7 +547,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Material
 	 */
 	var factory_THREE_Material = {
-		props: 18,
+		props: 22,
 		create: function() {
 			return new THREE.Material();
 		},
@@ -354,12 +564,16 @@ var JBBProfileThree =
 			inst.polygonOffsetUnits = props[9];
 			inst.alphaTest = props[10];
 			inst.overdraw = props[11];
-			inst.transparent = props[12];
-			inst.depthTest = props[13];
-			inst.depthWrite = props[14];
-			inst.colorWrite = props[15];
-			inst.polygonOffset = props[16];
-			inst.visible = props[17];
+			inst.blendSrcAlpha = props[12];
+			inst.blendDstAlpha = props[13];
+			inst.blendEquationAlpha = props[14];
+			inst.transparent = props[15];
+			inst.depthTest = props[16];
+			inst.depthWrite = props[17];
+			inst.colorWrite = props[18];
+			inst.polygonOffset = props[19];
+			inst.visible = props[20];
+			inst.precision = props[21];
 		}
 	}
 
@@ -367,30 +581,29 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Scene
 	 */
 	var factory_THREE_Scene = {
-		props: 19,
+		props: 18,
 		create: function() {
 			return new THREE.Scene();
 		},
 		init: function(inst, props) {
 			inst.name = props[0];
-			inst.up = props[1];
+			inst.up.copy( props[1] );
 			inst.position.copy( props[2] );
 			inst.quaternion.copy( props[3] );
-			inst.scale = props[4];
+			inst.scale.copy( props[4] );
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
 			inst.matrixWorld = props[7];
 			inst.matrixAutoUpdate = props[8];
-			inst.matrixWorldNeedsUpdate = props[9];
-			inst.visible = props[10];
-			inst.castShadow = props[11];
-			inst.receiveShadow = props[12];
-			inst.frustumCulled = props[13];
-			inst.renderOrder = props[14];
-			inst.userData = props[15];
-			inst.children = props[16];
-			inst.fog = props[17];
-			inst.overrideMaterial = props[18];
+			inst.visible = props[9];
+			inst.castShadow = props[10];
+			inst.receiveShadow = props[11];
+			inst.frustumCulled = props[12];
+			inst.renderOrder = props[13];
+			inst.userData = props[14];
+			inst.children = props[15];
+			inst.fog = props[16];
+			inst.overrideMaterial = props[17];
 
 			// Custom init function
 			for (var i=0, l=inst.children.length; i<l; ++i) {
@@ -404,34 +617,33 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.SpotLight
 	 */
 	var factory_THREE_SpotLight = {
-		props: 23,
+		props: 22,
 		create: function() {
 			return new THREE.SpotLight();
 		},
 		init: function(inst, props) {
 			inst.name = props[0];
-			inst.up = props[1];
+			inst.up.copy( props[1] );
 			inst.position.copy( props[2] );
 			inst.quaternion.copy( props[3] );
-			inst.scale = props[4];
+			inst.scale.copy( props[4] );
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
 			inst.matrixWorld = props[7];
 			inst.matrixAutoUpdate = props[8];
-			inst.matrixWorldNeedsUpdate = props[9];
-			inst.visible = props[10];
-			inst.castShadow = props[11];
-			inst.receiveShadow = props[12];
-			inst.frustumCulled = props[13];
-			inst.renderOrder = props[14];
-			inst.userData = props[15];
-			inst.children = props[16];
-			inst.color = props[17];
-			inst.intensity = props[18];
-			inst.distance = props[19];
-			inst.decay = props[20];
-			inst.angle = props[21];
-			inst.exponent = props[22];
+			inst.visible = props[9];
+			inst.castShadow = props[10];
+			inst.receiveShadow = props[11];
+			inst.frustumCulled = props[12];
+			inst.renderOrder = props[13];
+			inst.userData = props[14];
+			inst.children = props[15];
+			inst.color = props[16];
+			inst.intensity = props[17];
+			inst.distance = props[18];
+			inst.decay = props[19];
+			inst.angle = props[20];
+			inst.exponent = props[21];
 
 			// Custom init function
 			for (var i=0, l=inst.children.length; i<l; ++i) {
@@ -445,32 +657,31 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.PointLight
 	 */
 	var factory_THREE_PointLight = {
-		props: 21,
+		props: 20,
 		create: function() {
 			return new THREE.PointLight();
 		},
 		init: function(inst, props) {
 			inst.name = props[0];
-			inst.up = props[1];
+			inst.up.copy( props[1] );
 			inst.position.copy( props[2] );
 			inst.quaternion.copy( props[3] );
-			inst.scale = props[4];
+			inst.scale.copy( props[4] );
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
 			inst.matrixWorld = props[7];
 			inst.matrixAutoUpdate = props[8];
-			inst.matrixWorldNeedsUpdate = props[9];
-			inst.visible = props[10];
-			inst.castShadow = props[11];
-			inst.receiveShadow = props[12];
-			inst.frustumCulled = props[13];
-			inst.renderOrder = props[14];
-			inst.userData = props[15];
-			inst.children = props[16];
-			inst.color = props[17];
-			inst.intensity = props[18];
-			inst.distance = props[19];
-			inst.decay = props[20];
+			inst.visible = props[9];
+			inst.castShadow = props[10];
+			inst.receiveShadow = props[11];
+			inst.frustumCulled = props[12];
+			inst.renderOrder = props[13];
+			inst.userData = props[14];
+			inst.children = props[15];
+			inst.color = props[16];
+			inst.intensity = props[17];
+			inst.distance = props[18];
+			inst.decay = props[19];
 
 			// Custom init function
 			for (var i=0, l=inst.children.length; i<l; ++i) {
@@ -484,31 +695,30 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.HemisphereLight
 	 */
 	var factory_THREE_HemisphereLight = {
-		props: 20,
+		props: 19,
 		create: function() {
 			return new THREE.HemisphereLight();
 		},
 		init: function(inst, props) {
 			inst.name = props[0];
-			inst.up = props[1];
+			inst.up.copy( props[1] );
 			inst.position.copy( props[2] );
 			inst.quaternion.copy( props[3] );
-			inst.scale = props[4];
+			inst.scale.copy( props[4] );
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
 			inst.matrixWorld = props[7];
 			inst.matrixAutoUpdate = props[8];
-			inst.matrixWorldNeedsUpdate = props[9];
-			inst.visible = props[10];
-			inst.castShadow = props[11];
-			inst.receiveShadow = props[12];
-			inst.frustumCulled = props[13];
-			inst.renderOrder = props[14];
-			inst.userData = props[15];
-			inst.children = props[16];
-			inst.color = props[17];
-			inst.groundColor = props[18];
-			inst.intensity = props[19];
+			inst.visible = props[9];
+			inst.castShadow = props[10];
+			inst.receiveShadow = props[11];
+			inst.frustumCulled = props[12];
+			inst.renderOrder = props[13];
+			inst.userData = props[14];
+			inst.children = props[15];
+			inst.color = props[16];
+			inst.groundColor = props[17];
+			inst.intensity = props[18];
 
 			// Custom init function
 			for (var i=0, l=inst.children.length; i<l; ++i) {
@@ -522,30 +732,29 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.DirectionalLight
 	 */
 	var factory_THREE_DirectionalLight = {
-		props: 19,
+		props: 18,
 		create: function() {
 			return new THREE.DirectionalLight();
 		},
 		init: function(inst, props) {
 			inst.name = props[0];
-			inst.up = props[1];
+			inst.up.copy( props[1] );
 			inst.position.copy( props[2] );
 			inst.quaternion.copy( props[3] );
-			inst.scale = props[4];
+			inst.scale.copy( props[4] );
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
 			inst.matrixWorld = props[7];
 			inst.matrixAutoUpdate = props[8];
-			inst.matrixWorldNeedsUpdate = props[9];
-			inst.visible = props[10];
-			inst.castShadow = props[11];
-			inst.receiveShadow = props[12];
-			inst.frustumCulled = props[13];
-			inst.renderOrder = props[14];
-			inst.userData = props[15];
-			inst.children = props[16];
-			inst.color = props[17];
-			inst.intensity = props[18];
+			inst.visible = props[9];
+			inst.castShadow = props[10];
+			inst.receiveShadow = props[11];
+			inst.frustumCulled = props[12];
+			inst.renderOrder = props[13];
+			inst.userData = props[14];
+			inst.children = props[15];
+			inst.color = props[16];
+			inst.intensity = props[17];
 
 			// Custom init function
 			for (var i=0, l=inst.children.length; i<l; ++i) {
@@ -559,29 +768,28 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.AmbientLight
 	 */
 	var factory_THREE_AmbientLight = {
-		props: 18,
+		props: 17,
 		create: function() {
 			return new THREE.AmbientLight();
 		},
 		init: function(inst, props) {
 			inst.name = props[0];
-			inst.up = props[1];
+			inst.up.copy( props[1] );
 			inst.position.copy( props[2] );
 			inst.quaternion.copy( props[3] );
-			inst.scale = props[4];
+			inst.scale.copy( props[4] );
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
 			inst.matrixWorld = props[7];
 			inst.matrixAutoUpdate = props[8];
-			inst.matrixWorldNeedsUpdate = props[9];
-			inst.visible = props[10];
-			inst.castShadow = props[11];
-			inst.receiveShadow = props[12];
-			inst.frustumCulled = props[13];
-			inst.renderOrder = props[14];
-			inst.userData = props[15];
-			inst.children = props[16];
-			inst.color = props[17];
+			inst.visible = props[9];
+			inst.castShadow = props[10];
+			inst.receiveShadow = props[11];
+			inst.frustumCulled = props[12];
+			inst.renderOrder = props[13];
+			inst.userData = props[14];
+			inst.children = props[15];
+			inst.color = props[16];
 
 			// Custom init function
 			for (var i=0, l=inst.children.length; i<l; ++i) {
@@ -595,32 +803,31 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Mesh
 	 */
 	var factory_THREE_Mesh = {
-		props: 21,
+		props: 20,
 		create: function() {
 			return new THREE.Mesh();
 		},
 		init: function(inst, props) {
 			inst.name = props[0];
-			inst.up = props[1];
+			inst.up.copy( props[1] );
 			inst.position.copy( props[2] );
 			inst.quaternion.copy( props[3] );
-			inst.scale = props[4];
+			inst.scale.copy( props[4] );
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
 			inst.matrixWorld = props[7];
 			inst.matrixAutoUpdate = props[8];
-			inst.matrixWorldNeedsUpdate = props[9];
-			inst.visible = props[10];
-			inst.castShadow = props[11];
-			inst.receiveShadow = props[12];
-			inst.frustumCulled = props[13];
-			inst.renderOrder = props[14];
-			inst.userData = props[15];
-			inst.children = props[16];
-			inst.geometry = props[17];
-			inst.material = props[18];
-			inst.materialTexture = props[19];
-			inst.materialWireframe = props[20];
+			inst.visible = props[9];
+			inst.castShadow = props[10];
+			inst.receiveShadow = props[11];
+			inst.frustumCulled = props[12];
+			inst.renderOrder = props[13];
+			inst.userData = props[14];
+			inst.children = props[15];
+			inst.geometry = props[16];
+			inst.material = props[17];
+			inst.materialTexture = props[18];
+			inst.materialWireframe = props[19];
 
 			// Custom init function
 			for (var i=0, l=inst.children.length; i<l; ++i) {
@@ -636,28 +843,27 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Object3D
 	 */
 	var factory_THREE_Object3D = {
-		props: 17,
+		props: 16,
 		create: function() {
 			return new THREE.Object3D();
 		},
 		init: function(inst, props) {
 			inst.name = props[0];
-			inst.up = props[1];
+			inst.up.copy( props[1] );
 			inst.position.copy( props[2] );
 			inst.quaternion.copy( props[3] );
-			inst.scale = props[4];
+			inst.scale.copy( props[4] );
 			inst.rotationAutoUpdate = props[5];
 			inst.matrix = props[6];
 			inst.matrixWorld = props[7];
 			inst.matrixAutoUpdate = props[8];
-			inst.matrixWorldNeedsUpdate = props[9];
-			inst.visible = props[10];
-			inst.castShadow = props[11];
-			inst.receiveShadow = props[12];
-			inst.frustumCulled = props[13];
-			inst.renderOrder = props[14];
-			inst.userData = props[15];
-			inst.children = props[16];
+			inst.visible = props[9];
+			inst.castShadow = props[10];
+			inst.receiveShadow = props[11];
+			inst.frustumCulled = props[12];
+			inst.renderOrder = props[13];
+			inst.userData = props[14];
+			inst.children = props[15];
 
 			// Custom init function
 			for (var i=0, l=inst.children.length; i<l; ++i) {
@@ -671,7 +877,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.BufferGeometry
 	 */
 	var factory_THREE_BufferGeometry = {
-		props: 11,
+		props: 12,
 		create: function() {
 			return new THREE.BufferGeometry();
 		},
@@ -684,9 +890,10 @@ var JBBProfileThree =
 			inst.morphColors = props[5];
 			inst.animations = props[6];
 			inst.boundingSphere = props[7];
-			inst.name = props[8];
-			inst.attributes = props[9];
-			inst.index = props[10];
+			inst.boundingBox = props[8];
+			inst.name = props[9];
+			inst.attributes = props[10];
+			inst.index = props[11];
 		}
 	}
 
@@ -1049,7 +1256,7 @@ var JBBProfileThree =
 	 * Factory & Initializer of THREE.Geometry
 	 */
 	var factory_THREE_Geometry = {
-		props: 9,
+		props: 10,
 		create: function() {
 			return new THREE.Geometry();
 		},
@@ -1062,7 +1269,8 @@ var JBBProfileThree =
 			inst.morphColors = props[5];
 			inst.animations = props[6];
 			inst.boundingSphere = props[7];
-			inst.name = props[8];
+			inst.boundingBox = props[8];
+			inst.name = props[9];
 		}
 	}
 
@@ -1152,13 +1360,14 @@ var JBBProfileThree =
 	var factory_THREE_Quaternion = {
 		props: 4,
 		create: function() {
-			return new THREE.Quaternion();
+			return Object.create(THREE.Quaternion.prototype);
 		},
 		init: function(inst, props) {
-			inst._x = props[0];
-			inst._y = props[1];
-			inst._z = props[2];
-			inst._w = props[3];
+			THREE.Quaternion.call(inst,
+				props[0],
+				props[1],
+				props[2],
+				props[3]);
 		}
 	}
 
@@ -1383,42 +1592,6 @@ var JBBProfileThree =
 	}
 
 	/**
-	 * Factory & Initializer of THREE.MeshDepthMaterial
-	 */
-	var factory_THREE_MeshDepthMaterial = {
-		props: 6,
-		create: function() {
-			return new THREE.MeshDepthMaterial();
-		},
-		init: function(inst, props) {
-			inst.opacity = props[0];
-			inst.blending = props[1];
-			inst.depthTest = props[2];
-			inst.depthWrite = props[3];
-			inst.wireframe = props[4];
-			inst.wireframeLinewidth = props[5];
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.MeshNormalMaterial
-	 */
-	var factory_THREE_MeshNormalMaterial = {
-		props: 6,
-		create: function() {
-			return new THREE.MeshNormalMaterial();
-		},
-		init: function(inst, props) {
-			inst.opacity = props[0];
-			inst.blending = props[1];
-			inst.depthTest = props[2];
-			inst.depthWrite = props[3];
-			inst.wireframe = props[4];
-			inst.wireframeLinewidth = props[5];
-		}
-	}
-
-	/**
 	 * Factory & Initializer of THREE.MultiMaterial
 	 */
 	var factory_THREE_MultiMaterial = {
@@ -1429,71 +1602,6 @@ var JBBProfileThree =
 		init: function(inst, props) {
 			inst.materials = props[0];
 			inst.visible = props[1];
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.PointsMaterial
-	 */
-	var factory_THREE_PointsMaterial = {
-		props: 10,
-		create: function() {
-			return new THREE.PointsMaterial();
-		},
-		init: function(inst, props) {
-			inst.color = props[0];
-			inst.opacity = props[1];
-			inst.map = props[2];
-			inst.side = props[3];
-			inst.sizeAttenuation = props[4];
-			inst.blending = props[5];
-			inst.depthTest = props[6];
-			inst.depthWrite = props[7];
-			inst.vertexColors = props[8];
-			inst.fog = props[9];
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.SpriteMaterial
-	 */
-	var factory_THREE_SpriteMaterial = {
-		props: 9,
-		create: function() {
-			return new THREE.SpriteMaterial();
-		},
-		init: function(inst, props) {
-			inst.color = props[0];
-			inst.opacity = props[1];
-			inst.map = props[2];
-			inst.blending = props[3];
-			inst.depthTest = props[4];
-			inst.depthWrite = props[5];
-			inst.uvOffset = props[6];
-			inst.uvScale = props[7];
-			inst.fog = props[8];
-		}
-	}
-
-	/**
-	 * Factory & Initializer of THREE.LineBasicMaterial
-	 */
-	var factory_THREE_LineBasicMaterial = {
-		props: 10,
-		create: function() {
-			return new THREE.LineBasicMaterial();
-		},
-		init: function(inst, props) {
-			inst.color = props[0];
-			inst.opacity = props[1];
-			inst.blending = props[2];
-			inst.depthTest = props[3];
-			inst.depthWrite = props[4];
-			inst.linewidth = props[5];
-			inst.linecap = props[6];
-			inst.linejoin = props[7];
-			inst.vertexColors = props[8];
-			inst.fog = props[9];
 		}
 	}
 
@@ -1581,7 +1689,7 @@ var JBBProfileThree =
 	}
 
 	module.exports = {
-		id: 1,
+		id: 17,
 		size: 67,
 		decode: function( id ) {
 				if (id < 32) {
@@ -1649,38 +1757,38 @@ var JBBProfileThree =
 									case 32: return factory_THREE_CubeTexture;
 									case 33: return factory_THREE_CompressedTexture;
 									case 34: return factory_THREE_Texture;
-									case 35: return factory_THREE_MeshLambertMaterial;
-									case 36: return factory_THREE_MeshPhongMaterial;
-									case 37: return factory_THREE_MeshBasicMaterial;
+									case 35: return factory_THREE_LineBasicMaterial;
+									case 36: return factory_THREE_SpriteMaterial;
+									case 37: return factory_THREE_PointsMaterial;
 								}
 							} else {
 								switch (id) {
-									case 38: return factory_THREE_Material;
-									case 39: return factory_THREE_Scene;
-									case 40: return factory_THREE_SpotLight;
-									case 41: return factory_THREE_PointLight;
-									case 42: return factory_THREE_HemisphereLight;
-									case 43: return factory_THREE_DirectionalLight;
+									case 38: return factory_THREE_MeshNormalMaterial;
+									case 39: return factory_THREE_MeshDepthMaterial;
+									case 40: return factory_THREE_MeshLambertMaterial;
+									case 41: return factory_THREE_MeshPhongMaterial;
+									case 42: return factory_THREE_MeshBasicMaterial;
+									case 43: return factory_THREE_Material;
 								}
 							}
 						} else {
 							if (id < 50) {
 								switch (id) {
-									case 44: return factory_THREE_AmbientLight;
-									case 45: return factory_THREE_Mesh;
-									case 46: return factory_THREE_Object3D;
-									case 47: return factory_THREE_BufferGeometry;
-									case 48: return factory_THREE_TubeGeometry;
-									case 49: return factory_THREE_TorusKnotGeometry;
+									case 44: return factory_THREE_Scene;
+									case 45: return factory_THREE_SpotLight;
+									case 46: return factory_THREE_PointLight;
+									case 47: return factory_THREE_HemisphereLight;
+									case 48: return factory_THREE_DirectionalLight;
+									case 49: return factory_THREE_AmbientLight;
 								}
 							} else {
 								switch (id) {
-									case 50: return factory_THREE_TorusGeometry;
-									case 51: return factory_THREE_TetrahedronGeometry;
-									case 52: return factory_THREE_SphereGeometry;
-									case 53: return factory_THREE_SphereBufferGeometry;
-									case 54: return factory_THREE_RingGeometry;
-									case 55: return factory_THREE_PolyhedronGeometry;
+									case 50: return factory_THREE_Mesh;
+									case 51: return factory_THREE_Object3D;
+									case 52: return factory_THREE_BufferGeometry;
+									case 53: return factory_THREE_TubeGeometry;
+									case 54: return factory_THREE_TorusKnotGeometry;
+									case 55: return factory_THREE_TorusGeometry;
 								}
 							}
 						}
@@ -1688,37 +1796,37 @@ var JBBProfileThree =
 						if (id < 68) {
 							if (id < 62) {
 								switch (id) {
-									case 56: return factory_THREE_PlaneGeometry;
-									case 57: return factory_THREE_PlaneBufferGeometry;
-									case 58: return factory_THREE_ParametricGeometry;
-									case 59: return factory_THREE_OctahedronGeometry;
-									case 60: return factory_THREE_LatheGeometry;
-									case 61: return factory_THREE_IcosahedronGeometry;
+									case 56: return factory_THREE_TetrahedronGeometry;
+									case 57: return factory_THREE_SphereGeometry;
+									case 58: return factory_THREE_SphereBufferGeometry;
+									case 59: return factory_THREE_RingGeometry;
+									case 60: return factory_THREE_PolyhedronGeometry;
+									case 61: return factory_THREE_PlaneGeometry;
 								}
 							} else {
 								switch (id) {
-									case 62: return factory_THREE_DodecahedronGeometry;
-									case 63: return factory_THREE_CylinderGeometry;
-									case 64: return factory_THREE_CircleGeometry;
-									case 65: return factory_THREE_CircleBufferGeometry;
-									case 66: return factory_THREE_BoxGeometry;
-									case 67: return factory_THREE_Geometry;
+									case 62: return factory_THREE_PlaneBufferGeometry;
+									case 63: return factory_THREE_ParametricGeometry;
+									case 64: return factory_THREE_OctahedronGeometry;
+									case 65: return factory_THREE_LatheGeometry;
+									case 66: return factory_THREE_IcosahedronGeometry;
+									case 67: return factory_THREE_DodecahedronGeometry;
 								}
 							}
 						} else {
 							if (id < 74) {
 								switch (id) {
-									case 68: return factory_THREE_Fog;
-									case 69: return factory_THREE_FogExp2;
-									case 70: return factory_THREE_MeshDepthMaterial;
-									case 71: return factory_THREE_MeshNormalMaterial;
-									case 72: return factory_THREE_MultiMaterial;
-									case 73: return factory_THREE_PointsMaterial;
+									case 68: return factory_THREE_CylinderGeometry;
+									case 69: return factory_THREE_CircleGeometry;
+									case 70: return factory_THREE_CircleBufferGeometry;
+									case 71: return factory_THREE_BoxGeometry;
+									case 72: return factory_THREE_Geometry;
+									case 73: return factory_THREE_Fog;
 								}
 							} else {
 								switch (id) {
-									case 74: return factory_THREE_SpriteMaterial;
-									case 75: return factory_THREE_LineBasicMaterial;
+									case 74: return factory_THREE_FogExp2;
+									case 75: return factory_THREE_MultiMaterial;
 									case 76: return factory_THREE_PerspectiveCamera;
 									case 77: return factory_THREE_OrthographicCamera;
 									case 78: return factory_THREE_CubeCamera;
