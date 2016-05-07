@@ -1,7 +1,7 @@
 # jbb-profile-three (r73)
 
 
-[![JBB](https://img.shields.io/badge/jbb-1.3.0-brightgreen.svg)](https://github.com/wavesoft/jbb) [![THREE.js](https://img.shields.io/badge/THREE.js-r73-yellow.svg)](https://github.com/mrdoob/three.js)
+[![JBB](https://img.shields.io/badge/jbb-1.3.3-brightgreen.svg)](https://github.com/wavesoft/jbb) [![THREE.js](https://img.shields.io/badge/THREE.js-r73-yellow.svg)](https://github.com/mrdoob/three.js)
 
 Javascript Binary Bundle profile for THREE.js objects. This profile provides 
 the binary object table for encoding most of commonly used THREE.js r73 objects.

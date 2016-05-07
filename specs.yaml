@@ -2,7 +2,7 @@
 # Metadata
 
 @uuid: 1
-@revision: 0
+@revision: 1
 @include.encode: lib/Encode.js
 @include.decode: lib/Decode.js
 @require:
