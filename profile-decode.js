@@ -1635,7 +1635,7 @@ var factory_THREE_MD2Character = {
 		inst.activeAnimation = props[offset+pagesize*8];
 
 		// Custom init function
-		inst.mixer = new THREE.AnimationMixer( inst.mesh );
+		inst.mixer = new THREE.AnimationMixer( inst.meshBody );
 		
 			}
 }

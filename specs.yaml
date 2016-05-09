@@ -696,7 +696,7 @@ THREE.Texture:
 
 THREE.MD2Character:
     postInit: |
-        $inst.mixer = new THREE.AnimationMixer( $inst.mesh );
+        $inst.mixer = new THREE.AnimationMixer( $inst.meshBody );
     properties:
         - scale
         - animationFPS
