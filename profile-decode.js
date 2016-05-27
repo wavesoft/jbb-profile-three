@@ -1643,6 +1643,7 @@ var factory_THREE_MD2Character = {
 module.exports = {
 	id: 17,
 	size: 67,
+	frequent: 19,
 	decode: function( id ) {
 			if (id < 32) {
 				if (id < 10) {

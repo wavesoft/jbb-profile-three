@@ -1126,6 +1126,7 @@ function getter_THREE_MD2Character(inst) {
 module.exports = {
 	id: 17,
 	size: 67,
+	frequent: 19,
 	encode: function( inst ) {
 			if (inst instanceof THREE.CubeTexture) {
 				return [32, getter_THREE_CubeTexture];
