@@ -1,5 +1,5 @@
 /* THREE.js profile for JBB - https://github.com/wavesoft/jbb-profile-three */
-var JBBProfileThree =
+var JBB = JBB || {}; JBB["Profile"] = JBB["Profile"] || {}; JBB["Profile"]["three"] =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};

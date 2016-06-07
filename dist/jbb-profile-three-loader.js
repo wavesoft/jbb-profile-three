@@ -1,5 +1,5 @@
 /* THREE.js profile loader for JBB - https://github.com/wavesoft/jbb-profile-three */
-var JBBProfileThreeLoader =
+var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"] =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -381,6 +381,9 @@ var JBBProfileThreeLoader =
 	var queueIndex = -1;
 
 	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
 	    draining = false;
 	    if (currentQueue.length) {
 	        queue = currentQueue.concat(queue);

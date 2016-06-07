@@ -23,8 +23,8 @@ gulp.task('dist/jbb-profile-three', ['generate'], function() {
 		    	filename: PROD ? 'jbb-profile-three.min.js' : 'jbb-profile-three.js',
 				// Export itself to a global var
 				libraryTarget: 'var',
-				// Name of the global var: 'Foo'
-				library: 'JBBProfileThree'
+				// Name of the global var: 'JBB.Profile.three'
+				library: [ 'JBB', 'Profile', 'three' ]
 			},
 			externals: {
 				'three': 'THREE',
@@ -62,7 +62,7 @@ gulp.task('dist/jbb-profile-three-loader', ['generate'], function() {
 				// Export itself to a global var
 				libraryTarget: 'var',
 				// Name of the global var: 'Foo'
-				library: 'JBBProfileThreeLoader'
+				library: [ 'JBB', 'Loader', 'three' ]
 			},
 			externals: {
 				'three': 'THREE',
