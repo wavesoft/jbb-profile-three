@@ -1,6 +1,6 @@
 {
   "name": "jbb-profile-three",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "THREE.js profile for Javascript Binary Bundles",
   "main": "profile-decode.js",
   "scripts": {
