@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "colors": "^1.1.2",
-    "three": "^0.73.0"
+    "three": "^0.77.1"
   }
 }

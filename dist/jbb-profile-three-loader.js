@@ -503,6 +503,7 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 	__webpack_require__(8);
 	__webpack_require__(9);
 	__webpack_require__(10);
+	__webpack_require__(11);
 	__webpack_require__(12);
 	__webpack_require__(13);
 	__webpack_require__(14);
@@ -516,7 +517,6 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 	__webpack_require__(22);
 	__webpack_require__(23);
 	__webpack_require__(24);
-	__webpack_require__(25);
 
 	/**
 	 * Helper class to load arbitrary resources
@@ -569,13 +569,12 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 /***/ },
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	/**
 	 * Author: Pierre Lepers
 	 * Date: 09/12/2013 17:21
 	 */
-	var THREE = __webpack_require__(1);
 
 	( function () {
 
@@ -1820,12 +1819,11 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 /***/ },
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	/**
 	 * @author mrdoob / http://mrdoob.com/
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.BabylonLoader = function ( manager ) {
 
@@ -2082,12 +2080,11 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 /***/ },
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	/**
 	 * @author alteredq / http://alteredqualia.com/
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.BinaryLoader = function ( manager ) {
 
@@ -2804,13 +2801,12 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 /***/ },
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	/**
 	* @author Tim Knip / http://www.floorplanner.com/ / tim at floorplanner.com
 	* @author Tony Parisi / http://www.tonyparisi.com/
 	*/
-	var THREE = __webpack_require__(1);
 
 
 	( function() {
@@ -2909,9 +2905,7 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 						parts.pop();
 						baseUrl = ( parts.length < 1 ? '.' : parts.join( '/' ) ) + '/';
 
-						var xmlParser = new DOMParser();
-						var responseXML = xmlParser.parseFromString( text, "application/xml" );
-						onLoad( scope.parse( responseXML, url ) );
+						onLoad( scope.parse( text, url ) );
 
 					}, onProgress, onError );
 
@@ -2929,9 +2923,9 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 			},
 
-			parse: function( doc ) {
+			parse: function( text ) {
 
-				COLLADA = doc;
+				COLLADA = new DOMParser().parseFromString( text, 'application/xml' );
 
 				this.parseAsset();
 				this.setUpConversion();
@@ -8392,12 +8386,11 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 /***/ },
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	/*
 	 * @author mrdoob / http://mrdoob.com/
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.DDSLoader = function () {
 
@@ -8661,309 +8654,11 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 /***/ },
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 * @author ioannis charalampidis / http://github.com/wavesoft
-	 */
-	var THREE = __webpack_require__(1);
-	var MD2Character = __webpack_require__(11);
-
-	THREE.MD2CharacterLoader = function () {
-	};
-
-	THREE.MD2CharacterLoader.prototype = {
-		constructor: THREE.MD2CharacterLoader,
-
-		/**
-		 * Load an MD2 Character with the config provided
-		 */
-		load: function(config, onload, onprogress, onerror) {
-
-			var character = new THREE.MD2Character();
-
-			character.onLoadComplete = function() {
-				if (onload) onload( character );
-			};
-
-			character.loadParts( config );
-
-		}
-
-	};
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @author alteredq / http://alteredqualia.com/
-	 */
-	var THREE = __webpack_require__(1);
-	THREE.MD2Character = function () {
-
-		var scope = this;
-
-		this.scale = 1;
-		this.animationFPS = 6;
-
-		this.root = new THREE.Object3D();
-
-		this.meshBody = null;
-		this.meshWeapon = null;
-
-		this.skinsBody = [];
-		this.skinsWeapon = [];
-
-		this.weapons = [];
-
-		this.activeAnimation = null;
-
-		this.mixer = null;
-
-		this.onLoadComplete = function () {};
-
-		this.loadCounter = 0;
-
-		this.loadParts = function ( config ) {
-
-			this.loadCounter = config.weapons.length * 2 + config.skins.length + 1;
-
-			var weaponsTextures = [];
-			for ( var i = 0; i < config.weapons.length; i ++ ) weaponsTextures[ i ] = config.weapons[ i ][ 1 ];
-
-			// SKINS
-
-			this.skinsBody = loadTextures( config.baseUrl + "skins/", config.skins );
-			this.skinsWeapon = loadTextures( config.baseUrl + "skins/", weaponsTextures );
-
-			// BODY
-
-			var loader = new THREE.MD2Loader();
-
-			loader.load( config.baseUrl + config.body, function( geo ) {
-
-				geo.computeBoundingBox();
-				scope.root.position.y = - scope.scale * geo.boundingBox.min.y;
-
-				var mesh = createPart( geo, scope.skinsBody[ 0 ] );
-				mesh.scale.set( scope.scale, scope.scale, scope.scale );
-
-				scope.root.add( mesh );
-
-				scope.meshBody = mesh;
-
-				scope.meshBody.clipOffset = 0;
-				scope.activeAnimationClipName = mesh.geometry.animations[0].name;
-
-				scope.mixer = new THREE.AnimationMixer( mesh );
-
-				checkLoadingComplete();
-
-			} );
-
-			// WEAPONS
-
-			var generateCallback = function ( index, name ) {
-
-				return function( geo ) {
-
-					var mesh = createPart( geo, scope.skinsWeapon[ index ] );
-					mesh.scale.set( scope.scale, scope.scale, scope.scale );
-					mesh.visible = false;
-
-					mesh.name = name;
-
-					scope.root.add( mesh );
-
-					scope.weapons[ index ] = mesh;
-					scope.meshWeapon = mesh;
-
-					checkLoadingComplete();
-
-				}
-
-			};
-
-			for ( var i = 0; i < config.weapons.length; i ++ ) {
-
-				loader.load( config.baseUrl + config.weapons[ i ][ 0 ], generateCallback( i, config.weapons[ i ][ 0 ] ) );
-
-			}
-
-		};
-
-		this.setPlaybackRate = function ( rate ) {
-
-			if( rate !== 0 ) {
-				this.mixer.timeScale = 1 / rate;
-			}
-			else {
-				this.mixer.timeScale = 0;
-			}
-
-		};
-
-		this.setWireframe = function ( wireframeEnabled ) {
-
-			if ( wireframeEnabled ) {
-
-				if ( this.meshBody ) this.meshBody.material = this.meshBody.materialWireframe;
-				if ( this.meshWeapon ) this.meshWeapon.material = this.meshWeapon.materialWireframe;
-
-			} else {
-
-				if ( this.meshBody ) this.meshBody.material = this.meshBody.materialTexture;
-				if ( this.meshWeapon ) this.meshWeapon.material = this.meshWeapon.materialTexture;
-
-			}
-
-		};
-
-		this.setSkin = function( index ) {
-
-			if ( this.meshBody && this.meshBody.material.wireframe === false ) {
-
-				this.meshBody.material.map = this.skinsBody[ index ];
-
-			}
-
-		};
-
-		this.setWeapon = function ( index ) {
-
-			for ( var i = 0; i < this.weapons.length; i ++ ) this.weapons[ i ].visible = false;
-
-			var activeWeapon = this.weapons[ index ];
-
-			if ( activeWeapon ) {
-
-				activeWeapon.visible = true;
-				this.meshWeapon = activeWeapon;
-
-				scope.syncWeaponAnimation();
-
-			}
-
-		};
-
-		this.setAnimation = function ( clipName ) {
-
-			if ( this.meshBody ) {
-
-				if( this.meshBody.activeAction ) {
-					scope.mixer.removeAction( this.meshBody.activeAction );
-					this.meshBody.activeAction = null;
-				}
-
-				var clip = THREE.AnimationClip.findByName( this.meshBody.geometry.animations, clipName );
-				if( clip ) {
-
-					var action = new THREE.AnimationAction( clip, this.mixer.time ).setLocalRoot( this.meshBody );
-					scope.mixer.addAction( action );
-
-					this.meshBody.activeAction = action;
-
-				}
-
-			}
-
-			scope.activeClipName = clipName;
-
-			scope.syncWeaponAnimation();
-
-		};
-
-		this.syncWeaponAnimation = function() {
-
-			var clipName = scope.activeClipName;
-
-			if ( scope.meshWeapon ) {
-
-				if( this.meshWeapon.activeAction ) {
-					scope.mixer.removeAction( this.meshWeapon.activeAction );
-					this.meshWeapon.activeAction = null;
-				}
-
-				var clip = THREE.AnimationClip.findByName( this.meshWeapon.geometry.animations, clipName );
-				if( clip ) {
-
-					var action = new THREE.AnimationAction( clip ).syncWith( this.meshBody.activeAction ).setLocalRoot( this.meshWeapon );
-					scope.mixer.addAction( action );
-
-					this.meshWeapon.activeAction = action;
-
-				}
-
-			}
-				
-		}
-
-		this.update = function ( delta ) {
-
-			if( this.mixer ) this.mixer.update( delta );
-
-		};
-
-		function loadTextures( baseUrl, textureUrls ) {
-
-			var mapping = THREE.UVMapping;
-			var textures = [];
-
-			for ( var i = 0; i < textureUrls.length; i ++ ) {
-
-				textures[ i ] = THREE.ImageUtils.loadTexture( baseUrl + textureUrls[ i ], mapping, checkLoadingComplete );
-				textures[ i ].name = textureUrls[ i ];
-
-			}
-
-			return textures;
-
-		}
-
-		function createPart( geometry, skinMap ) {
-
-			var materialWireframe = new THREE.MeshLambertMaterial( { color: 0xffaa00, wireframe: true, morphTargets: true, morphNormals: true } );
-			var materialTexture = new THREE.MeshLambertMaterial( { color: 0xffffff, wireframe: false, map: skinMap, morphTargets: true, morphNormals: true } );
-
-			//
-
-			var mesh = new THREE.Mesh( geometry, materialTexture );
-			mesh.rotation.y = - Math.PI / 2;
-
-			mesh.castShadow = true;
-			mesh.receiveShadow = true;
-
-			//
-
-			mesh.materialTexture = materialTexture;
-			mesh.materialWireframe = materialWireframe;
-		
-			return mesh;
-
-		}
-
-		function checkLoadingComplete() {
-
-			scope.loadCounter -= 1;
-
-			if ( scope.loadCounter === 0 ) scope.onLoadComplete();
-
-		}
-
-	};
-
-	module.exports = THREE.MD2Character;
-
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	/**
 	 * @author mrdoob / http://mrdoob.com/
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.MD2Loader = function ( manager ) {
 
@@ -9280,16 +8975,16 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 	}
 
+
 /***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/* 11 */
+/***/ function(module, exports) {
 
 	/**
 	 * Loads a Wavefront .mtl file specifying materials
 	 *
 	 * @author angelxuanchang
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.MTLLoader = function( manager ) {
 
@@ -9606,7 +9301,7 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 						// Diffuse color (color under white light) using RGB values
 
-						params[ 'diffuse' ] = new THREE.Color().fromArray( value );
+						params[ 'color' ] = new THREE.Color().fromArray( value );
 
 						break;
 
@@ -9638,7 +9333,7 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 						// The specular exponent (defines the focus of the specular highlight)
 						// A high exponent results in a tight, concentrated highlight. Ns values normally range from 0 to 1000.
 
-						params[ 'shininess' ] = value;
+						params[ 'shininess' ] = parseFloat( value );
 
 						break;
 
@@ -9674,12 +9369,6 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 						break;
 
 				}
-
-			}
-
-			if ( params[ 'diffuse' ] ) {
-
-				params[ 'color' ] = params[ 'diffuse' ];
 
 			}
 
@@ -9760,13 +9449,12 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 
 /***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/* 12 */
+/***/ function(module, exports) {
 
 	/**
 	 * @author mrdoob / http://mrdoob.com/
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.OBJLoader = function ( manager ) {
 
@@ -10149,8 +9837,8 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 
 /***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
+/* 13 */
+/***/ function(module, exports) {
 
 	/**
 	 * Loads a Wavefront .obj file with materials
@@ -10158,7 +9846,6 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 	 * @author mrdoob / http://mrdoob.com/
 	 * @author angelxuanchang
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.OBJMTLLoader = function ( manager ) {
 
@@ -10530,13 +10217,12 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 
 /***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
+/* 14 */
+/***/ function(module, exports) {
 
 	/**
 	 * @author alteredq / http://alteredqualia.com/
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.PDBLoader = function ( manager ) {
 
@@ -10723,8 +10409,8 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 
 /***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/* 15 */
+/***/ function(module, exports) {
 
 	/**
 	 * @author Wei Meng / http://about.me/menway
@@ -10753,7 +10439,6 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 	 * } );
 	 *
 	 */
-	var THREE = __webpack_require__(1);
 
 
 	THREE.PLYLoader = function ( manager ) {
@@ -11214,8 +10899,8 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 
 /***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/* 16 */
+/***/ function(module, exports) {
 
 	/*    
 	 *	 PVRLoader
@@ -11226,7 +10911,6 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 	 *   TODO : Add Support for PVR v3 format
 	 *   TODO : implement loadMipmaps option
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.PVRLoader = function ( manager ) {
 
@@ -11490,13 +11174,12 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 
 /***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
+/* 17 */
+/***/ function(module, exports) {
 
 	/**
 	 * @author Nikos M. / https://github.com/foo123/
 	 */
-	var THREE = __webpack_require__(1);
 
 	// https://github.com/mrdoob/three.js/issues/5552
 	// http://en.wikipedia.org/wiki/RGBE_image_format
@@ -11846,8 +11529,8 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 
 /***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/* 18 */
+/***/ function(module, exports) {
 
 	/**
 	 * @author aleeper / http://adamleeper.com/
@@ -11876,7 +11559,6 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 	 *  } else { .... }
 	 *  var mesh = new THREE.Mesh( geometry, material );
 	 */
-	var THREE = __webpack_require__(1);
 
 
 	THREE.STLLoader = function ( manager ) {
@@ -12351,14 +12033,13 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 
 /***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
+/* 19 */
+/***/ function(module, exports) {
 
 	/**
 	 * @author mrdoob / http://mrdoob.com/
 	 * @author zz85 / http://joshuakoo.com/
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.SVGLoader = function ( manager ) {
 
@@ -12382,7 +12063,7 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 				var doc = parser.parseFromString( svgString, 'image/svg+xml' );  // application/xml
 
-				onLoad( doc.firstChild );
+				onLoad( doc.documentElement );
 
 			}, onProgress, onError );
 
@@ -12398,14 +12079,13 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 
 /***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
+/* 20 */
+/***/ function(module, exports) {
 
 	/*
 	 * @author Daosheng Mu / https://github.com/DaoshengMu/
 	 * @author mrdoob / http://mrdoob.com/
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.TGALoader = function ( manager ) {
 
@@ -12888,8 +12568,8 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 
 /***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/* 21 */
+/***/ function(module, exports) {
 
 	/**
 	 * Loader for UTF8 version2 (after r51) encoded models generated by:
@@ -12897,7 +12577,6 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 	 *
 	 * Code to load/decompress mesh is taken from r100 of this webgl-loader
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.UTF8Loader = function () {};
 
@@ -13440,7 +13119,7 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 		var loader = this;
 		var idx = 0;
 
-		function onprogress( data ) {
+		function onprogress( req, e ) {
 
 			while ( idx < meshEntry.length ) {
 
@@ -13451,18 +13130,18 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 					var meshEnd = indexRange[ 0 ] + 3 * indexRange[ 1 ];
 
-					if ( data.length < meshEnd ) break;
+					if ( req.responseText.length < meshEnd ) break;
 
-					loader.decompressMesh( data, meshParams, decodeParams, name, idx, callback );
+					loader.decompressMesh( req.responseText, meshParams, decodeParams, name, idx, callback );
 
 				} else {
 
 					var codeRange = meshParams.codeRange;
 					var meshEnd = codeRange[ 0 ] + codeRange[ 1 ];
 
-					if ( data.length < meshEnd ) break;
+					if ( req.responseText.length < meshEnd ) break;
 
-					loader.decompressMesh2( data, meshParams, decodeParams, name, idx, callback );
+					loader.decompressMesh2( req.responseText, meshParams, decodeParams, name, idx, callback );
 				}
 
 				++ idx;
@@ -13471,13 +13150,17 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 		}
 
-		getHttpRequest( path, function( data ) {
+		getHttpRequest( path, function( req, e ) {
 
-			onprogress( data );
+			if ( req.status === 200 || req.status === 0 ) {
+
+				onprogress( req, e );
+
+			}
 
 	        // TODO: handle errors.
 
-		});
+		}, onprogress );
 
 	};
 
@@ -13635,15 +13318,24 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 	function getHttpRequest( url, onload, opt_onprogress ) {
 
-		var req = new THREE.XHRLoader();
-		req.load( url, onload, opt_onprogress );
+		var LISTENERS = {
 
+	        load: function( e ) { onload( req, e ); },
+	        progress: function( e ) { opt_onprogress( req, e ); }
+
+	    };
+
+		var req = new XMLHttpRequest();
+		addListeners( req, LISTENERS );
+
+		req.open( 'GET', url, true );
+		req.send( null );
 	}
 
 	function getJsonRequest( url, onjson ) {
 
 		getHttpRequest( url,
-	        function( e ) { onjson( JSON.parse( e ) ); },
+	        function( e ) { onjson( JSON.parse( e.responseText ) ); },
 	        function() {} );
 
 	}
@@ -13659,14 +13351,14 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 		}
 	}
 
+
 /***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
+/* 22 */
+/***/ function(module, exports) {
 
 	/**
 	 * @author mrdoob / http://mrdoob.com/
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.VRMLLoader = function ( manager ) {
 
@@ -13710,9 +13402,13 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 			this.crossOrigin = value;
 
+			THREE.ImageUtils.crossOrigin = value;
+
 		},
 
 		parse: function ( data ) {
+
+			var texturePath = this.texturePath || '';
 
 			var parseV1 = function ( lines, scene ) {
 
@@ -13724,6 +13420,7 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 				var defines = {};
 				var float_pattern = /(\b|\-|\+)([\d\.e]+)/;
+				var float2_pattern = /([\d\.\+\-e]+)\s+([\d\.\+\-e]+)/g;
 				var float3_pattern = /([\d\.\+\-e]+)\s+([\d\.\+\-e]+)\s+([\d\.\+\-e]+)/g;
 
 				/**
@@ -13905,10 +13602,10 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 							this.points = [];
 							break;
 						case 'coordIndex':
+						case 'texCoordIndex':
 							this.recordingFieldname = fieldName;
 							this.isRecordingFaces = true;
 							this.indexes = [];
-							break;
 					}
 
 					if ( this.isRecordingFaces ) {
@@ -13953,11 +13650,13 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 						if ( /]/.exec( line ) ) {
 
 							this.isRecordingFaces = false;
-							node.coordIndex = this.indexes;
+							node[this.recordingFieldname] = this.indexes;
 
 						}
 
 					} else if ( this.isRecordingPoints ) {
+
+						if ( node.nodeType == 'Coordinate' )
 
 						while ( null !== ( parts = float3_pattern.exec( line ) ) ) {
 
@@ -13965,6 +13664,19 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 								x: parseFloat( parts[ 1 ] ),
 								y: parseFloat( parts[ 2 ] ),
 								z: parseFloat( parts[ 3 ] )
+							};
+
+							this.points.push( point );
+
+						}
+
+						if ( node.nodeType == 'TextureCoordinate' )
+
+						while ( null !== ( parts = float2_pattern.exec( line ) ) ) {
+
+							point = {
+								x: parseFloat( parts[ 1 ] ),
+								y: parseFloat( parts[ 2 ] )
 							};
 
 							this.points.push( point );
@@ -14171,7 +13883,7 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 						}
 
-						if ( matches = /([^\s]*){1}\s?{/.exec( line ) ) {
+						if ( matches = /([^\s]*){1}(?:\s+)?{/.exec( line ) ) {
 
 							// first subpattern should match the Node name
 
@@ -14303,7 +14015,7 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 						if ( /DEF/.exec( data.string ) ) {
 
-							object.name = /DEF (\w+)/.exec( data.string )[ 1 ];
+							object.name = /DEF\s+(\w+)/.exec( data.string )[ 1 ];
 
 							defines[ object.name ] = object;
 
@@ -14376,7 +14088,7 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 							var geometry = new THREE.Geometry();
 
-							var indexes;
+							var indexes, uvIndexes, uvs;
 
 							for ( var i = 0, j = data.children.length; i < j; i ++ ) {
 
@@ -14384,19 +14096,43 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 								var vec;
 
+								if ( 'TextureCoordinate' === child.nodeType ) {
+
+									uvs = child.points;
+
+								}
+
+
 								if ( 'Coordinate' === child.nodeType ) {
 
-									for ( var k = 0, l = child.points.length; k < l; k ++ ) {
+									if ( child.points ) {
 
-										var point = child.points[ k ];
+										for ( var k = 0, l = child.points.length; k < l; k ++ ) {
 
-										vec = new THREE.Vector3( point.x, point.y, point.z );
+											var point = child.points[ k ];
 
-										geometry.vertices.push( vec );
+											vec = new THREE.Vector3( point.x, point.y, point.z );
+
+											geometry.vertices.push( vec );
+
+										}
 
 									}
 
-									break;
+									if ( child.string.indexOf ( 'DEF' ) > -1 ) {
+
+										var name = /DEF\s+(\w+)/.exec( child.string )[ 1 ];
+
+										defines[ name ] = geometry.vertices;
+
+									}
+
+									if ( child.string.indexOf ( 'USE' ) > -1 ) {
+
+										var defineKey = /USE\s+(\w+)/.exec( child.string )[ 1 ];
+
+										geometry.vertices = defines[ defineKey ];
+									}
 
 								}
 
@@ -14404,33 +14140,58 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 							var skip = 0;
 
-							// read this: http://math.hws.edu/eck/cs424/notes2013/16_Threejs_Advanced.html
-							for ( var i = 0, j = data.coordIndex.length; i < j; i ++ ) {
+							// some shapes only have vertices for use in other shapes
+							if ( data.coordIndex ) {
 
-								indexes = data.coordIndex[ i ];
+								// read this: http://math.hws.edu/eck/cs424/notes2013/16_Threejs_Advanced.html
+								for ( var i = 0, j = data.coordIndex.length; i < j; i ++ ) {
 
-								// vrml support multipoint indexed face sets (more then 3 vertices). You must calculate the composing triangles here
-								skip = 0;
+									indexes = data.coordIndex[ i ]; if ( data.texCoordIndex ) uvIndexes = data.texCoordIndex[ i ];
 
-								// todo: this is the time to check if the faces are ordered ccw or not (cw)
+									// vrml support multipoint indexed face sets (more then 3 vertices). You must calculate the composing triangles here
+									skip = 0;
 
-								// Face3 only works with triangles, but IndexedFaceSet allows shapes with more then three vertices, build them of triangles
-								while ( indexes.length >= 3 && skip < ( indexes.length - 2 ) ) {
+									// Face3 only works with triangles, but IndexedFaceSet allows shapes with more then three vertices, build them of triangles
+									while ( indexes.length >= 3 && skip < ( indexes.length - 2 ) ) {
 
-									var face = new THREE.Face3(
-										indexes[ 0 ],
-										indexes[ skip + 1 ],
-										indexes[ skip + 2 ],
-										null // normal, will be added later
-										// todo: pass in the color, if a color index is present
-									);
+										var face = new THREE.Face3(
+											indexes[ 0 ],
+											indexes[ skip + (data.ccw ? 1 : 2) ],
+											indexes[ skip + (data.ccw ? 2 : 1) ],
+											null // normal, will be added later
+											// todo: pass in the color, if a color index is present
+										);
 
-									skip ++;
+										if ( uvs && uvIndexes ) {
+											geometry.faceVertexUvs [0].push( [
+												new THREE.Vector2 (
+													uvs[ uvIndexes[ 0 ] ].x ,
+													uvs[ uvIndexes[ 0 ] ].y
+												) ,
+												new THREE.Vector2 (
+													uvs[ uvIndexes[ skip + (data.ccw ? 1 : 2) ] ].x ,
+													uvs[ uvIndexes[ skip + (data.ccw ? 1 : 2) ] ].y
+												) ,
+												new THREE.Vector2 (
+													uvs[ uvIndexes[ skip + (data.ccw ? 2 : 1) ] ].x ,
+													uvs[ uvIndexes[ skip + (data.ccw ? 2 : 1) ] ].y
+												)
+											] );
+										}
 
-									geometry.faces.push( face );
+										skip ++;
+
+										geometry.faces.push( face );
+
+									}
+
 
 								}
 
+							} else {
+
+								// do not add dummy mesh to the scene
+								parent.parent.remove( parent );
 
 							}
 
@@ -14516,8 +14277,19 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 								parent.material = material;
 
-								// material found, stop looping
-								break;
+							}
+
+							if ( 'ImageTexture' === child.nodeType ) {
+
+								var textureName = /"([^"]+)"/.exec(child.children[ 0 ]);
+
+								if (textureName) {
+
+									parent.material.name = textureName[ 1 ];
+
+									parent.material.map = THREE.ImageUtils.loadTexture (texturePath + textureName[ 1 ]);
+
+								}
 
 							}
 
@@ -14545,6 +14317,40 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 			var lines = data.split( '\n' );
 
+			// some lines do not have breaks
+			for (var i = lines.length -1; i > -1; i--) {
+
+				// split lines with {..{ or {..[ - some have both
+				if (/{.*[{\[]/.test (lines[i])) {
+					var parts = lines[i].split ('{').join ('{\n').split ('\n');
+					parts.unshift(1);
+					parts.unshift(i);
+					lines.splice.apply(lines, parts);
+				} else
+
+				// split lines with ]..}
+				if (/\].*}/.test (lines[i])) {
+					var parts = lines[i].split (']').join (']\n').split ('\n');
+					parts.unshift(1);
+					parts.unshift(i);
+					lines.splice.apply(lines, parts);
+				}
+
+				// split lines with }..}
+				if (/}.*}/.test (lines[i])) {
+					var parts = lines[i].split ('}').join ('}\n').split ('\n');
+					parts.unshift(1);
+					parts.unshift(i);
+					lines.splice.apply(lines, parts);
+				}
+
+				// force the parser to create Coordinate node for empty coords
+				// coord USE something -> coord USE something Coordinate {}
+				if((lines[i].indexOf ('coord') > -1) && (lines[i].indexOf ('[') < 0) && (lines[i].indexOf ('{') < 0)) {
+					lines[i] += ' Coordinate {}';
+				}
+			}
+
 			var header = lines.shift();
 
 			if ( /V1.0/.exec( header ) ) {
@@ -14565,13 +14371,12 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 
 
 /***/ },
-/* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/* 23 */
+/***/ function(module, exports) {
 
 	/**
 	 * @author mrdoob / http://mrdoob.com/
 	 */
-	var THREE = __webpack_require__(1);
 
 	THREE.VTKLoader = function ( manager ) {
 
@@ -14682,6 +14487,303 @@ var JBB = JBB || {}; JBB["Loader"] = JBB["Loader"] || {}; JBB["Loader"]["three"]
 	};
 
 	THREE.EventDispatcher.prototype.apply( THREE.VTKLoader.prototype );
+
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+	 * @author ioannis charalampidis / http://github.com/wavesoft
+	 */
+	var THREE = __webpack_require__(1);
+	var MD2Character = __webpack_require__(25);
+
+	THREE.MD2CharacterLoader = function () {
+	};
+
+	THREE.MD2CharacterLoader.prototype = {
+		constructor: THREE.MD2CharacterLoader,
+
+		/**
+		 * Load an MD2 Character with the config provided
+		 */
+		load: function(config, onload, onprogress, onerror) {
+
+			var character = new THREE.MD2Character();
+
+			character.onLoadComplete = function() {
+				if (onload) onload( character );
+			};
+
+			character.loadParts( config );
+
+		}
+
+	};
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @author alteredq / http://alteredqualia.com/
+	 */
+	var THREE = __webpack_require__(1);
+	THREE.MD2Character = function () {
+
+		var scope = this;
+
+		this.scale = 1;
+		this.animationFPS = 6;
+
+		this.root = new THREE.Object3D();
+
+		this.meshBody = null;
+		this.meshWeapon = null;
+
+		this.skinsBody = [];
+		this.skinsWeapon = [];
+
+		this.weapons = [];
+
+		this.activeAnimation = null;
+
+		this.mixer = null;
+
+		this.onLoadComplete = function () {};
+
+		this.loadCounter = 0;
+
+		this.loadParts = function ( config ) {
+
+			this.loadCounter = config.weapons.length * 2 + config.skins.length + 1;
+
+			var weaponsTextures = [];
+			for ( var i = 0; i < config.weapons.length; i ++ ) weaponsTextures[ i ] = config.weapons[ i ][ 1 ];
+
+			// SKINS
+
+			this.skinsBody = loadTextures( config.baseUrl + "skins/", config.skins );
+			this.skinsWeapon = loadTextures( config.baseUrl + "skins/", weaponsTextures );
+
+			// BODY
+
+			var loader = new THREE.MD2Loader();
+
+			loader.load( config.baseUrl + config.body, function( geo ) {
+
+				geo.computeBoundingBox();
+				scope.root.position.y = - scope.scale * geo.boundingBox.min.y;
+
+				var mesh = createPart( geo, scope.skinsBody[ 0 ] );
+				mesh.scale.set( scope.scale, scope.scale, scope.scale );
+
+				scope.root.add( mesh );
+
+				scope.meshBody = mesh;
+
+				scope.meshBody.clipOffset = 0;
+				scope.activeAnimationClipName = mesh.geometry.animations[0].name;
+
+				scope.mixer = new THREE.AnimationMixer( mesh );
+
+				checkLoadingComplete();
+
+			} );
+
+			// WEAPONS
+
+			var generateCallback = function ( index, name ) {
+
+				return function( geo ) {
+
+					var mesh = createPart( geo, scope.skinsWeapon[ index ] );
+					mesh.scale.set( scope.scale, scope.scale, scope.scale );
+					mesh.visible = false;
+
+					mesh.name = name;
+
+					scope.root.add( mesh );
+
+					scope.weapons[ index ] = mesh;
+					scope.meshWeapon = mesh;
+
+					checkLoadingComplete();
+
+				}
+
+			};
+
+			for ( var i = 0; i < config.weapons.length; i ++ ) {
+
+				loader.load( config.baseUrl + config.weapons[ i ][ 0 ], generateCallback( i, config.weapons[ i ][ 0 ] ) );
+
+			}
+
+		};
+
+		this.setPlaybackRate = function ( rate ) {
+
+			if( rate !== 0 ) {
+				this.mixer.timeScale = 1 / rate;
+			}
+			else {
+				this.mixer.timeScale = 0;
+			}
+
+		};
+
+		this.setWireframe = function ( wireframeEnabled ) {
+
+			if ( wireframeEnabled ) {
+
+				if ( this.meshBody ) this.meshBody.material = this.meshBody.materialWireframe;
+				if ( this.meshWeapon ) this.meshWeapon.material = this.meshWeapon.materialWireframe;
+
+			} else {
+
+				if ( this.meshBody ) this.meshBody.material = this.meshBody.materialTexture;
+				if ( this.meshWeapon ) this.meshWeapon.material = this.meshWeapon.materialTexture;
+
+			}
+
+		};
+
+		this.setSkin = function( index ) {
+
+			if ( this.meshBody && this.meshBody.material.wireframe === false ) {
+
+				this.meshBody.material.map = this.skinsBody[ index ];
+
+			}
+
+		};
+
+		this.setWeapon = function ( index ) {
+
+			for ( var i = 0; i < this.weapons.length; i ++ ) this.weapons[ i ].visible = false;
+
+			var activeWeapon = this.weapons[ index ];
+
+			if ( activeWeapon ) {
+
+				activeWeapon.visible = true;
+				this.meshWeapon = activeWeapon;
+
+				scope.syncWeaponAnimation();
+
+			}
+
+		};
+
+		this.setAnimation = function ( clipName ) {
+
+			if ( this.meshBody ) {
+
+				if( this.meshBody.activeAction ) {
+					scope.mixer.removeAction( this.meshBody.activeAction );
+					this.meshBody.activeAction = null;
+				}
+
+				var clip = THREE.AnimationClip.findByName( this.meshBody.geometry.animations, clipName );
+				if( clip ) {
+
+					var action = new THREE.AnimationAction( clip, this.mixer.time ).setLocalRoot( this.meshBody );
+					scope.mixer.addAction( action );
+
+					this.meshBody.activeAction = action;
+
+				}
+
+			}
+
+			scope.activeClipName = clipName;
+
+			scope.syncWeaponAnimation();
+
+		};
+
+		this.syncWeaponAnimation = function() {
+
+			var clipName = scope.activeClipName;
+
+			if ( scope.meshWeapon ) {
+
+				if( this.meshWeapon.activeAction ) {
+					scope.mixer.removeAction( this.meshWeapon.activeAction );
+					this.meshWeapon.activeAction = null;
+				}
+
+				var clip = THREE.AnimationClip.findByName( this.meshWeapon.geometry.animations, clipName );
+				if( clip ) {
+
+					var action = new THREE.AnimationAction( clip ).syncWith( this.meshBody.activeAction ).setLocalRoot( this.meshWeapon );
+					scope.mixer.addAction( action );
+
+					this.meshWeapon.activeAction = action;
+
+				}
+
+			}
+				
+		}
+
+		this.update = function ( delta ) {
+
+			if( this.mixer ) this.mixer.update( delta );
+
+		};
+
+		function loadTextures( baseUrl, textureUrls ) {
+
+			var mapping = THREE.UVMapping;
+			var textures = [];
+
+			for ( var i = 0; i < textureUrls.length; i ++ ) {
+
+				textures[ i ] = THREE.ImageUtils.loadTexture( baseUrl + textureUrls[ i ], mapping, checkLoadingComplete );
+				textures[ i ].name = textureUrls[ i ];
+
+			}
+
+			return textures;
+
+		}
+
+		function createPart( geometry, skinMap ) {
+
+			var materialWireframe = new THREE.MeshLambertMaterial( { color: 0xffaa00, wireframe: true, morphTargets: true, morphNormals: true } );
+			var materialTexture = new THREE.MeshLambertMaterial( { color: 0xffffff, wireframe: false, map: skinMap, morphTargets: true, morphNormals: true } );
+
+			//
+
+			var mesh = new THREE.Mesh( geometry, materialTexture );
+			mesh.rotation.y = - Math.PI / 2;
+
+			mesh.castShadow = true;
+			mesh.receiveShadow = true;
+
+			//
+
+			mesh.materialTexture = materialTexture;
+			mesh.materialWireframe = materialWireframe;
+		
+			return mesh;
+
+		}
+
+		function checkLoadingComplete() {
+
+			scope.loadCounter -= 1;
+
+			if ( scope.loadCounter === 0 ) scope.onLoadComplete();
+
+		}
+
+	};
+
+	module.exports = THREE.MD2Character;
 
 
 /***/ },

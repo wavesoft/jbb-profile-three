@@ -1,8 +1,9 @@
 
-# Metadata
-
+# Profile ID
 @uuid: 1
 @revision: 1
+
+# Metadata
 @include.encode: lib/Encode.js
 @include.decode: lib/Decode.js
 @require:
